@@ -8,5 +8,6 @@ export default function Home() {
     <div>
       <h1 className='text-center'>Teknorix</h1>
     </div>
+    
   )
 }
