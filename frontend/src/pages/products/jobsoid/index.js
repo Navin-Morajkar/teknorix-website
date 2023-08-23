@@ -1,7 +1,7 @@
 export default function index() {
   return (
     <div>
-        <h2>Jobsoid <Product></Product></h2>
+        <h2>Jobsoid</h2>
     </div>
   )
 }
