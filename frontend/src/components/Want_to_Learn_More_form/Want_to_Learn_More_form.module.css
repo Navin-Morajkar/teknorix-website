@@ -1,0 +1,30 @@
+/*form*/
+.formStyle {
+
+    background-color: #ffc801;
+    background-image: url(https://www.teknorix.com/wp-content/uploads/2019/01/Contact-Form-Yellow-Background-Image.png);
+    background-repeat: no-repeat;
+  
+    background-size: contain;
+    padding: 60px 80px;
+  
+  }
+  
+  .formContainer {
+    align-items: center;
+    padding-left: 320px;
+  }
+  
+  .formContainer p {
+    color: white;
+  }
+  
+  .formContainer h1 {
+    padding-left: 120px;
+    color: white;
+  }
+  
+  .formStyle Input {
+    padding: 10px 28px;
+  }
+  
