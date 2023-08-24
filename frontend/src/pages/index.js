@@ -29,14 +29,7 @@ export default function Home() {
       <div>
         <Image src={data.data[0].attributes.headerImage.data.attributes.formats.large.url} alt="My Image" width={1470} height={650} />
       </div>
-      <Header/>  
-      <div className={Style.parent}>
-        <Cards/>
-        <Cards/>
-        <Cards/>
-      </div> 
-      <Container_left/> 
-      <Achievement/>
+      
     </div>
     
   )
