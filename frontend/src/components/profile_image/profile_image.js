@@ -10,9 +10,7 @@ const profileimg = () => {
     <div class="block-subtitle"><p>Co-Founder &amp; CEO</p>
     </div>
     <div class="block-social">
-    <a href="https://www.linkedin.com/in/bhavit/" target="_blank">
-    <i class="tek-social-linkedin-fill"></i> <span>View Profile</span>
-    </a>
+    
     </div>
     </div>
 
