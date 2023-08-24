@@ -1,0 +1,69 @@
+/*container 1 and 2*/
+.flexContainer {
+    margin-top: 1rem;
+    display: flex;
+    justify-content: space-between;
+    /* Keeps space between items */
+  }
+  
+  .alignLeft {
+    margin-right: auto;
+    /* Aligns the item to the left */
+    margin: 0px 1rem;
+  }
+  
+  .flexContainer h1 {
+    font-weight: bold;
+    position: relative;
+    padding-bottom: 1rem;
+  }
+  
+  .flexContainer p {
+    line-height: 2.5rem;
+    font-size: 22px;
+  }
+  
+  .alignRight {
+    margin-left: auto;
+    /* Aligns the item to the right */
+    margin: 0px 1rem;
+  }
+  
+  .flexContainer hr {
+    background-color: blue;
+    position: absolute;
+    margin-top: -10px;
+    font-weight: bold;
+    width: 6rem;
+    height: 5px;
+  }
+   .hr {
+    /* margin-left: 40px; 
+    margin-bottom: 40px; */ 
+    align-items: center !important;
+   }
+  .flexContainer button {
+    color: #fff;
+  
+    min-width: 120px;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    vertical-align: middle;
+    user-select: none;
+    border: 1px solid transparent;
+    padding: 0.6rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    border-radius: 4rem;
+  }
+  
+  .flexContainer .buttonGreen:hover {
+    background-color: #198b5e;
+    /* New background color on hover */
+  }
+  
+  .flexContainer .buttonGreen {
+    background-color: #09ab6f;
+    border-color: #09ab6f;
+  }
