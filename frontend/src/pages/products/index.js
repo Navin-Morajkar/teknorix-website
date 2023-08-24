@@ -1,9 +1,9 @@
-import Header from "../components/header/header" 
-import Cards from "../components/six_cards/six_cards"
+import Header from "../../components/header/header" 
+import Cards from "../../components/six_cards/six_cards"
 import { Container } from 'postcss' 
-import Container_left from '../components/container_left/container_left' 
-import Achievement from "../components/achievement/achievement"
-import Style from "../components/six_cards/six_cards.module.css" 
+import Container_left from '../../components/container_left/container_left' 
+import Achievement from "../../components/achievement/achievement"
+import Style from "../../components/six_cards/six_cards.module.css" 
 
 export default function index() {
   return (
