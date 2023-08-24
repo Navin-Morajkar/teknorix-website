@@ -4,7 +4,8 @@ import Header from "../components/header/header"
 import Cards from "../components/six_cards/six_cards"
 import { Container } from 'postcss' 
 import Container_left from '../components/container_left/container_left' 
-import Style from "../components/six_cards/six_cards.module.css"
+import Achievement from "../components/achievement/achievement"
+import Style from "../components/six_cards/six_cards.module.css" 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
@@ -17,7 +18,8 @@ export default function Home() {
     <Cards/>
     <Cards/>
     </div> 
-    <Container_left/>
+    <Container_left/> 
+    <Achievement/>
     </div>
     
   )
