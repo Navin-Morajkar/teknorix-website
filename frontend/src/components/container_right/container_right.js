@@ -1,25 +1,55 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image'; 
 import Style from "../container_left/container_left.module.css"
-const container_right = () => {  
-  const router = useRouter();
+const container_right = ({entryId}) => {  
+  const router = useRouter();  
+  const [data, setHeaderData] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    async function fetchHeaderData() {
+      try {
+        const response = await fetch('http://13.233.214.226:1337/api/products'); 
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const jsonData = await response.json();
+        setHeaderData(jsonData.data);
+        setLoading(false);
+      } catch (error) {
+        setError(error);
+        setLoading(false);
+      }
+    }
+
+    fetchHeaderData();
+  }, []);
+
+  if (loading) {
+    return <div>Loading...</div>;
+  }
+
+  if (error) {
+    return <div>Error: {error.message}</div>;
+  }
+
+  const specificEntry = data.find(entry => entry.id === entryId);
+  // const headerImageUrl =  specificEntry.attributes.headerImage.data.attributes.url;
   const handleClick = () => {
     router.push('/page2');
   };
   return (
-    <div  className={Style.flexContainer}>
+    <div  key={specificEntry.id} className={Style.flexContainer}>
       <div className={Style.alignLeft}> 
       <Image src="/images/image2.png" alt="My Image" width={500} height={500} />
       
       </div> 
       <div className={Style.alignRight}>
-      <h1>Jobsoid </h1>   
+      <h1>{specificEntry.attributes.title} </h1>   
         <hr/>
-        <p>Our cloud based SaaS offering which helps organizations of all sizes to streamline their recruitment process 
-          right from advertising a job opening to making a successful hire. Jobsoid is an intelligent system to effectively 
-          manage advertising, sourcing, communication and collaboration on a single recruitment platform. Jobsoid mobile apps
-           available for Android and iOS enable recruiters  to manage their recruitment while on the move.</p>
+        <p>{specificEntry.attributes.description}</p>
            <button className={Style.buttonGreen}  onClick={handleClick}>Explore now</button>
       </div>
     </div>
