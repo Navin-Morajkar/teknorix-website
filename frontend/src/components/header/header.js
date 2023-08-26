@@ -10,7 +10,7 @@ const Header = ({ entryId }) => {
   useEffect(() => {
     async function fetchHeaderData() {
       try {
-        const response = await fetch('http://13.233.214.226:1337/api/headers'); 
+        const response = await fetch('http://13.233.214.226:1337/api/headers?populate=*'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -26,6 +26,7 @@ const Header = ({ entryId }) => {
     fetchHeaderData();
   }, []);
 
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -35,16 +36,40 @@ const Header = ({ entryId }) => {
   }
 
   const specificEntry = data.find(entry => entry.id === entryId);
-  const headerImageUrl =  specificEntry.attributes.headerImage.data.attributes.url;
+  const host = "http://13.233.214.226:1337";
 
+  const headerImage = specificEntry.attributes.headerImage?.data;
+  const bodyImage = specificEntry.attributes.bodyImage?.data;
+  
   return (
     <div>
+      {headerImage && (
+          <Image 
+            src={host + headerImage.attributes.url} 
+            alt="Header Image" 
+            width="1500"
+            height="1000"/>
+        )}
+
+
+
       <div key={specificEntry.id} className={Style.header}>
+        
         <h1>{specificEntry.attributes.title}</h1>
         <p>{specificEntry.attributes.description}</p>
-        {/* <Image src={headerImageUrl} alt="Header Image"></Image> */}
+        
+        {bodyImage && (
+          <Image 
+            src={host + bodyImage.attributes.url} 
+            alt="Body Image" 
+            width="1000"
+            height="400"/>
+        )}
+
+        
         
       </div>
+      
     </div>
   );
 }
