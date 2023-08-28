@@ -1,9 +1,10 @@
-import Image from 'next/image';
-import { Button} from 'antd';
 import React, { useState, useEffect } from 'react';
+import { useRouter } from 'next/router'; 
+import Image from 'next/image'; 
 import Style from "../container_left/container_left.module.css"
 
-const expertise = ( { entryId } ) => {
+const Container = ({ entryId }) => {
+  
 
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -12,7 +13,7 @@ const expertise = ( { entryId } ) => {
   useEffect(() => {
     async function fetchHeaderData() {
       try {
-        const response = await fetch('http://13.233.214.226:1337/api/services?populate=*'); 
+        const response = await fetch('http://13.233.214.226:1337/api/qualities?populate=*'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -41,6 +42,7 @@ const expertise = ( { entryId } ) => {
   const host = "http://13.233.214.226:1337";
 
   const containerImage = specificEntry.attributes.image?.data;
+  
 
   return (
     <div key={specificEntry.id} className={Style.flexContainer}>
@@ -58,7 +60,7 @@ const expertise = ( { entryId } ) => {
        
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default expertise;
+export default Container;
