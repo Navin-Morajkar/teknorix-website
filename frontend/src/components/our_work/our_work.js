@@ -1,6 +1,6 @@
 import React from "react";
 import Style from "../container_left/container_left.module.css";
-import Styles from "../our_Jobs/our_jobs.module.css";
+import Styles from "../our_jobs/our_jobs.module.css";
 
 const our_work = () => {
   return (
