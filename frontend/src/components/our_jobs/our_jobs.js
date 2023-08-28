@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'; 
 import { useRouter } from 'next/router';
-import Styles from "../our_Jobs/our_jobs.module.css";
+import Styles from "../our_jobs/our_jobs.module.css";
 
 import Image from "next/image";
 const our_jobs = ({entryId}) => {  
