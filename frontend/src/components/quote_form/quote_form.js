@@ -27,7 +27,8 @@ const CustomForm = () => {
           onFinish={onFinish}
         >
           <Form.Item
-            name="username"
+            name="username" 
+            label="username"
             rules={[
               {
                 message: "Please Enter Your Name!",
@@ -37,7 +38,8 @@ const CustomForm = () => {
             <Input type="text" placeholder="Enter your first name" />
           </Form.Item>
           <Form.Item
-            name="email"
+            name="email" 
+            label="email"
             rules={[
               {
                 message: "Enter your email address",
@@ -47,17 +49,8 @@ const CustomForm = () => {
             <Input type="email" placeholder="Enter your email" />
           </Form.Item>
           <Form.Item
-            name="number"
-            rules={[
-              {
-                message: "Enter your correct number!",
-              },
-            ]}
-          >
-            <Input type="number" placeholder="Enter your phone number" />
-          </Form.Item>
-          <Form.Item
-            name="number"
+            name="number" 
+            label="Phone number:"
             rules={[
               {
                 message: "Enter your correct number!",
