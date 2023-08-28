@@ -11,7 +11,7 @@ const container_right = ({entryId}) => {
   useEffect(() => {
     async function fetchHeaderData() {
       try {
-        const response = await fetch('http://13.233.214.226:1337/api/products'); 
+        const response = await fetch('http://13.233.214.226:1337/api/products?populate=*'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -40,10 +40,19 @@ const container_right = ({entryId}) => {
   const handleClick = () => {
     router.push('/page2');
   };
+  const host = "http://13.233.214.226:1337";
+
+  const containerImage = specificEntry.attributes.photo?.data;
   return (
     <div  key={specificEntry.id} className={Style.flexContainer}>
       <div className={Style.alignLeft}> 
-      <Image src="/images/image2.png" alt="My Image" width={500} height={500} />
+      {containerImage && (
+          <Image 
+            src={host + containerImage.attributes.url} 
+            alt="container Image" 
+            width="340"
+            height="340"/>
+        )}
       
       </div> 
       <div className={Style.alignRight}>
