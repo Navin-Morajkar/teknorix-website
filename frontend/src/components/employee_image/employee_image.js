@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Style from "../six_cards/six_cards.module.css" 
-
 import Image from 'next/image';
-const six_cards = ({entryId}) => { 
-    
+import Style from "../employee_image/employee_image.module.css"
+
+const employee_image = ({ entryId }) => {
+  
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -11,7 +11,7 @@ const six_cards = ({entryId}) => {
   useEffect(() => {
     async function fetchHeaderData() {
       try {
-        const response = await fetch('http://13.233.214.226:1337/api/advantages?populate=*'); 
+        const response = await fetch('http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -27,6 +27,7 @@ const six_cards = ({entryId}) => {
     fetchHeaderData();
   }, []);
 
+
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -35,33 +36,35 @@ const six_cards = ({entryId}) => {
     return <div>Error: {error.message}</div>;
   }
 
+  
+  
   const specificEntry = data.find(entry => entry.id === entryId);
-  // const headerImageUrl =  specificEntry.attributes.headerImage.data.attributes.url;
- 
   const host = "http://13.233.214.226:1337";
-
-  const cardImage = specificEntry.attributes.image?.data;
+  
+  // const headerImage = specificEntry.attributes.headerImage?.data;
+  // const bodyImage = specificEntry.attributes.bodyImage?.data;
+  const eImage = specificEntry.attributes.photo?.data;
   return (
-    <div key={specificEntry.id} className={Style.card}>
+    <div key={specificEntry.id} >
 
-      <div className={Style.initialDetails}>
-      {cardImage && (
-          <Image 
-            src={host + cardImage.attributes.url} 
-            alt="card Image" 
-            width="80"
-            height="80"/>
+      <div >
+      {eImage && (
+          <Image className={Style.profileimg }
+            src={host + eImage.attributes.url} 
+            alt="profile image" 
+            width="300"
+            height="300"/>
         )}
-        <h2>{specificEntry.attributes.name}</h2>  
-        <div className={Style.flexContainer}>
-          <hr className={Style.hr} /> 
         </div>
-      </div>
-      <div className={Style.details}>
-        <p>{specificEntry.attributes.overlayText}</p>
-      </div>
+        <h2>{specificEntry.attributes.name}</h2>  
+        
+     
+        <p>{specificEntry.attributes.designation}</p>
+       
+        <p>{specificEntry.attributes.designation2}</p>
+     
     </div>
   )
 }
 
-export default six_cards
+export default employee_image;
