@@ -11,15 +11,16 @@ export default function index() {
       
         <Header entryId={5} /> 
         <div className={Style.parent}>
-          <Six_cards entryId={1}/>
-          <Six_cards entryId={2}/>
-          <Six_cards entryId={3}/> 
-          </div> 
+              {[1, 2, 3].map(entryId => (
+                <Six_cards key={entryId} entryId={entryId} />
+              ))}
+            </div>
+
           <div className={Style.parent}>
-          <Six_cards entryId={4}/>
-          <Six_cards entryId={5}/>
-          <Six_cards entryId={6}/>
-          </div> 
+          {[4, 5, 6].map(entryId => (
+                <Six_cards key={entryId} entryId={entryId} />
+              ))}
+          </div>  
           <Header entryId={6} />  
           <Flow_container entryId={1} />
           <Flow_container entryId={2} />
