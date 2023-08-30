@@ -12,6 +12,7 @@ import Sidebar from "@/components/sidebar/sidebar";
 export default function index() {
   return (
     <div>
+
       <Sidebar />
       
       <Header entryId={7} />
@@ -45,9 +46,6 @@ export default function index() {
           <Our_job entryId={5} />
           </div>
           <Quote_form/>
-        </div>
-      
-    </div>
-    
+        </div>    
   );
 }
