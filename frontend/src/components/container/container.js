@@ -1,8 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import Style from '../header/header.module.css';
-import Image from 'next/image';
+import { useRouter } from 'next/router'; 
+import Image from 'next/image'; 
+import Style from "../container_left/container_left.module.css"
 
-const Header = ({ entryId }) => {
+const Container = ({ entryId }) => {
+  
+
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +13,7 @@ const Header = ({ entryId }) => {
   useEffect(() => {
     async function fetchHeaderData() {
       try {
-        const response = await fetch('http://13.233.214.226:1337/api/headers?populate=*'); 
+        const response = await fetch('http://13.233.214.226:1337/api/qualities?populate=*'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -26,7 +29,6 @@ const Header = ({ entryId }) => {
     fetchHeaderData();
   }, []);
 
-
   if (loading) {
     return <div>Loading...</div>;
   }
@@ -36,42 +38,29 @@ const Header = ({ entryId }) => {
   }
 
   const specificEntry = data.find(entry => entry.id === entryId);
+
   const host = "http://13.233.214.226:1337";
 
-  const headerImage = specificEntry.attributes.headerImage?.data;
-  const bodyImage = specificEntry.attributes.bodyImage?.data;
+  const containerImage = specificEntry.attributes.image?.data;
   
+
   return (
-    <div>
-      {headerImage && (
-          <Image 
-            src={host + headerImage.attributes.url} 
-            alt="Header Image" 
-            width="1500"
-            height="1000"/>
+    <div key={specificEntry.id} className={Style.flexContainer}>
+      <div className={Style.alignLeft}>
+      {containerImage && (
+        <Image 
+            src={host + containerImage.attributes.url} 
+            alt="My Image" 
+            width="200"
+            height="200" />
         )}
-
-
-      
-      <div key={specificEntry.id} className={Style.header}>
-      <div style={{ marginLeft: '20%', paddingLeft: '2%' }}>
         <h1>{specificEntry.attributes.title}</h1>
+        <hr />
         <p>{specificEntry.attributes.description}</p>
-        </div>
-        {bodyImage && (
-          <Image 
-            src={host + bodyImage.attributes.url} 
-            alt="Body Image" 
-            width="1000"
-            height="400"/>
-        )}
-        
-        
-        
+       
       </div>
-      
     </div>
   );
-}
+};
 
-export default Header;
+export default Container;
