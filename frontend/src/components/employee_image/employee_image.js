@@ -52,8 +52,8 @@ const employee_image = ({ entryId }) => {
           <Image className={Style.profileimg }
             src={host + eImage.attributes.url} 
             alt="profile image" 
-            width="300"
-            height="300"/>
+            width="285"
+            height="285"/>
         )}
         </div>
         <h2>{specificEntry.attributes.name}</h2>  
