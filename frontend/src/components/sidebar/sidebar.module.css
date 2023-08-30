@@ -1,15 +1,17 @@
+
 .sidebar {
     position: fixed;
-    top: 0;
+    top:0;
     left: 0;
     width: 50%;
     height: 100vh;
-    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    background-color: rgba(255, 255, 255, 0.796); /* Transparent white background */
     color: white;
     overflow-x: hidden;
     transition: width 0.3s ease;
-    backdrop-filter: blur(10px);
-    z-index: 1000;
+    /* backdrop-filter: blur(10px); */
+    z-index: 1000; 
+    box-shadow: -5px 0 80px rgba(0, 0, 0, 0.1);
   }
   
   .scrolling {
@@ -38,9 +40,10 @@
   }
   
   .nav {
-    display: flex; /* Display the navigation links in a row */
-    flex-direction: column;
-    padding: 1rem;
+     /* Display the navigation links in a row */
+    /* flex-direction: column; */
+   
+    padding: 2rem;
   }
   
   .nav a {
@@ -48,8 +51,13 @@
     color: black;
     margin: 0.5rem 0;
     display: inline-block; /* Display the links in-line */
-    margin-right: 1rem; /* Add some spacing between the links */
+    margin-right: 2rem; /* Add some spacing between the links */
   }
+  .nav h1{
+    font-size: 4rem; 
+    color: black ;
+    margin-top:20rem ;
+  } 
   
   /* .nav {
     display: flex;
@@ -63,7 +71,9 @@
     margin: 0.5rem 0; 
    
   } */
-  
+  .nav li{
+    color: black;
+  }
   @media (max-width: 768px) {
     .burgerIcon {
       display: flex;
