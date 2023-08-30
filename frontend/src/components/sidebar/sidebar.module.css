@@ -1,0 +1,93 @@
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 50%;
+    height: 100vh;
+    background-color: rgba(255, 255, 255, 0.5); /* Transparent white background */
+    color: white;
+    overflow-x: hidden;
+    transition: width 0.3s ease;
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+  }
+  
+  .scrolling {
+    width: 20%; /* Narrow down when scrolling */
+    backdrop-filter: blur(5px);
+  }
+  
+  .burgerIcon {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    padding: 1rem;
+  }
+  
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 3px 0;
+  }
+  
+  .text {
+    display: none;
+    padding: 1rem;
+    text-align: center;
+  }
+  
+  .nav {
+    display: flex; /* Display the navigation links in a row */
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0.5rem 0;
+    display: inline-block; /* Display the links in-line */
+    margin-right: 1rem; /* Add some spacing between the links */
+  }
+  
+  /* .nav {
+    display: flex;
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: white;
+    margin: 0.5rem 0; 
+   
+  } */
+  
+  @media (max-width: 768px) {
+    .burgerIcon {
+      display: flex;
+    }
+  
+    .text {
+      display: block;
+    }
+  
+    .sidebar {
+      width: 100%;
+      height: auto;
+    }
+  
+    .expanded {
+      width: 100%;
+    }
+  
+    .nav {
+      display: none;
+    }
+  
+    .nav.expanded {
+      display: flex;
+    }
+  }
+  
