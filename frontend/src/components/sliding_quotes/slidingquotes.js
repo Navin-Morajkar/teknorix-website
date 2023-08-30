@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import './slidingquotes.css';
+import './slidingquotes.module.css';
 
 const ImageSlider = () => {
   const [counter, setCounter] = useState(1);
