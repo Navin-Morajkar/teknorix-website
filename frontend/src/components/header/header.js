@@ -52,12 +52,12 @@ const Header = ({ entryId }) => {
         )}
 
 
-
+      
       <div key={specificEntry.id} className={Style.header}>
-        
+      <div style={{ marginLeft: '20%', paddingLeft: '2%' }}>
         <h1>{specificEntry.attributes.title}</h1>
         <p>{specificEntry.attributes.description}</p>
-        
+        </div>
         {bodyImage && (
           <Image 
             src={host + bodyImage.attributes.url} 
@@ -65,7 +65,7 @@ const Header = ({ entryId }) => {
             width="1000"
             height="400"/>
         )}
-
+        
         
         
       </div>
