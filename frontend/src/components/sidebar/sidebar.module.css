@@ -38,6 +38,20 @@
   }
   
   .nav {
+    display: flex; /* Display the navigation links in a row */
+    flex-direction: column;
+    padding: 1rem;
+  }
+  
+  .nav a {
+    text-decoration: none;
+    color: black;
+    margin: 0.5rem 0;
+    display: inline-block; /* Display the links in-line */
+    margin-right: 1rem; /* Add some spacing between the links */
+  }
+  
+  /* .nav {
     display: flex;
     flex-direction: column;
     padding: 1rem;
@@ -46,8 +60,9 @@
   .nav a {
     text-decoration: none;
     color: white;
-    margin: 0.5rem 0;
-  }
+    margin: 0.5rem 0; 
+   
+  } */
   
   @media (max-width: 768px) {
     .burgerIcon {

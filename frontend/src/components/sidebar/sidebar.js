@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import styles from './Sidebar.module.css';
+import styles from './sidebar.module.css';
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
