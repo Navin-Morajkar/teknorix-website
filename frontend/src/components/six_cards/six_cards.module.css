@@ -66,5 +66,9 @@
   .parent {
     display: flex;
     flex-direction: row;
+   
+  } 
+  .child {
+    flex-basis: calc(33.33% - 10px);
+    margin: 5px;
   }
-  
