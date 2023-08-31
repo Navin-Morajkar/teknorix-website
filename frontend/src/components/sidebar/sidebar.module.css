@@ -16,7 +16,7 @@
   
   .scrolling {
     width: 20%; /* Narrow down when scrolling */
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
   }
   
   .burgerIcon {
@@ -29,7 +29,7 @@
   .bar {
     width: 25px;
     height: 3px;
-    background-color: white;
+    background-color: rgb(5, 5, 5);
     margin: 3px 0;
   }
   
@@ -43,7 +43,7 @@
      /* Display the navigation links in a row */
     /* flex-direction: column; */
    
-    padding: 2rem;
+    padding: 4rem;
   }
   
   .nav a {
@@ -52,13 +52,76 @@
     margin: 0.5rem 0;
     display: inline-block; /* Display the links in-line */
     margin-right: 2rem; /* Add some spacing between the links */
+    font-weight: bold; /* Add bold styling */
+    font-size: 1.2rem;
   }
   .nav h1{
     font-size: 4rem; 
     color: black ;
     margin-top:20rem ;
+    font-weight: bold; /* Add bold styling */
   } 
+
+  /* Add this CSS to your Sidebar.module.css */
+
+/* ... existing styles ... */
+
+.hamburgerIcon {
+  display: inline-block;
+  cursor: pointer;
+  color: rgb(6, 6, 6);
+  margin-left: 15px; /* Add some spacing */
+}
+
+.horizontalNavbar {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: white;
+  z-index: 1000;
+  overflow-y: auto;
+  padding: 2rem;
+  transition: left 0.3s ease;
+}
+
+.horizontalNavbar.active {
+  left: 0;
+}
+
+.horizontalNavbar a {
+  text-decoration: none;
+  color: white;
+  margin: 1rem 0;
+  display: block;
+}
+
+.ant-drawer-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+}
+
+.ant-drawer-content-wrapper {
+  background-color: transparent;
+  width: 100%;
+  max-width: 400px;
+}
+
+.ant-drawer-body {
+  padding: 0;
+  overflow-y: auto;
+  width: 100%;
   
+}
   /* .nav {
     display: flex;
     flex-direction: column;
@@ -100,4 +163,11 @@
       display: flex;
     }
   }
-  
+  .socialMediaContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+   
+  }
