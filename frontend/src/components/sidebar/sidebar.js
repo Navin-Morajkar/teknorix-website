@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
-import styles from './sidebar.module.css';
+import styles from './sidebar.module.css'; 
+// import SocialMedia from '../socialMedia/socialMedia';
 import Image from 'next/image'; 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -40,7 +41,10 @@ const Sidebar = () => {
         <div className={styles.bar}></div>
       </div>  */} 
      <div style={{ backgroundColor: navbarBackground, height: '100%', boxShadow: '-5px 0 10px rgba(255, 0, 0, 0.1)' }}>
-      <Image src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg" width="180" height="42"/>
+      
+        <Image src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg" width="180" height="42"/>
+      
+      
       <div className={`${styles.text} ${scrolling ? styles.scrolling : ''}`}>Some Text Here</div>
       <nav className={`${styles.nav} ${expanded ? styles.expanded : ''}`} > 
     
@@ -48,10 +52,10 @@ const Sidebar = () => {
       <a href="#about">ABOUT US</a>
           {showAboutList && (
             <ul>
-              <li>List Item 1</li>
-              <li>List Item 2</li>
-              <li>List Item 3</li>
-              <li>List Item 4</li>
+              <li>About Us</li>
+              <li>Process</li>
+              <li>Technologies</li>
+              <li>Our Works</li>
             </ul>
           )}
         
@@ -60,6 +64,9 @@ const Sidebar = () => {
         <a href="#careers">CAREERS</a>
         <a href="#contact">CONTACT</a> 
         {showAboutHeading && <h1>ABOUT US</h1>}
+        <div className={styles.socialMediaContainer}>
+            {/* <SocialMedia /> */}
+          </div>
       </nav>
     </div>
     </div>

@@ -16,7 +16,7 @@
   
   .scrolling {
     width: 20%; /* Narrow down when scrolling */
-    backdrop-filter: blur(5px);
+    /* backdrop-filter: blur(5px); */
   }
   
   .burgerIcon {
@@ -52,11 +52,14 @@
     margin: 0.5rem 0;
     display: inline-block; /* Display the links in-line */
     margin-right: 2rem; /* Add some spacing between the links */
+    font-weight: bold; /* Add bold styling */
+    font-size: 1.2rem;
   }
   .nav h1{
     font-size: 4rem; 
     color: black ;
     margin-top:20rem ;
+    font-weight: bold; /* Add bold styling */
   } 
   
   /* .nav {
@@ -100,4 +103,11 @@
       display: flex;
     }
   }
-  
+  .socialMediaContainer {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.5rem;
+   
+  }
