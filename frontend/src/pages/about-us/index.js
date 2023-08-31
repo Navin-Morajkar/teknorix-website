@@ -8,6 +8,7 @@ import Our_job from "../../components/our_jobs/our_jobs"
 import Our_work from "../../components/our_work/our_work"
 import Quote_form from "../../components/quote_form/quote_form"
 import Sidebar from "@/components/sidebar/sidebar";
+import Footer from "@/components/footer/footer";
 
 export default function index() {
   return (
@@ -47,6 +48,8 @@ export default function index() {
         </div>
 
         <Quote_form />
+        <Footer/>
+        
       </div>
     </div>
 
