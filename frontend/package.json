@@ -9,7 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "antd": "^5.8.4",
+    "@ant-design/icons": "^5.2.5",
+    "antd": "^5.8.5",
     "autoprefixer": "10.4.15",
     "next": "13.4.16",
     "postcss": "8.4.28",
