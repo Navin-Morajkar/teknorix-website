@@ -132,7 +132,11 @@
     color: white;
     margin: 0.5rem 0; 
    
-  } */
+  } */ 
+  .menuExpanded {
+    width: 100%; /* Adjust the width as needed */
+    /* Add any other styles for the expanded menu */
+  }
   .nav li{
     color: black;
   }
