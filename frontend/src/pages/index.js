@@ -1,9 +1,9 @@
 import Image from 'next/image'
 import React from 'react'
-import Header from '@/components/header/header.js'
-import Container from '@/components/container/container'
-import Expertise from '@/components/expertise/expertise'
-import Styles from '../components/six_cards/six_cards.module.css'
+import Header from '@/components/Header/Header.js'
+import Container from '@/components/Container/Container'
+import Expertise from '@/components/Expertise/Expertise'
+import Styles from '../components/SixCards/SixCards.module.css'
 
 export default function Home() {
 

@@ -1,6 +1,6 @@
 import React, { useEffect} from 'react';
 import { Button, Form, Input } from 'antd';
-import Style from "../Want_to_Learn_More_form/Want_to_Learn_More_form.module.css"
+import Style from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css"
 
 const CustomForm = () => {
     // const [form] = Form.useForm(); 

@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from '../Image_card/Image_card.module.css'; // Import your CSS module here
+import styles from '../ImageCard/ImageCard.module.css'; // Import your CSS module here
 
 const ImageCard = () => {
   return (

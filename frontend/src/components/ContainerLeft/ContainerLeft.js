@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/router'; 
 import Image from 'next/image'; 
-import Style from "../container_left/container_left.module.css"
-const container_right = ({entryId}) => {  
-  const router = useRouter();  
+import Style from "../ContainerLeft/ContainerLeft.module.css"
+
+const ContainerLeft = ({ entryId }) => {
+  const router = useRouter(); // Use Next.js router for React
+
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -36,16 +38,25 @@ const container_right = ({entryId}) => {
   }
 
   const specificEntry = data.find(entry => entry.id === entryId);
-  // const headerImageUrl =  specificEntry.attributes.headerImage.data.attributes.url;
-  const handleClick = () => {
-    router.push('/page2');
+
+  const navigateToSpecificEntry = () => {
+    const specificLink = specificEntry.attributes.link;
+    router.push(specificLink); // Use Next.js router's push method
   };
   const host = "http://13.233.214.226:1337";
 
   const containerImage = specificEntry.attributes.photo?.data;
   return (
-    <div  key={specificEntry.id} className={Style.flexContainer}>
-      <div className={Style.alignLeft}> 
+    <div key={specificEntry.id} className={Style.flexContainer}>
+      <div className={Style.alignLeft}>
+        <h1>{specificEntry.attributes.title}</h1>
+        <hr />
+        <p>{specificEntry.attributes.description}</p>
+        <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+          Explore now
+        </button>
+      </div>
+      <div className={Style.alignRight}>
       {containerImage && (
           <Image 
             src={host + containerImage.attributes.url} 
@@ -53,16 +64,9 @@ const container_right = ({entryId}) => {
             width="340"
             height="340"/>
         )}
-      
-      </div> 
-      <div className={Style.alignRight}>
-      <h1>{specificEntry.attributes.title} </h1>   
-        <hr/>
-        <p>{specificEntry.attributes.description}</p>
-           <button className={Style.buttonGreen}  onClick={handleClick}>Explore now</button>
       </div>
     </div>
-  )
-}
+  );
+};
 
-export default container_right
+export default ContainerLeft; // Component names should be capitalized (PascalCase)
