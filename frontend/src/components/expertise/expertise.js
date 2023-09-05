@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import { Button} from 'antd';
 import React, { useState, useEffect } from 'react';
-import Style from "../container_left/container_left.module.css"
+import Style from "../ContainerLeft/ContainerLeft.module.css"
 
 const expertise = ( { entryId } ) => {
 

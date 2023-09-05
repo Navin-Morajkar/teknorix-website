@@ -1,5 +1,5 @@
-import Footer from "@/components/footer/footer";
-import ImageSlider from "@/components/sliding_quotes/slidingquotes";
+import Footer from "@/components/Footer/Footer";
+import ImageSlider from "@/components/SlidingQuotes/SlidingQuotes";
 export default function index() {
   return (
     <div>
