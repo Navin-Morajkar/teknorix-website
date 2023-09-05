@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router'; 
 import Image from 'next/image'; 
-import Style from "../container_left/container_left.module.css"
+import Style from "../ContainerLeft/ContainerLeft.module.css"
 
 const Container = ({ entryId }) => {
   

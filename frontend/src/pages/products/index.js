@@ -1,17 +1,17 @@
-import Header from "../../components/header/header";
+import Header from "../../components/Header/Header";
 import { Container } from "postcss";
-import Container_left from "../../components/container_left/container_left";
-import Container_right from "../../components/container_right/container_right";
-import Want_to_Learn_More_form from "../../components/Want_to_Learn_More_form/Want_to_Learn_More_form"
+import ContainerLeft from "../../components/ContainerLeft/ContainerLeft";
+import ContainerRight from "../../components/ContainerRight/ContainerRight";
+import WantToLearnMoreform from "../../components/WantToLearnMoreForm/WantToLearnMoreForm"
 
 export default function index() {
   return (
     <div>
       <Header entryId={3} />
-      <Container_left entryId={1} />
-      <Container_right entryId={2} />
-      <Container_left entryId={3} />
-      <Want_to_Learn_More_form />
+      <ContainerLeft entryId={1} />
+      <ContainerRight entryId={2} />           
+      <ContainerLeft entryId={3} />
+      <WantToLearnMoreform />
     </div>
   );
 }

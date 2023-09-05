@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Image from 'next/image'; 
-import Style from "../container_left/container_left.module.css"
-const container_right = ({entryId}) => {  
-  
+import Style from "../SixCards/SixCards.module.css" 
+
+import Image from 'next/image';
+const six_cards = ({entryId}) => { 
+    
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -10,7 +11,7 @@ const container_right = ({entryId}) => {
   useEffect(() => {
     async function fetchHeaderData() {
       try {
-        const response = await fetch('http://13.233.214.226:1337/api/flows?populate=*'); 
+        const response = await fetch('http://13.233.214.226:1337/api/advantages?populate=*'); 
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -36,29 +37,31 @@ const container_right = ({entryId}) => {
 
   const specificEntry = data.find(entry => entry.id === entryId);
   // const headerImageUrl =  specificEntry.attributes.headerImage.data.attributes.url;
-  
+ 
   const host = "http://13.233.214.226:1337";
 
-  const flowImage = specificEntry.attributes.image?.data;
+  const cardImage = specificEntry.attributes.image?.data;
   return (
-    <div  key={specificEntry.id} className={Style.flexContainer}>
-      <div className={Style.alignLeft}> 
-      {flowImage && (
+    <div key={specificEntry.id} className={Style.card}>
+
+      <div className={Style.initialDetails}>
+      {cardImage && (
           <Image 
-            src={host + flowImage.attributes.url} 
-            alt="container Image" 
-            width="248"
-            height="190"/>
+            src={host + cardImage.attributes.url} 
+            alt="card Image" 
+            width="80"
+            height="80"/>
         )}
-      
-      </div> 
-      <div className={Style.alignRight}>
-      <h1>{specificEntry.attributes.title} </h1>   
-        <hr/>
-        <p>{specificEntry.attributes.description}</p>
+        <h2>{specificEntry.attributes.name}</h2>  
+        <div className={Style.flexContainer}>
+          <hr className={Style.hr} /> 
+        </div>
+      </div>
+      <div className={Style.details}>
+        <p>{specificEntry.attributes.overlayText}</p>
       </div>
     </div>
   )
 }
 
-export default container_right
+export default six_cards
