@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import Style from '../header/header.module.css';
+import Style from '../Header/Header.module.css';
 import Image from 'next/image';
 
 const Header = ({ entryId }) => {

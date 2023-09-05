@@ -1,6 +1,6 @@
 import React from 'react' 
 import Image from 'next/image';
-import Style from "../main_profile_image/main_profile_image.module.css"
+import Style from "../MainProfileImage/MainProfileImage.module.css"
 
 const profileimg = () => {
   return (
