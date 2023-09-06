@@ -2,6 +2,8 @@ import { useState, useEffect } from "react";
 import styles from "./SideBar.module.css";
 import Image from "next/image";
 import { MenuOutlined } from "@ant-design/icons";
+import  Link  from 'next/link';
+
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -62,22 +64,26 @@ const Sidebar = () => {
           {isMenuExpanded ? (
             <div className={styles.outerbar}>
               <div className="lg:flex lg:items-start lg:gap-8">
-                <div className="flex space-x-10">
-                  <div class=" hover:bg-yellow-400 pr-40 pl-10 py-10">
+
+                <div className="flex space-x-5">
+                  <div class=" hover:bg-yellow-400 pr-28 pl-10 py-10">
+
                     <p class="font-bold text-2xl dark:text-black">About us</p>
 
                     <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-                        <a href="#"  >About Us</a>
+
+                        <Link href="/about-us">ABOUT US </Link>
                       </li>
                       <li>
-                        <a href="#"  >Process</a>
+                        <Link href="/process"  >Process</Link>
                       </li>
                       <li>
-                        <a href="#">Technologies</a>
+                        <Link href="/technologies">Technologies</Link>
                       </li>
                       <li>
-                        <a href="#">Our Works</a>
+                        <Link href="/our-works">Our Works</Link>
+
                       </li>
                     </ul>
                   </div>
@@ -90,30 +96,32 @@ const Sidebar = () => {
 
                     <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-                        <a
-                          href="#"
+
+                        <Link
+                          href="/it-consulting"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                           IT consulting
-                        </a>
+                        </Link>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          href="/custom-software-development"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                           Custom software development
-                        </a>
+                        </Link>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          href="/managed-it-services"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                           Managed IT services
-                        </a>
+                        </Link>
+
                       </li>
 
                     </ul>
@@ -126,29 +134,31 @@ const Sidebar = () => {
 
                     <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-                        <a
-                          href="#"
+
+                        <Link
+                          href="/jobsoid"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                           Jobsoid
-                        </a>
+                        </Link>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          href="/ivue-video"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
-                          iVe video
-                        </a>
+                          iVue video
+                        </Link>
                       </li>
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          href="/adhoc-reporting-platform"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                            Rix Adhoc
-                        </a>
+                        </Link>
+
                       </li>
                     </ul>
                   </div>
@@ -161,21 +171,23 @@ const Sidebar = () => {
                     <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                      
                       <li>
-                        <a
-                          href="#"
+
+                        <Link
+                          href="/careers"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                           Work culture
-                        </a>
+                        </Link>
                       </li>
 
                       <li>
-                        <a
-                          href="#"
+                        <Link
+                          href="/careers"
                           className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                         >
                           Join our team
-                        </a>
+                        </Link>
+
                       </li>
                     </ul>
                   </div>
@@ -184,7 +196,9 @@ const Sidebar = () => {
             </div>
           ) : (
             <>
-              <a href="#about">ABOUT US </a>
+
+              <Link href="/about-us">ABOUT US </Link>
+
               {showAboutList && (
                 <ul>
                   <li>About Us</li>
@@ -194,10 +208,12 @@ const Sidebar = () => {
                 </ul>
               )}
 
-              <a href="#services">SERVICES</a>
-              <a href="#products">PRODUCTS</a>
-              <a href="#careers">CAREERS</a>
-              <a href="#contact">CONTACT</a>
+             
+              <Link href="/services">SERVICES</Link>
+              <Link href="/products">PRODUCTS</Link>
+              <Link href="/careers">CAREERS</Link>
+              <Link href="/contact">CONTACT</Link>
+
               {showAboutHeading && <h1>ABOUT US</h1>}
               <div className={styles.socialMediaContainer}></div>
             </>

@@ -3,10 +3,11 @@ import { Container } from "postcss";
 import ContainerLeft from "../../components/ContainerLeft/ContainerLeft";
 import ContainerRight from "../../components/ContainerRight/ContainerRight";
 import WantToLearnMoreform from "../../components/WantToLearnMoreForm/WantToLearnMoreForm"
-
+import SideBar from "../../components/SideBar/sidebar";
 export default function index() {
   return (
-    <div>
+    <div> 
+      <SideBar />
       <Header entryId={3} />
       <ContainerLeft entryId={1} />
       <ContainerRight entryId={2} />           
