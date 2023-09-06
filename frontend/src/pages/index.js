@@ -4,9 +4,9 @@ import Header from '@/components/Header/Header'
 
 
 import Styles from '../components/SixCards/SixCards.module.css'
-import Sidebar from '@/components/Sidebar/Sidebar'
-import Container from '@/components/Container/Container'
-import Expertise from '@/components/Expertise/Expertise'
+import Sidebar from '@/components/Sidebar2/Sidebar'
+import Container from '@/components/Container2/Container'
+import Expertise from '@/components/Expertise2/Expertise'
 
 export default function Home() {
 
