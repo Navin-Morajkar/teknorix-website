@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import styles from "./SideBar.module.css";
+import styles from "./Sidebar.module.css";
 import Image from "next/image";
 import { MenuOutlined } from "@ant-design/icons";
 import  Link  from 'next/link';
