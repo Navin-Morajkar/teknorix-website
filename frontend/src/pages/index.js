@@ -6,7 +6,7 @@ import Header from '@/components/Header/Header'
 import Styles from '../components/SixCards/SixCards.module.css'
 import Sidebar from '@/components/Sidebar/Sidebar'
 import Container from '@/components/Container/Container'
-import Expertise from '@/components/Expertise/expertise'
+import Expertise from '@/components/Expertise/Expertise'
 
 export default function Home() {
 
