@@ -7,7 +7,7 @@ import EmployeeImg from "../../components/EmployeeImage/EmployeeImage";
 import OurJob from "../../components/OurJobs/OurJobs"
 import OurWork from "../../components/OurWork/OurWork"
 import QuoteForm from "../../components/QuoteForm/QuoteForm"
-import SideBar from "@/components/SideBar/SideBar";
+import SideBar from "@/components/Sidebar/sidebar";
 import Footer from "@/components/Footer/Footer";
 
 export default function index() {
@@ -45,7 +45,7 @@ export default function index() {
           <OurJob entryId={4} />
           <OurJob entryId={5} />
         </div>
-
+        
         <QuoteForm />
         <Footer/>
         

@@ -1,0 +1,43 @@
+/* styles/Collage.module.css */
+.collage {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Adjust the number of columns as needed */
+  gap: 10px;
+}
+
+.collage-item {
+  position: relative;
+}
+
+.collage img {
+  width: 100%;
+  height: auto;
+  cursor: pointer;
+}
+
+.expanded-image {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.expanded-image img {
+  max-width: 90%;
+  max-height: 90%;
+}
+
+.expanded-image button {
+  background-color: transparent;
+  border: none;
+  color: white;
+  font-size: 18px;
+  margin: 10px;
+  cursor: pointer;
+}
