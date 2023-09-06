@@ -1,6 +1,6 @@
 import Image from 'next/image'
 import React from 'react'
-import Header from '@/components/Header2/Header'
+import Header from '@/components/Header/Header'
 
 
 import Styles from '../components/SixCards/SixCards.module.css'

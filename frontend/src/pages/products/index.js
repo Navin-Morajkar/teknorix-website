@@ -1,4 +1,4 @@
-import Header from "../../components/Header2/Header";
+import Header from "../../components/Header/Header";
 import { Container } from "postcss";
 import ContainerLeft from "../../components/ContainerLeft/ContainerLeft";
 import ContainerRight from "../../components/ContainerRight/ContainerRight";
