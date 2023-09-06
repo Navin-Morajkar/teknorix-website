@@ -1,4 +1,4 @@
-import Header from "../../components/Header/Header";
+import Header from "../../components/Header2/Header";
 import Six_cards from "../../components/SixCards/SixCards"; 
 import Quote_form from "../../components/QuoteForm/QuoteForm" 
 import Flow_container from "../../components/FlowContainer/FlowContainer" 

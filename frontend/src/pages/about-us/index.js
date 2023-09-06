@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "@/components/Header/Header";
+import Header from "@/components/Header2/Header";
 import Style from "@/components/SixCards/SixCards.module.css";
 import SixCards from "@/components/SixCards/SixCards";
 import ProfileImg from "@/components/ProfileImage/ProfileImage";
