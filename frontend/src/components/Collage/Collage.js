@@ -1,53 +1,34 @@
-import React, { useState } from 'react';
+import { useState } from "react";
 
-const Collage = () => {
-  const images = [
-    'image1.jpg',
-    'image2.jpg',
-    'image3.jpg',
-    // Add more image filenames here
-  ];
+import PhotoAlbum from "react-photo-album";
 
-  const [expandedImageIndex, setExpandedImageIndex] = useState(null);
+import Lightbox from "yet-another-react-lightbox";
+import "yet-another-react-lightbox/styles.css";
 
-  const expandImage = (index) => {
-    setExpandedImageIndex(index);
-  };
+// import optional lightbox plugins
+import Fullscreen from "yet-another-react-lightbox/plugins/fullscreen";
+import Slideshow from "yet-another-react-lightbox/plugins/slideshow";
+import Thumbnails from "yet-another-react-lightbox/plugins/thumbnails";
+import Zoom from "yet-another-react-lightbox/plugins/zoom";
+import "yet-another-react-lightbox/plugins/thumbnails.css";
 
-  const closeImage = () => {
-    setExpandedImageIndex(null);
-  };
+import photos from "./photos";
 
-  const nextImage = () => {
-    if (expandedImageIndex !== null && expandedImageIndex < images.length - 1) {
-      setExpandedImageIndex(expandedImageIndex + 1);
-    }
-  };
+export default function Collage() {
+    const [index, setIndex] = useState(-1);
 
-  return (
-    <div className="collage">
-      {images.map((image, index) => (
-        <div key={index} className="collage-item">
-          <img
-            src={`/images/${image}`}
-            alt={`Image ${index}`}
-            onClick={() => expandImage(index)}
-          />
-        </div>
-      ))}
+    return (
+        <>
+            <PhotoAlbum photos={photos} layout="rows" targetRowHeight={150} onClick={({ index }) => setIndex(index)} />
 
-      {expandedImageIndex !== null && (
-        <div className="expanded-image">
-          <img
-            src={`/images/${images[expandedImageIndex]}`}
-            alt={`Expanded Image ${expandedImageIndex}`}
-          />
-          <button onClick={closeImage}>Close</button>
-          <button onClick={nextImage}>Next</button>
-        </div>
-      )}
-    </div>
-  );
-};
-
-export default Collage;
+            <Lightbox
+                slides={photos}
+                open={index >= 0}
+                index={index}
+                close={() => setIndex(-1)}
+                // enable optional lightbox plugins
+                plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+            />
+        </>
+    );
+}
