@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Style from "../EmployeeImage/EmployeeImage.module.css"
 
-const employee_image = ({ entryId }) => {
+const EmployeeImage = ({ entryId }) => {
   
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -67,4 +67,4 @@ const employee_image = ({ entryId }) => {
   )
 }
 
-export default employee_image;
+export default EmployeeImage;
