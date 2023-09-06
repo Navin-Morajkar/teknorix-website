@@ -4,7 +4,8 @@ import Header from '@/components/Header/Header.js'
 import Container from '@/components/Container/Container'
 import Expertise from '@/components/Expertise/Expertise'
 import Styles from '../components/SixCards/SixCards.module.css'
-import SideBar from "../../src/components/SideBar/sidebar";
+import Sidebar from '@/components/Sidebar/sidebar'
+
 export default function Home() {
 
   
@@ -12,7 +13,7 @@ export default function Home() {
 
   return (
     <div> 
-      <SideBar />
+      <Sidebar />
       <Header entryId={1} />
       <div className={Styles.parent}>
         <Container entryId={1}/>
