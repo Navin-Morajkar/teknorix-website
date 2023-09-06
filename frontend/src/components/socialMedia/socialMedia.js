@@ -1,6 +1,6 @@
 import React from 'react'
 
-const socialMedia = () => {
+const SocialMedia = () => {
   return (
     <div>
         <ul
@@ -95,4 +95,4 @@ const socialMedia = () => {
   )
 }
 
-export default socialMedia
+export default SocialMedia
