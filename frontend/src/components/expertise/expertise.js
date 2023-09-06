@@ -3,7 +3,7 @@ import { Button} from 'antd';
 import React, { useState, useEffect } from 'react';
 import Style from "../ContainerLeft/ContainerLeft.module.css"
 
-const expertise = ( { entryId } ) => {
+const Expertise = ( { entryId } ) => {
 
   const [data, setHeaderData] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -61,4 +61,4 @@ const expertise = ( { entryId } ) => {
   )
 }
 
-export default expertise;
+export default Expertise;
