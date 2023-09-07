@@ -15,9 +15,9 @@ export default function index() {
 
     }, [])
 
-    const makeApiCall = (url, setFunction) => {
+    const makeApiCall = async (url, setFunction) => {
 
-        fetch(url)
+        await fetch(url)
           .then((response) => {            
             return response.json();
           })
