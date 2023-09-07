@@ -1,32 +1,35 @@
 import React from "react";
-import Header from "../../components/header/header";
-import Style from "../../components/six_cards/six_cards.module.css";
-import Six_cards from "../../components/six_cards/six_cards";
-import ProfileImg from "../../components/profile_image/profile_image";
-import EmployeeImg from "../../components/employee_image/employee_image";
-import Our_job from "../../components/our_jobs/our_jobs"
-import Our_work from "../../components/our_work/our_work"
-import Quote_form from "../../components/quote_form/quote_form"
-import Sidebar from "@/components/sidebar/sidebar";
-import Footer from "@/components/footer/footer";
+import Header from "@/components/Header/Header";
+import Style from "@/components/SixCards/SixCards.module.css";
+import SixCards from "@/components/SixCards/SixCards";
+import ProfileImg from "@/components/ProfileImage/ProfileImage";
+import EmployeeImg from "@/components/EmployeeImage/EmployeeImage";
+import OurJob from "@/components/OurJobs/OurJobs"
+import OurWork from "@/components/OurWork/OurWork"
+import QuoteForm from "@/components/QuoteForm/QuoteForm"
+
+
+
+import SideBar from "@/components/Sidebar/Sidebar";
+import Footer from "@/components/Footer/Footer";
+import Collage from "@/components/Collage/Collage";
 
 export default function index() {
   return (
     <div>
 
-      <Sidebar />
-
+      <SideBar />
       <Header entryId={7} />
       <div style={{ marginLeft: '20%', paddingLeft: '2%', height: '150vh' }}>
         <div className={Style.parent}>
           {[7, 8, 9].map((entryId) => (
-            <Six_cards key={entryId} entryId={entryId} />
+            <SixCards key={entryId} entryId={entryId} />
           ))}
         </div>
 
         <div className={Style.parent}>
           {[10, 11, 12].map((entryId) => (
-            <Six_cards key={entryId} entryId={entryId} />
+            <SixCards key={entryId} entryId={entryId} />
           ))}
         </div>
         <Header entryId={8} />
@@ -42,12 +45,12 @@ export default function index() {
           ))}
         </div>
         <div className={Style.parent}>
-          <Our_work />
-          <Our_job entryId={4} />
-          <Our_job entryId={5} />
+          <OurWork />
+          <OurJob entryId={4} />
+          <OurJob entryId={5} />
         </div>
-
-        <Quote_form />
+        <Collage />
+        <QuoteForm />
         <Footer/>
         
       </div>

@@ -1,0 +1,227 @@
+.sidebar {
+  position: fixed;
+  top:0;
+  left: 0;
+  width: 50%;
+  height: 100vh;
+  background-color: rgba(255, 255, 255, 0.796); /* Transparent white background */
+  color: white;
+  transition: width 0.3s ease;
+  /* backdrop-filter: blur(10px); */
+  z-index: 1000; 
+  box-shadow: -5px 0 80px rgba(0, 0, 0, 0.1);
+}
+.outerbar{
+  /* Center the element horizontally */
+margin-left: auto;
+margin-right: auto;
+
+/* Set the maximum width for the element */
+max-width: 1280px; /* You can adjust the value as needed */
+
+/* Padding on all sides */
+padding-left: 1rem;
+padding-right: 1rem;
+padding-top: 4rem;
+padding-bottom: 4rem;
+
+/* Responsive Padding */
+@media (min-width: 640px) {
+  padding-left: 1.5rem;
+  padding-right: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  padding-left: 2rem;
+  padding-right: 2rem;
+}
+
+}
+.scrolling {
+  width: 20%; /* Narrow down when scrolling */
+  /* backdrop-filter: blur(5px); */
+}
+.header {
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-right: 1px solid #ccc;
+}
+
+.header img {
+  width: 180px;
+  height: 42px;
+}
+.burgerIcon {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  padding: 1rem;
+}
+
+.bar {
+  width: 25px;
+  height: 3px;
+  background-color: rgb(5, 5, 5);
+  margin: 3px 0;
+}
+
+.text {
+  display: none;
+  padding: 1rem;
+  text-align: center;
+}
+
+.nav {
+   /* Display the navigation links in a row */
+  /* flex-direction: column; */
+ 
+  padding: 4rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: black;
+  margin: 0.5rem 0;
+  display: inline-block; /* Display the links in-line */
+  margin-right: 1rem; /* Add some spacing between the links */
+  font-weight: bold; /* Add bold styling */
+  font-size: 1rem;
+}
+.nav h1{
+  font-size: 4rem; 
+  color: black ;
+  margin-top:20rem ;
+  font-weight: bold; /* Add bold styling */
+} 
+
+/* Add this CSS to your Sidebar.module.css */
+
+/* ... existing styles ... */
+
+.hamburgerIcon {
+display: inline-block;
+cursor: pointer;
+color: rgb(6, 6, 6);
+margin-left: 15px; /* Add some spacing */
+}
+
+.horizontalNavbar {
+display: none;
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100vh;
+background-color: white;
+z-index: 1000;
+overflow-y: auto;
+padding: 2rem;
+transition: left 0.3s ease;
+}
+
+.horizontalNavbar.active {
+left: 0;
+}
+
+.horizontalNavbar a {
+text-decoration: none;
+color: white;
+margin: 1rem 0;
+display: block;
+}
+
+.ant-drawer-wrapper {
+position: fixed;
+top: 0;
+left: 0;
+width: 100%;
+height: 100%;
+background-color: transparent;
+display: flex;
+justify-content: flex-start;
+align-items: flex-start;
+}
+
+.ant-drawer-content-wrapper {
+background-color: transparent;
+width: 100%;
+max-width: 400px;
+}
+
+.ant-drawer-body {
+padding: 0;
+overflow-y: auto;
+width: 100%;
+
+}
+/* .nav {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+}
+
+.nav a {
+  text-decoration: none;
+  color: white;
+  margin: 0.5rem 0; 
+ 
+} */ 
+.menuExpanded {
+  width: 100%; /* Adjust the width as needed */
+  /* Add any other styles for the expanded menu */
+}
+.nav li{
+  color: black;
+}
+@media (max-width: 768px) { 
+  .burgerIcon {
+    display: flex;
+  }
+
+  .text {
+    display: block;
+  }
+
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+
+  .expanded {
+    width: 100%;
+  }
+
+  .nav {
+    display: none;
+  }
+
+  .nav.expanded {
+    display: flex;
+  }
+}
+.socialMediaContainer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 0.5rem;
+ 
+} 
+.imageAndButtonContainer {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  justify-content: space-between;
+}
+
+.imageContainer {
+  flex: 1;
+}
+/* 
+.buttonContainer {
+  flex: 1;
+  text-align:right;
+  } */
