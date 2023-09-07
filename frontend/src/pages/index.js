@@ -1,10 +1,13 @@
 import Image from 'next/image'
 import React from 'react'
-import Header from '@/components/Header/Header.js'
+import Header from '@/components/Header/Header'
+
+
+import Styles from '../components/SixCards/SixCards.module.css'
+import Sidebar from '@/components/Sidebar/Sidebar'
 import Container from '@/components/Container/Container'
 import Expertise from '@/components/Expertise/Expertise'
-import Styles from '../components/SixCards/SixCards.module.css'
-import SideBar from "../../src/components/SideBar/sidebar";
+
 export default function Home() {
 
   
@@ -12,7 +15,7 @@ export default function Home() {
 
   return (
     <div> 
-      <SideBar />
+      <Sidebar />
       <Header entryId={1} />
       <div className={Styles.parent}>
         <Container entryId={1}/>
@@ -26,6 +29,7 @@ export default function Home() {
         <Container entryId={4}/>
         <Container entryId={5}/>
         <Container entryId={6}/>
+        
       </div>
       <h1 className="">Our Expertise</h1>
       <div className={Styles.parent}>
@@ -33,7 +37,7 @@ export default function Home() {
         <Expertise entryId={2} />
         <Expertise entryId={3} />
       </div>
-
+      
       <Header entryId={2} /> 
       
       
