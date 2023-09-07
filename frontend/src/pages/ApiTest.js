@@ -34,6 +34,7 @@ export default function index() {
     return (
         <div>
             <p>API Test</p>           
+            <HeaderTest data={getDataBySortOrder(0)} />
             <HeaderTest data={getDataBySortOrder(1)} />
         </div>
     )
