@@ -1,12 +1,15 @@
 import React from "react";
-import Header from "../../components/Header/Header";
-import Style from "../../components/SixCards/SixCards.module.css";
-import SixCards from "../../components/SixCards/SixCards";
-import ProfileImg from "../../components/ProfileImage/ProfileImage";
-import EmployeeImg from "../../components/EmployeeImage/EmployeeImage";
-import OurJob from "../../components/OurJobs/OurJobs"
-import OurWork from "../../components/OurWork/OurWork"
-import QuoteForm from "../../components/QuoteForm/QuoteForm"
+import Header from "@/components/Header/Header";
+import Style from "@/components/SixCards/SixCards.module.css";
+import SixCards from "@/components/SixCards/SixCards";
+import ProfileImg from "@/components/ProfileImage/ProfileImage";
+import EmployeeImg from "@/components/EmployeeImage/EmployeeImage";
+import OurJob from "@/components/OurJobs/OurJobs"
+import OurWork from "@/components/OurWork/OurWork"
+import QuoteForm from "@/components/QuoteForm/QuoteForm"
+
+
+
 import SideBar from "@/components/Sidebar/Sidebar";
 import Footer from "@/components/Footer/Footer";
 import Collage from "@/components/Collage/Collage";
