@@ -21,7 +21,7 @@ export default function HeaderTest({ data }) {
                 <>
                     {headerImage && (
                         <Image 
-                        src={host + data.attributes.url} 
+                        src={host + headerImage.attributes.url} 
                         alt="Header Image" 
                         width="1500"
                         height="1000"/>
