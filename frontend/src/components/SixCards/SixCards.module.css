@@ -1,0 +1,84 @@
+/*card*/
+.card {
+  width: 16rem;
+  height: 11rem;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease-in-out;
+  position: relative; 
+  margin:50px; 
+  display: flex; /* Use flexbox to center content vertically and horizontally */
+  flex-direction: column; /* Stack content vertically */
+  align-items: center; /* Center content horizontally */
+  justify-content: center; 
+}
+
+.card:hover {
+  background-color: #b2caec;
+  /* Adjust color as needed */
+}
+
+.initialDetails {
+  color: #555; 
+  
+  align-items: center; /* Centers vertically */
+  
+  box-sizing: border-box;
+} 
+
+
+.flexContainer hr {
+  background-color: blue;
+  position: absolute;
+  margin-top: -2rem;
+  font-weight: bold;
+  width: 6rem;
+  height: 5px; 
+  margin-left: 0.8rem; 
+}
+.initialDetails h2 {
+ 
+  color: #000000;
+
+margin-bottom: 50px;
+  
+}
+.card:hover .initialDetails {
+  display: none;
+}
+
+.details {
+ 
+  
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  display: none;
+  color: #555;
+  padding: 1px;
+  box-sizing: border-box;
+}
+
+.card:hover .details {
+  display: block;
+} 
+.parent {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+  padding: 50px 0;
+  text-align: center;
+
+ 
+} 
+.child {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  text-align: center;
+  justify-content: space-around;
+}
+.textcenter{
+  text-align: center;
+}
