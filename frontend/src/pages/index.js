@@ -15,7 +15,7 @@ export default function Home() {
 
   return (
     <div> 
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Header entryId={1} />
       <div className={Styles.parent}>
         <Container entryId={1}/>
