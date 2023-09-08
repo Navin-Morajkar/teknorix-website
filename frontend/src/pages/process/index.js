@@ -1,10 +1,10 @@
-import Header from "../../components/header/header";
-import Six_cards from "../../components/six_cards/six_cards"; 
-import Quote_form from "../../components/quote_form/quote_form" 
-import Flow_container from "../../components/flow_container/flow_container" 
-import Our_job from "../../components/our_jobs/our_jobs" 
-import Our_work from"../../components/our_work/our_work"
-import Style from "../../components/six_cards/six_cards.module.css"
+import Header from "../../components/Header/Header";
+import Six_cards from "../../components/SixCards/SixCards"; 
+import Quote_form from "../../components/QuoteForm/QuoteForm" 
+import Flow_container from "../../components/FlowContainer/FlowContainer" 
+import Our_job from "../../components/OurJobs/OurJobs" 
+import Our_work from"../../components/OurWork/OurWork"
+import Style from "../../components/SixCards/SixCards.module.css"
 export default function index() {
   return (
     <div>
