@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Style from "../Achievement/Achievement.module.css";
+import Style from "../Achievement/achievement.module.css";
 
 function Achievement({ data }) {
   const incrementers = [
