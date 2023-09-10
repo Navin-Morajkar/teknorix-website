@@ -1,57 +1,91 @@
-import React from "react";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
+import ProfileImage from "@/components/ProfileImage/ProfileImage";
+import EmployeeImage from "@/components/EmployeeImage/EmployeeImage";
 import Style from "@/components/SixCards/SixCards.module.css";
-import SixCards from "@/components/SixCards/SixCards";
-import ProfileImg from "@/components/ProfileImage/ProfileImage";
-import EmployeeImg from "@/components/EmployeeImage/EmployeeImage";
-import OurJob from "@/components/OurJobs/OurJobs"
-import OurWork from "@/components/OurWork/OurWork"
-import QuoteForm from "@/components/QuoteForm/QuoteForm"
-import SideBar from "@/components/Sidebar/Sidebar";
+import OurWork from "@/components/OurWork/OurWork";
+import OurJobs from "@/components/OurJobs/OurJobs";
+import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Footer from "@/components/Footer/Footer";
-import Collage from "@/components/Collage/Collage";
+import SixCards from "@/components/SixCards/SixCards";
 
-export default function index() {
+
+export async function getServerSideProps() {
+    const headerResponse = await fetch(
+      "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=AboutUsPage"
+    );
+    const headerData = await headerResponse.json();
+  
+    const employeeResponse = await fetch(
+      "http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100"
+    );
+    const employeeData = await employeeResponse.json();
+
+    const advantageResponse = await fetch(
+      "http://13.233.214.226:1337/api/advantages?populate=*&filters[Page][$eq]=AboutUsPage"
+    );
+    const advantageData = await advantageResponse.json();
+  
+  
+    return {
+      props: {
+        headerData: headerData.data,
+        employeeData: employeeData.data,
+        advantageData:advantageData.data
+      },
+    };
+  }
+  
+
+export default function Home({ headerData, employeeData,advantageData }) {
+  const getDataBySortOrder = (data, sortOrder) => {
+    return data.find((item) => item.attributes.SortOrder === sortOrder);
+  };
+
+  const filterEmployeesByType = (data, type) => {
+    return data.filter((item) => item.attributes.EmployeeType === type);
+  };
+
+  const filteredEmployees = filterEmployeesByType(employeeData, "Employee");
+
   return (
     <div>
-
-      <SideBar />
-      <Header entryId={7} />
-      <div style={{ marginLeft: '20%', paddingLeft: '2%', height: '150vh' }}>
-        <div className={Style.parent}>
-          {[7, 8, 9].map((entryId) => (
-            <SixCards key={entryId} entryId={entryId} />
-          ))}
-        </div>
-
-        <div className={Style.parent}>
-          {[10, 11, 12].map((entryId) => (
-            <SixCards key={entryId} entryId={entryId} />
-          ))}
-        </div>
-        <Header entryId={8} />
+      <Sidebar />
+      <Header data={getDataBySortOrder(headerData, 0)} />
+      <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}>
+      <div className={Style.parent}>
+          
+          <SixCards data={getDataBySortOrder(advantageData,1)} />
+          <SixCards data={getDataBySortOrder(advantageData,2)} />
+          <SixCards data={getDataBySortOrder(advantageData,3)} />
+      </div>
+      <div className={Style.parent}>
+          
+          <SixCards data={getDataBySortOrder(advantageData,4)} />
+          <SixCards data={getDataBySortOrder(advantageData,5)} />
+          <SixCards data={getDataBySortOrder(advantageData,6)} />
+      </div>
+        <Header data={getDataBySortOrder(headerData, 1)} />
         <h2 className={Style.textcenter}>Our Team</h2>
         <div className={Style.parent}>
-          <ProfileImg entryId={1} />
-          <ProfileImg entryId={2} />
+          <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
+          <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
         </div>
         <div className={Style.child}>
-          <EmployeeImg entryId={3} />
-          {Array.from({ length: 61 }, (_, index) => index + 5).map((entryId) => (
-            <EmployeeImg key={entryId} entryId={entryId} />
+          {filteredEmployees.map((employee) => (
+            <EmployeeImage key={employee.id} data={employee} />
           ))}
         </div>
         <div className={Style.parent}>
           <OurWork />
-          <OurJob entryId={4} />
-          <OurJob entryId={5} />
+          <OurJobs entryId={4} />
+          <OurJobs entryId={5} />
         </div>
-        <Collage />
         <QuoteForm />
-        <Footer/>
-        
+        <Footer />
       </div>
     </div>
-
   );
 }
+
+
