@@ -6,8 +6,9 @@ import Styles from "../components/SixCards/SixCards.module.css";
 import { Button } from "antd";
 import Footer from "@/components/Footer/Footer";
 import Achievement from "@/components/Achievement/achievement";
-//This is like index.js
-//So we call the api call here and pass the data down or sort
+import QuoteForm from "@/components/QuoteForm/QuoteForm";
+import OurWork from "@/components/OurWork/OurWork";
+import OurJobs from "@/components/OurJobs/OurJobs";
 
 export default function index() {
   const [headerData, setHeaderData] = useState([]);
@@ -53,7 +54,6 @@ export default function index() {
 
   return (
     <div>
-      {/* <Sidebar />           */}
       <Header data={getDataBySortOrder(headerData, 0)} />
 
       <div className={Styles.parent}>
@@ -65,7 +65,7 @@ export default function index() {
       <Button
         href="/services"
         type="primary"
-        styles={{backgroudColor: "#4d94e4;"}}
+        styles={{ backgroudColor: "#4d94e4;" }}
         shape="round"
         size="large">
         Learn More about our services
@@ -89,10 +89,17 @@ export default function index() {
         <Container data={getDataBySortOrder(expertiseData, 3)} />
       </div>
 
-      <Achievement data={getDataBySortOrder(achievementData, 1)}/>
+      <Achievement data={getDataBySortOrder(achievementData, 1)} />
       <Header data={getDataBySortOrder(headerData, 1)} />
 
-      <Footer />
+
+      <div className={Styles.parent}>
+        <OurWork />
+        <OurJobs entryId={4} />
+        <OurJobs entryId={5} />
+      </div>
+      <QuoteForm />
+      
     </div>
   );
 }
