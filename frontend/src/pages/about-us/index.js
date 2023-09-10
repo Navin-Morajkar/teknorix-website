@@ -20,17 +20,24 @@ export async function getServerSideProps() {
       "http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100"
     );
     const employeeData = await employeeResponse.json();
+
+    const advantageResponse = await fetch(
+      "http://13.233.214.226:1337/api/advantages?populate=*&filters[Page][$eq]=AboutUsPage"
+    );
+    const advantageData = await advantageResponse.json();
+  
   
     return {
       props: {
         headerData: headerData.data,
         employeeData: employeeData.data,
+        advantageData:advantageData.data
       },
     };
   }
   
 
-export default function Home({ headerData, employeeData }) {
+export default function Home({ headerData, employeeData,advantageData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
@@ -47,16 +54,17 @@ export default function Home({ headerData, employeeData }) {
       <Header data={getDataBySortOrder(headerData, 0)} />
       <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}>
       <div className={Style.parent}>
-          {[7, 8, 9].map((entryId) => (
-            <SixCards key={entryId} entryId={entryId} />
-          ))}
-        </div>
-
-        <div className={Style.parent}>
-          {[10, 11, 12].map((entryId) => (
-            <SixCards key={entryId} entryId={entryId} />
-          ))}
-        </div>
+          
+          <SixCards data={getDataBySortOrder(advantageData,1)} />
+          <SixCards data={getDataBySortOrder(advantageData,2)} />
+          <SixCards data={getDataBySortOrder(advantageData,3)} />
+      </div>
+      <div className={Style.parent}>
+          
+          <SixCards data={getDataBySortOrder(advantageData,4)} />
+          <SixCards data={getDataBySortOrder(advantageData,5)} />
+          <SixCards data={getDataBySortOrder(advantageData,6)} />
+      </div>
         <Header data={getDataBySortOrder(headerData, 1)} />
         <h2 className={Style.textcenter}>Our Team</h2>
         <div className={Style.parent}>
