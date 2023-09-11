@@ -1,56 +1,41 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
-
+import ContainerLeft from "@/components/ContainerLeft/ContainerLeft";
 import Style from "@/components/SixCards/SixCards.module.css";
+import ContainerRight from "@/components/ContainerRight/ContainerRight";
 
 export async function getServerSideProps() {
-    const headerResponse = await fetch(
-      "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=OurWorksPage"
-    );
-    const headerData = await headerResponse.json();
-  
-    const advantageResponse = await fetch(
-      "http://13.233.214.226:1337/api/advantages?populate=*&filters[Page][$eq]=ProcessPage"
-    );
-    const advantageData = await advantageResponse.json();
+  const headerResponse = await fetch(
+    "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=OurWorksPage"
+  );
+  const headerData = await headerResponse.json();
 
-    const flowResponse = await fetch(
-      "http://13.233.214.226:1337/api/flows?populate=*&filters[Page][$eq]=ProcessPage"
-    );
-    const flowData = await flowResponse.json();
-  
-    return {
-      props: {
-        headerData: headerData.data,
-        advantageData: advantageData.data,
-        flowData:flowData.data,
-      },
-    };
-  }
-  
+  const portfolioResponse = await fetch(
+    "http://13.233.214.226:1337/api/our-works?populate[image][fields][1]=url"
+  );
+  const portfolioData = await portfolioResponse.json();
 
-export default function Home({ headerData, advantageData,flowData }) {
+  return {
+    props: {
+      headerData: headerData.data,
+      portfolioData: portfolioData.data,
+    },
+  };
+}
+
+export default function Home({ headerData, portfolioData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
 
- 
-
   return (
     <div>
-      
       <Header data={getDataBySortOrder(headerData, 0)} />
       
+      {portfolioData.map((item) => (
+        <ContainerLeft key={item.SortOrder} data={item} />
+      ))}
       
-
-        
-        
-       
-      
-        
-      </div>
-    
+    </div>
   );
 }
-
-
