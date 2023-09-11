@@ -93,7 +93,7 @@ padding-bottom: 4rem;
 .nav h1{
   font-size: 4rem; 
   color: black ;
-  margin-top:20rem ;
+  margin-top:10rem ;
   font-weight: bold; /* Add bold styling */
 } 
 
@@ -224,4 +224,42 @@ width: 100%;
 .buttonContainer {
   flex: 1;
   text-align:right;
-  } */
+  } */ 
+.socialIcons {
+  display: flex;
+  gap: 10px; /* Increased gap for more spacing between icons */
+  position: fixed;
+  bottom: 5px;
+  left: 40px;
+ 
+}
+
+.socialIcons a {
+  color: #333; /* Icon color */
+  text-decoration: none;
+  font-size: 1.5rem;
+  position: relative; /* Ensure the icon container has a position */
+  transition: color 0.3s; /* Transition color only on hover */
+}
+
+.socialIcons a:hover {
+  color: #000; /* Hover color */
+}
+
+.socialIcons a::before {
+  content: ''; /* Create a pseudo-element for the ring effect */
+  position: absolute;
+  top: -4px;
+  left: -7px;
+  right: -7px;
+  bottom: -4px;
+  border: 2px solid transparent; /* Transparent border to start */
+  border-radius: 50%; /* Circle border */
+  transition: border-color 0.3s; /* Transition border color on hover */
+  opacity: 0; /* Initially hide the ring */
+}
+
+.socialIcons a:hover::before {
+  border-color: #000; /* Black ring around the icon on hover */
+  opacity: 1; /* Show the ring on hover */
+}
