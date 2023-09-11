@@ -34,13 +34,11 @@ export default function Home({ headerData,productData }) {
     <div> 
       <Sidebar />
       <Header data={getDataBySortOrder(headerData, 0)} />
-      <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}>
       <ContainerLeft  data={getDataBySortOrder(productData,1)} />
       <ContainerRight data={getDataBySortOrder(productData,2)} />           
       <ContainerLeft data={getDataBySortOrder(productData,3)} />
       <WantToLearnMoreform />
-      <Footer/>
     </div>
-    </div>
+   
   );
 }

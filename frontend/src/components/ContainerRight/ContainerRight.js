@@ -15,7 +15,7 @@ export default function ContainerRight ({ data }) {
   const host = "http://13.233.214.226:1337"; 
   let containerImage = null; 
   if (data) {
-    containerImage = data.attributes.photo?.data;
+    containerImage = data.attributes.image?.data;
     
 }
   return ( 
