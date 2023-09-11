@@ -1,10 +1,11 @@
 const breakpoints = [3840, 2400, 1080, 640, 384, 256, 128, 96, 64, 48];
 
 const unsplashLink = (id: string, width: number, height: number) =>
-    `https://source.unsplash.com/${id}/${width}x${height}`;
+    `http://13.233.214.226:1337/api/collages?fields[0]=title&fields[1]=slug&populate[Image][fields][0]=name&populate[Image][fields][1]=url&populate[Image][fields][2]=height&populate[Image][fields][3]=width
+    ${id}/${width}x${height}`;
 
 const unsplashPhotos = [
-    { id: "8gVv6nxq6gY", width: 1080, height: 800 },
+    { id: "8gVv6nxq6gY", width: 2080, height: 1800 },
     { id: "Dhmn6ete6g8", width: 1080, height: 1620 },
     { id: "RkBTPqPEGDo", width: 1080, height: 720 },
     { id: "Yizrl9N_eDA", width: 1080, height: 721 },
