@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
-import { MenuOutlined } from "@ant-design/icons";
+import { MenuOutlined, LinkedinOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
 import  Link  from 'next/link';
 
 
@@ -46,8 +46,9 @@ const Sidebar = () => {
           height: "100%",
           boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
         }}
-      >
-        <div className={styles.header}>
+      >  
+        <div className={styles.header}> 
+      
           <Image
             src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
             width="180"
@@ -61,25 +62,26 @@ const Sidebar = () => {
           </div>{" "}
         </div>
         <nav className={`${styles.nav} ${expanded ? styles.expanded : ""}`}>
-          {isMenuExpanded ? (
+          {isMenuExpanded ? ( 
+            
             <div className={styles.outerbar}>
               <div className="lg:flex lg:items-start lg:gap-8">
 
-                <div className="flex space-x-5">
-                  <div class=" hover:bg-yellow-400 pr-28 pl-10 py-10">
+                <div className="flex space-x-2">
+                  <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
 
-                    <p class="font-bold text-2xl dark:text-black">About us</p>
+                    <Link href="/about-us" class="font-bold text-2xl dark:text-black">About us</Link>
 
-                    <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                    <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
 
-                        <Link href="/about-us">ABOUT US </Link>
+                        <Link href="/about-us">About us </Link>
                       </li>
                       <li>
                         <Link href="/process"  >Process</Link>
                       </li>
                       <li>
-                        <Link href="/technologies">Technologies</Link>
+                        <Link href="/technologies" >Technologies</Link>
                       </li>
                       <li>
                         <Link href="/our-works">Our Works</Link>
@@ -89,12 +91,12 @@ const Sidebar = () => {
                   </div>
 
 
-                  <div className=" hover:bg-yellow-400 pr-40 pl-10 py-10">
-                  <p class="font-bold text-2xl dark:text-black">
+                  <div className=" hover:bg-yellow-400 pr-1 pl-10 py-10">
+                  <Link href="/services" class="font-bold text-2xl dark:text-black">
                       Services
-                    </p>
+                    </Link>
 
-                    <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                    <ul class="mt-3 space-y-2 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
 
                         <Link
@@ -127,12 +129,12 @@ const Sidebar = () => {
                     </ul>
                   </div>
 
-                  <div class=" hover:bg-yellow-400 pr-40 pl-10 py-10">
-                  <p class="font-bold text-2xl dark:text-black">
+                  <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
+                  <Link href="/products" class="font-bold text-2xl dark:text-black">
                       Products
-                    </p>
+                    </Link>
 
-                    <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                    <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
 
                         <Link
@@ -163,12 +165,12 @@ const Sidebar = () => {
                     </ul>
                   </div>
 
-                  <div class=" hover:bg-yellow-400 pr-40 pl-10 py-10">
-                  <p class="font-bold text-2xl dark:text-black">
+                  <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
+                  <Link href="/about-us" class="font-bold text-2xl dark:text-black">
                       Careers
-                    </p>
+                    </Link>
 
-                    <ul class="mt-3 space-y-4 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                    <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                      
                       <li>
 
@@ -189,7 +191,8 @@ const Sidebar = () => {
                         </Link>
 
                       </li>
-                    </ul>
+                    </ul> 
+                   
                   </div>
                 </div>
               </div>
@@ -197,8 +200,9 @@ const Sidebar = () => {
           ) : (
             <>
 
-              <Link href="/about-us">ABOUT US </Link>
-
+              <Link href="/about-us" >ABOUT US </Link>
+            
+             
               {showAboutList && (
                 <ul>
                   <li>About Us</li>
@@ -210,12 +214,27 @@ const Sidebar = () => {
 
              
               <Link href="/services">SERVICES</Link>
-              <Link href="/products">PRODUCTS</Link>
+              <Link href="/products" >PRODUCTS</Link>
               <Link href="/careers">CAREERS</Link>
-              <Link href="/contact">CONTACT</Link>
+              <Link href="/contact" >CONTACT</Link>
 
               {showAboutHeading && <h1>ABOUT US</h1>}
-              <div className={styles.socialMediaContainer}></div>
+              <div className={styles.socialIcons}>
+      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
+        <LinkedinOutlined className={styles.iconStyle}   />
+        
+      </a>
+      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
+      <FacebookFilled className={styles.iconStyle} />
+      </a>
+      <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
+        <TwitterOutlined className={styles.iconStyle} />
+      </a>
+      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
+      <InstagramFilled className={styles.iconStyle} />
+      </a>
+  </div>
+             
             </>
           )}
         </nav>
