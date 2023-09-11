@@ -1,10 +1,10 @@
 import React from 'react' 
 import Image from 'next/image';
-import Style from "../MainProfileImage/MainProfileImage.module.css"
+import Style from "../TechStack/TechStack.module.css"
 
 const profileimg = () => {
   return (
-    <div>
+    <div classNmame={Style.card} >
     <Image src ="/images/image1.jpg" alt="My Image" width={300} height={300} />
     <h5> "ASP.NET"</h5>
     <hr />
