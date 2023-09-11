@@ -1,4 +1,16 @@
 .incrementor{
-    font-size: 2rem; 
-    
+  font-size: 2rem; 
+  
+} 
+.columnContainer {
+  display: flex;
+  flex-direction: row;
+ 
+  gap: 2rem; /* Optional: Add some spacing between the columns */
+} 
+.rowContainer {
+  display: flex; /* This makes the container a flex container */
+  flex-wrap: wrap; /* Allows items to wrap to the next line when they overflow */
+  justify-content: space-between; /* Distributes items evenly with space between them */
+  margin-bottom: 20px; /* Adds some space between rows, adjust as needed */
 }
