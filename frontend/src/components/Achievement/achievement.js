@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import Style from "../Achievement/achievement.module.css"
+import React, { useState, useEffect } from "react";
+import Style from "../Achievement/achievement.module.css";
 
-function Achievement() {
+function Achievement({ data }) {
+
   const incrementers = [
     { initialValue: 0, incrementValue: 1, maxValue: 10 },
     { initialValue: 0, incrementValue: 2, maxValue: 20 },
@@ -74,4 +75,3 @@ function Achievement() {
 }
 
 export default Achievement;
- 
