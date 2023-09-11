@@ -2,7 +2,7 @@ import React from "react";
 import Style from "../ContainerLeft/ContainerLeft.module.css";
 import Styles from "../OurJobs/OurJobs.module.css";
 
-const our_work = () => {
+const OurWork = () => {
   return (
     <div className={Style.flexContainer}>
       <div className={Style.alignLeft}>
@@ -15,4 +15,4 @@ const our_work = () => {
   );
 };
 
-export default our_work;
+export default OurWork;
