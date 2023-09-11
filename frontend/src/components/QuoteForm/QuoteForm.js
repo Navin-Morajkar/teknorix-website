@@ -1,7 +1,8 @@
 import React, { useEffect } from "react";
 import { Button, Form, Input } from "antd";
 import Style from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css";
-const CustomForm = () => {
+
+const QuoteForm = () => {
   const [form] = Form.useForm(); // Uncomment this line
 
   useEffect(() => {
@@ -24,47 +25,42 @@ const CustomForm = () => {
           form={form}
           name="horizontal_login"
           layout="inline"
-          onFinish={onFinish}
-        >
+          onFinish={onFinish}>
           <Form.Item
-            name="username" 
+            name="username"
             label="username"
             rules={[
               {
                 message: "Please Enter Your Name!",
               },
-            ]}
-          >
+            ]}>
             <Input type="text" placeholder="Enter your first name" />
           </Form.Item>
           <Form.Item
-            name="email" 
+            name="email"
             label="email"
             rules={[
               {
                 message: "Enter your email address",
               },
-            ]}
-          >
+            ]}>
             <Input type="email" placeholder="Enter your email" />
           </Form.Item>
           <Form.Item
-            name="number" 
+            name="number"
             label="Phone number:"
             rules={[
               {
                 message: "Enter your correct number!",
               },
-            ]}
-          >
+            ]}>
             <Input type="number" placeholder="Enter your phone number" />
           </Form.Item>
 
           <Form.Item
             name="intro"
             label="Project Brief"
-            rules={[{ required: true, message: "Please input Intro" }]}
-          >
+            rules={[{ required: true, message: "Please input Intro" }]}>
             <Input.TextArea showCount maxLength={100} />
           </Form.Item>
           <Form.Item shouldUpdate>
@@ -80,4 +76,4 @@ const CustomForm = () => {
   );
 };
 
-export default CustomForm;
+export default QuoteForm;

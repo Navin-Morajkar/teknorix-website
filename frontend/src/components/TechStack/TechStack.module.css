@@ -1,0 +1,14 @@
+.card {
+    width: 16rem;
+    height: 11rem;
+    padding: 20px;
+    border: 1px solid #ccc;
+    background-color: #ffffff;
+    transition: background-color 0.3s ease-in-out;
+    position: relative; 
+    margin:50px; 
+    display: flex; /* Use flexbox to center content vertically and horizontally */
+    flex-direction: column; /* Stack content vertically */
+    align-items: center; /* Center content horizontally */
+    justify-content: center; 
+  }
