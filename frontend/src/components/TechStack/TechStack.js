@@ -6,7 +6,7 @@ export default function profileimg ({ data }) {
   const host = "http://13.233.214.226:1337"; 
   let teckStackImage = null; 
   if (data) {
-    teckStackImage = data.attributes.image?.data;
+    teckStackImage = data.attributes.Image?.data;
     
 }
   return ( 
@@ -19,13 +19,13 @@ export default function profileimg ({ data }) {
           <Image 
             src={host + teckStackImage.attributes.url} 
             alt="container Image" 
-            width="300"
-            height="300"/>
+            width="200"
+            height="200"/>
         )}
-    <h5> {data.attributes.title}</h5>
+    <h5> {data.attributes.Title}</h5>
     <hr />
     <div >
-    <p>{data.attributes.description}</p>
+    <p>{data.attributes.Description}</p>
     </div>
    
     </div>

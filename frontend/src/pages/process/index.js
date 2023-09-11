@@ -44,9 +44,9 @@ export default function Home({ headerData, advantageData,flowData }) {
 
   return (
     <div>
-      <Sidebar />
+      
       <Header data={getDataBySortOrder(headerData, 0)} />
-      <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}>
+      
       <div className={Style.parent}>
           
           <SixCards data={getDataBySortOrder(advantageData,1)} />
@@ -75,9 +75,9 @@ export default function Home({ headerData, advantageData,flowData }) {
           <OurJobs entryId={5} />
         </div>
         <QuoteForm />
-        <Footer />
+        
       </div>
-    </div>
+    
   );
 }
 
