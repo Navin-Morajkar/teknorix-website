@@ -17,7 +17,7 @@ export async function getServerSideProps() {
     const headerData = await headerResponse.json();
   
     const employeeResponse = await fetch(
-      "http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100"
+      "http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100&sort[0]=id&sort[1]=SortOrder"
     );
     const employeeData = await employeeResponse.json();
 
@@ -50,9 +50,9 @@ export default function Home({ headerData, employeeData,advantageData }) {
 
   return (
     <div>
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Header data={getDataBySortOrder(headerData, 0)} />
-      <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}>
+      {/* <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}> */}
       <div className={Style.parent}>
           
           <SixCards data={getDataBySortOrder(advantageData,1)} />
@@ -73,7 +73,7 @@ export default function Home({ headerData, employeeData,advantageData }) {
         </div>
         <div className={Style.child}>
           {filteredEmployees.map((employee) => (
-            <EmployeeImage key={employee.id} data={employee} />
+            <EmployeeImage key={employee.SortOrder} data={employee} />
           ))}
         </div>
         <div className={Style.parent}>
@@ -82,9 +82,9 @@ export default function Home({ headerData, employeeData,advantageData }) {
           <OurJobs entryId={5} />
         </div>
         <QuoteForm />
-        <Footer />
+        {/* <Footer /> */}
       </div>
-    </div>
+    
   );
 }
 
