@@ -16,7 +16,7 @@ export default function ProfileImage({ data }) {
   
 
   if (data) {
-      eImage = data.attributes.photo?.data;
+      eImage = data.attributes.image?.data;
      
   }
   
