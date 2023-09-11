@@ -10,7 +10,7 @@ export default function EmployeeImage({ data }) {
   
 
   if (data) {
-      eImage = data.attributes.photo?.data;
+      eImage = data.attributes.image?.data;
      
   }
   
