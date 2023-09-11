@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
-import { MenuOutlined,LinkedInOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
+import { MenuOutlined, LinkedInOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
 import  Link  from 'next/link';
 
 
