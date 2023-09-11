@@ -1,7 +1,7 @@
 import React, { useEffect} from 'react';
 import { Button, Form, Input } from 'antd';
 import Style from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css"
-
+import Styles from "../ContainerLeft/ContainerLeft.module.css"
 const CustomForm = () => {
     // const [form] = Form.useForm(); 
   
@@ -13,44 +13,50 @@ const CustomForm = () => {
     //   console.log('Finish:', values);
     // };
 
-  return (
+  return ( 
+    <div  className={Styles.flexContainer}>
     <div className={Style.formStyle}> 
       <div className={Style.formContainer}>
       <h1>Want to Learn More?</h1> 
       <p>Share your contact details and one of our Product Specialists will get in touch with you.</p>
       <Form name="horizontal_login" layout="inline" >
         <Form.Item
-          name="username"
+          name="Name"
           rules={[
             {
               
-              message: 'Please input your username!',
+              message: 'Please input your Name!',
             },
           ]}
         >
           <Input 
-          type="text"  />
+          type="text"  
+          placeholder='Name' />
         </Form.Item>
         <Form.Item
-          name="password"
+          name="email"
           rules={[
             {
              
-              message: 'Please input your password!',
+              message: 'Please input your Email!',
             },
           ]}
         >
           <Input
            
-            type="password"
+            type="email" 
+            placeholder='Email'
           
           />
         </Form.Item>
         <Form.Item shouldUpdate>
           {() => (
             <Button
-              type="primary"
-              htmlType="submit"
+            
+              htmlType="submit" 
+              style={{  backgroundColor: '#09ab6f',
+                borderColor: "#09ab6f" }}
+             
              
             >
              Contact us
@@ -59,6 +65,7 @@ const CustomForm = () => {
         </Form.Item>
       </Form> 
       </div>
+    </div> 
     </div>
   );
 };
