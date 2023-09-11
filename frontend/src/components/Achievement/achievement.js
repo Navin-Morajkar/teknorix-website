@@ -2,10 +2,16 @@ import React, { useState, useEffect } from "react";
 import Style from "../Achievement/achievement.module.css";
 
 function Achievement({ data }) {
+
   const incrementers = [
     { initialValue: 0, incrementValue: 1, maxValue: 10 },
     { initialValue: 0, incrementValue: 2, maxValue: 20 },
     { initialValue: 0, incrementValue: 3, maxValue: 30 },
+    { initialValue: 0, incrementValue: 3, maxValue: 30 },
+    { initialValue: 0, incrementValue: 1, maxValue: 10 },
+    { initialValue: 0, incrementValue: 2, maxValue: 20 },
+    { initialValue: 0, incrementValue: 3, maxValue: 30 },
+    { initialValue: 0, incrementValue: 3, maxValue: 30 }
   ];
 
   const AutoIncrementer = ({ initialValue, incrementValue, maxValue }) => {
@@ -40,15 +46,30 @@ function Achievement({ data }) {
 
   return (
     <div>
-      {incrementers.map((incrementer, index) => (
-        <span key={index}>
-          <AutoIncrementer
-            initialValue={incrementer.initialValue}
-            incrementValue={incrementer.incrementValue}
-            maxValue={incrementer.maxValue}
-          />
-        </span>
-      ))}
+      <div className={Style.columnContainer}>
+        <div className={Style.rowContainer}>
+          {incrementers.slice(4).map((incrementer, index) => (
+            <span key={index}>
+              <AutoIncrementer
+                initialValue={incrementer.initialValue}
+                incrementValue={incrementer.incrementValue}
+                maxValue={incrementer.maxValue}
+              />
+            </span>
+          ))}
+        </div>
+        <div className={Style.rowContainer}>
+          {incrementers.slice(4).map((incrementer, index) => (
+            <span key={index}>
+              <AutoIncrementer
+                initialValue={incrementer.initialValue}
+                incrementValue={incrementer.incrementValue}
+                maxValue={incrementer.maxValue}
+              />
+            </span>
+          ))}
+        </div>
+      </div>
     </div>
   );
 }

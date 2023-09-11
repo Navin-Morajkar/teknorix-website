@@ -11,8 +11,8 @@
   }
   
   .formContainer {
-    align-items: center;
-    padding-left: 320px;
+   
+    padding-left: 10rem;
   }
   
   .formContainer p {
@@ -20,11 +20,11 @@
   }
   
   .formContainer h1 {
-    padding-left: 120px;
+    align-items: center;
     color: white;
   }
   
   .formStyle Input {
     padding: 10px 28px;
-  }
+  } 
   
