@@ -54,4 +54,8 @@ export default function ContainerLeft({ data }) {
       )}
     </div>
   );
+
 }
+
+
+
