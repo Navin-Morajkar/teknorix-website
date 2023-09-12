@@ -17,8 +17,10 @@ export default function ContainerRight({ data }) {
   if (data) {
     containerImage = data.attributes.image?.data;
 
+
   }
   return (
+
     <div>
       {
         data ?
