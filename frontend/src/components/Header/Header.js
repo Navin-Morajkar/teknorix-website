@@ -2,8 +2,12 @@ import React from "react";
 import Style from "../Header/Header.module.css";
 import Image from "next/image";
 import { Button } from "antd";
+import { useContext } from "react";
+import { MyContext } from "../MyContext";
 
 export default function Header({ data }) {
+  const { setHeaderImageLink } = useContext(MyContext);
+
   const host = "http://13.233.214.226:1337";
   let headerImage = null;
   let bodyImage = null;
@@ -14,21 +18,15 @@ export default function Header({ data }) {
     bodyImage = data.attributes.bodyImage?.data;
     pageLink=data.attributes?.Link
   }
-  console.log(pageLink)
+
+  if (headerImage) {
+    setHeaderImageLink(host + headerImage.attributes.url);
+  }
 
   return (
     <div>
       {data ? (
         <>
-          {headerImage && (
-            <Image
-              src={host + headerImage.attributes.url}
-              alt="Header Image"
-              width="1700"
-              height="1000"
-            />
-          )}
-
           <div className={Style.header}>
             <div style={{ marginLeft: "20%", paddingLeft: "2%" }}>
               <h1>{data.attributes.title}</h1>
