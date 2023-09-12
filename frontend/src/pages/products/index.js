@@ -15,13 +15,13 @@ export async function getServerSideProps() {
     "http://13.233.214.226:1337/api/products?populate=*&filters[Page][$eq]=ProductsPage"
   );
   const productData = await productResponse.json();
-
   
 
   return {
     props: {
       headerData: headerData.data,
-      productData:productData.data
+      productData:productData.data,
+     
     },
   };
 }
@@ -32,7 +32,7 @@ export default function Home({ headerData,productData }) {
   };
   return (
     <div> 
-      <Sidebar />
+      {/* <Sidebar /> */}
       <Header data={getDataBySortOrder(headerData, 0)} />
       <ContainerLeft  data={getDataBySortOrder(productData,1)} />
       <ContainerRight data={getDataBySortOrder(productData,2)} />           
