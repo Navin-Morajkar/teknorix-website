@@ -3,9 +3,7 @@ import { Container } from "postcss";
 import ContainerLeft from "../../components/ContainerLeft/ContainerLeft";
 import ContainerRight from "../../components/ContainerRight/ContainerRight";
 import WantToLearnMoreform from "../../components/WantToLearnMoreForm/WantToLearnMoreForm" 
-import Footer from '../../components/Footer/Footer'
 
-import Sidebar from "@/components/Sidebar/Sidebar";
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=ProductsPage"
@@ -15,13 +13,13 @@ export async function getServerSideProps() {
     "http://13.233.214.226:1337/api/products?populate=*&filters[Page][$eq]=ProductsPage"
   );
   const productData = await productResponse.json();
-
   
 
   return {
     props: {
       headerData: headerData.data,
-      productData:productData.data
+      productData:productData.data,
+     
     },
   };
 }
@@ -32,15 +30,12 @@ export default function Home({ headerData,productData }) {
   };
   return (
     <div> 
-      <Sidebar />
       <Header data={getDataBySortOrder(headerData, 0)} />
-      <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}>
       <ContainerLeft  data={getDataBySortOrder(productData,1)} />
       <ContainerRight data={getDataBySortOrder(productData,2)} />           
       <ContainerLeft data={getDataBySortOrder(productData,3)} />
       <WantToLearnMoreform />
-      <Footer/>
     </div>
-    </div>
+   
   );
 }

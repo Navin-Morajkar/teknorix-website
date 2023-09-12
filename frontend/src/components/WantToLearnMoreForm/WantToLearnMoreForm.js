@@ -1,17 +1,39 @@
-import React, { useEffect} from 'react';
+import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import Style from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css"
 import Styles from "../ContainerLeft/ContainerLeft.module.css"
 const CustomForm = () => {
-    // const [form] = Form.useForm(); 
-  
-    // useEffect(() => {
-    //   form.validateFields(); // Validate fields at the beginning
-    // }, [form]); // Add form as a dependency
-  
-    // const onFinish = (values) => {
-    //   console.log('Finish:', values);
-    // };
+  const [formData, setFormData] = useState({ name: '', email: '' }); 
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    try {
+      const response = await fetch('http://localhost:3001/send-email', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log('Email sent successfully');
+        
+      } else {
+        console.error('Error sending email');
+        
+      }
+    } catch (error) {
+      console.error('Error sending email:', error);
+      
+    }
+  };
 
   return ( 
     <div  className={Styles.flexContainer}>
