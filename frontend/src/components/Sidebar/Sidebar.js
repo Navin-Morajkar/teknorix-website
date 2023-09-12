@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
-import { MenuOutlined,LinkedInOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
+import { MenuOutlined,LinkedinOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
 import  Link  from 'next/link';
 
 const Sidebar = () => {
@@ -219,7 +219,7 @@ const Sidebar = () => {
               {showAboutHeading && <h1>ABOUT US</h1>}
               <div className={styles.socialIcons}>
       <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-        <LinkedInOutlined className={styles.iconStyle}   />
+        <LinkedinOutlined className={styles.iconStyle}   />
       </a>
       <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
       <FacebookFilled className={styles.iconStyle} />
