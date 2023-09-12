@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown';
@@ -6,7 +6,7 @@ import Style from '../ContainerLeft/ContainerLeft.module.css';
 
 export default function ContainerLeft({ data }) {
   const router = useRouter();
-
+ 
   const navigateToSpecificEntry = () => {
     const link = data?.attributes?.link; // Add conditional checks
     if (link) {
@@ -25,9 +25,9 @@ export default function ContainerLeft({ data }) {
     link = data?.attributes?.link;
   }
 
-  //console.log(containerImage[0].attributes.url);
-
+  //cons
   return (
+    
     <div>
       {data ? (
         <div className={Style.flexContainer}>
@@ -36,17 +36,19 @@ export default function ContainerLeft({ data }) {
             <hr />
             {details && <ReactMarkdown>{details}</ReactMarkdown>}
             <ReactMarkdown>{data.attributes?.description}</ReactMarkdown>
+
             {link  && <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+
               Explore now
             </button>}
           </div>
           <div className={Style.alignRight}>
             {containerImage && (
               <Image
-                src={host + containerImage.attributes.url}
+                src={host + containerImage?.attributes.url}
                 alt=" Image"
-                width={3400}
-                height={3400}
+                width={1000}
+                height={1000}
               />
             )}
           </div>

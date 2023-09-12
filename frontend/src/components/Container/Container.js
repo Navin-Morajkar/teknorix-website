@@ -13,6 +13,7 @@ const Container = ({ data }) => {
   if (data) {
     containerImage = data.attributes.image?.data;
     link = data.attributes?.link;
+    
   }
 
   return (
@@ -30,6 +31,8 @@ const Container = ({ data }) => {
             )}
             <h1>{data.attributes.title}</h1>
             <hr />
+           
+
             <ReactMarkdown>{data.attributes.description}</ReactMarkdown>
 
             {link ? (
