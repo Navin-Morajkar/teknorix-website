@@ -224,7 +224,7 @@ width: 100%;
 .buttonContainer {
   flex: 1;
   text-align:right;
-  } */ 
+  } */ 
 .socialIcons {
   display: flex;
   gap: 10px; /* Increased gap for more spacing between icons */
@@ -263,3 +263,26 @@ width: 100%;
   border-color: #000; /* Black ring around the icon on hover */
   opacity: 1; /* Show the ring on hover */
 }
+.lineLink {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: #000;
+  padding: 10px 0;
+}
+
+.lineLink::before {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 5px;
+  background: rgb(0, 0, 0);
+  transition: width 0.3s ease-in-out;
+}
+
+.lineLink:hover::before {
+  width: 100%; /* Increase width to 100% on hover */
+}
+

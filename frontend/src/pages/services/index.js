@@ -1,4 +1,8 @@
 
+import CustomForm from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
+
+
+
 import Header from "@/components/Header/Header";
 import ContainerLeft from "@/components/ContainerLeft/ContainerLeft";
 
@@ -29,8 +33,10 @@ export default function Home({ headerData, portfolioData }) {
 
   return (
     <div>
-      <Header data={getDataBySortOrder(headerData, 0)} />
-      
+
+      <h2>SERVICES</h2>
+      <CustomForm />
+
     </div>
   );
 }
