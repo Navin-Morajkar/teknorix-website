@@ -43,8 +43,8 @@ export default function ContainerLeft({ data }) {
               <Image
                 src={host + containerImage.attributes.url}
                 alt=" Image"
-                width={3400}
-                height={3400}
+                width={1300}
+                height={1300}
               />
             )}
           </div>
