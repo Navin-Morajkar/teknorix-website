@@ -61,6 +61,11 @@ const Sidebar = () => {
               height="42"
             />
           </Link>
+          <Image
+            src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
+            width="180"
+            height="42"
+          />
           <div
             className={styles.hamburgerIcon}
             onClick={() => setIsMenuExpanded(!isMenuExpanded)}
@@ -119,6 +124,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/services/it-consulting/"
+                          href="/it-consulting"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
                         >
@@ -129,6 +135,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/services/custom-software-development/"
+                          href="/custom-software-development"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
                         >
@@ -139,6 +146,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/services/managed-it-services/"
+                          href="/managed-it-services"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
                         >
@@ -161,6 +169,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/products/jobsoid/"
+                          href="/jobsoid"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
                         >
@@ -171,6 +180,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/products/ivue-video/"
+                          href="/ivue-video"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
                         >
@@ -180,6 +190,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/products/adhoc-reporting-platform/"
+                          href="/adhoc-reporting-platform"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
                         >
@@ -254,28 +265,28 @@ const Sidebar = () => {
               {showAboutHeading && <h1>ABOUT US</h1>}
               <div className={styles.socialIcons}>
                 <a
-                  href="https://www.linkedin.com/"
+                  href="https://www.linkedin.com/company/teknorix/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <LinkedinOutlined className={styles.iconStyle} />
                 </a>
                 <a
-                  href="https://www.facebook.com/"
+                  href="https://www.facebook.com/teknorix"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <FacebookFilled className={styles.iconStyle} />
                 </a>
                 <a
-                  href="https://twitter.com/"
+                  href="https://twitter.com/teknorix"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
                   <TwitterOutlined className={styles.iconStyle} />
                 </a>
                 <a
-                  href="https://www.instagram.com/"
+                  href="https://www.instagram.com/teknorix/"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
