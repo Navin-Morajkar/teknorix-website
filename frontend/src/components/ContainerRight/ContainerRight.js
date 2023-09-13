@@ -14,8 +14,10 @@ export default function ContainerRight({ data }) {
 
   const host = "http://13.233.214.226:1337";
   let containerImage = null;
+  let link=null;
   if (data) {
     containerImage = data.attributes.image?.data;
+    link = data?.attributes?.link;
 
 
   }
@@ -40,9 +42,9 @@ export default function ContainerRight({ data }) {
                 <h1>{data.attributes.title} </h1>
                 <hr />
                 <p>{data.attributes.description}</p>
-                <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+                {link  && <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
                   Explore now
-                </button>
+                </button>}
               </div>
             </div>
           </>
