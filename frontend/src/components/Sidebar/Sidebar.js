@@ -54,6 +54,13 @@ const Sidebar = () => {
         }}
       >
         <div className={styles.header}>
+          <Link href="/">
+            <Image
+              src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
+              width="180"
+              height="42"
+            />
+          </Link>
           <Image
             src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
             width="180"
@@ -116,6 +123,7 @@ const Sidebar = () => {
                     <ul class="mt-3 space-y-2 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
                         <Link
+                          href="/services/it-consulting/"
                           href="/it-consulting"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
@@ -126,6 +134,7 @@ const Sidebar = () => {
 
                       <li>
                         <Link
+                          href="/services/custom-software-development/"
                           href="/custom-software-development"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
@@ -136,6 +145,7 @@ const Sidebar = () => {
 
                       <li>
                         <Link
+                          href="/services/managed-it-services/"
                           href="/managed-it-services"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
@@ -158,6 +168,7 @@ const Sidebar = () => {
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
                         <Link
+                          href="/products/jobsoid/"
                           href="/jobsoid"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
@@ -168,6 +179,7 @@ const Sidebar = () => {
 
                       <li>
                         <Link
+                          href="/products/ivue-video/"
                           href="/ivue-video"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
@@ -177,6 +189,7 @@ const Sidebar = () => {
                       </li>
                       <li>
                         <Link
+                          href="/products/adhoc-reporting-platform/"
                           href="/adhoc-reporting-platform"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
