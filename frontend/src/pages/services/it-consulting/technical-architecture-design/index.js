@@ -60,6 +60,7 @@ export default function Home({ headerData, serviceAdvantageData,serviceVectorDat
       
       <Header data={getDataBySortOrder(headerData, 0)} />
       <ContainerLeft data={filterService(serviceAdvantageData,"WhyUs",1)} />
+      <Header data={getDataBySortOrder(headerData,1)} />
 
       <div className={Styles.child}>
         {filteredSvg.map((image) => (
@@ -78,7 +79,7 @@ export default function Home({ headerData, serviceAdvantageData,serviceVectorDat
         ))}
       </div>
 
-      <Header data={getDataBySortOrder(headerData,1)} />
+      
 
       
         <QuoteForm />
