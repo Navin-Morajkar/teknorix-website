@@ -16,11 +16,13 @@ export default function ContainerLeft({ data }) {
 
   const host = 'http://13.233.214.226:1337';
   let containerImage = null;
-  let details = null;
+  let details = null; 
+  let link=null;
 
   if (data) {
     containerImage = data?.attributes?.image?.data;
     details = data?.attributes?.details;
+    link = data?.attributes?.link;
   }
 
   //cons
@@ -34,9 +36,11 @@ export default function ContainerLeft({ data }) {
             <hr />
             {details && <ReactMarkdown>{details}</ReactMarkdown>}
             <ReactMarkdown>{data.attributes?.description}</ReactMarkdown>
-            <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+
+            {link  && <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+
               Explore now
-            </button>
+            </button>}
           </div>
           <div className={Style.alignRight}>
             {containerImage && (
