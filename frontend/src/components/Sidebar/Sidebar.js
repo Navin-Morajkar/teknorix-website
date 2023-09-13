@@ -201,14 +201,14 @@ const Sidebar = () => {
               <Link href="/about-us" className={styles.lineLink}>ABOUT US </Link>
             
              
-              {showAboutList && (
+              {/* {showAboutList && (
                 <ul>
                   <li>About Us</li>
                   <li>Process</li>
                   <li>Technologies</li>
                   <li>Our Works</li>
                 </ul>
-              )}
+              )} */}
 
              
               <Link href="/services" className={styles.lineLink}>SERVICES</Link>
