@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import ReactMarkdown from 'react-markdown';
@@ -17,34 +17,46 @@ export default function ContainerLeft({ data }) {
   const host = 'http://13.233.214.226:1337';
   let containerImage = null;
   let details = null;
+  let link = null;
+  let headertitle=null;
 
   if (data) {
     containerImage = data?.attributes?.image?.data;
     details = data?.attributes?.details;
+    link = data?.attributes?.link;
+    headertitle = data.attributes?.title
   }
 
-  //console.log(containerImage[0].attributes.url);
-
+  //cons
   return (
+
     <div>
       {data ? (
         <div className={Style.flexContainer}>
           <div className={Style.alignLeft}>
-            <h1>{data.attributes?.title}</h1>
-            <hr />
+            {headertitle && (
+              <>
+                <h1>{data.attributes?.title}</h1>
+                <hr />
+              </>
+            )}
+
+
             {details && <ReactMarkdown>{details}</ReactMarkdown>}
-            <p>{data.attributes?.description}</p>
-            <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+            <ReactMarkdown>{data.attributes?.description}</ReactMarkdown>
+
+            {link && <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
+
               Explore now
-            </button>
+            </button>}
           </div>
           <div className={Style.alignRight}>
             {containerImage && (
               <Image
-                src={host + containerImage.attributes.url}
+                src={host + containerImage?.attributes.url}
                 alt=" Image"
-                width={3400}
-                height={3400}
+                width={1000}
+                height={1000}
               />
             )}
           </div>
@@ -54,4 +66,8 @@ export default function ContainerLeft({ data }) {
       )}
     </div>
   );
+
 }
+
+
+

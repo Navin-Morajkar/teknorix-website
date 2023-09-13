@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
-import { MenuOutlined, LinkedinOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
+import { MenuOutlined,LinkedinOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
 import  Link  from 'next/link';
-
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -70,29 +69,28 @@ const Sidebar = () => {
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
 
-                    <Link href="/about-us" class="font-bold text-2xl dark:text-black">About us</Link>
+                    <Link href="/about-us" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>About us</Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
 
-                        <Link href="/about-us">About us </Link>
+                        <Link href="/about-us" className={styles.lineLink}>About us </Link>
                       </li>
                       <li>
-                        <Link href="/process"  >Process</Link>
+                        <Link href="/process" className={styles.lineLink} >Process</Link>
                       </li>
                       <li>
-                        <Link href="/technologies" >Technologies</Link>
+                        <Link href="/technologies" className={styles.lineLink}>Technologies</Link>
                       </li>
                       <li>
-                        <Link href="/our-works">Our Works</Link>
+                        <Link href="/our-works" className={styles.lineLink}>Our Works</Link>
 
                       </li>
                     </ul>
                   </div>
 
-
                   <div className=" hover:bg-yellow-400 pr-1 pl-10 py-10">
-                  <Link href="/services" class="font-bold text-2xl dark:text-black">
+                  <Link href="/services" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>
                       Services
                     </Link>
 
@@ -101,7 +99,7 @@ const Sidebar = () => {
 
                         <Link
                           href="/it-consulting"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
                         >
                           IT consulting
                         </Link>
@@ -110,7 +108,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/custom-software-development"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"className={styles.lineLink}
                         >
                           Custom software development
                         </Link>
@@ -119,7 +117,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/managed-it-services"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
                         >
                           Managed IT services
                         </Link>
@@ -130,7 +128,7 @@ const Sidebar = () => {
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-                  <Link href="/products" class="font-bold text-2xl dark:text-black">
+                  <Link href="/products" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>
                       Products
                     </Link>
 
@@ -139,7 +137,7 @@ const Sidebar = () => {
 
                         <Link
                           href="/jobsoid"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"className={styles.lineLink}
                         >
                           Jobsoid
                         </Link>
@@ -148,7 +146,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/ivue-video"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
                         >
                           iVue video
                         </Link>
@@ -156,7 +154,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/adhoc-reporting-platform"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
                         >
                            Rix Adhoc
                         </Link>
@@ -166,7 +164,7 @@ const Sidebar = () => {
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-                  <Link href="/about-us" class="font-bold text-2xl dark:text-black">
+                  <Link href="/careers" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>
                       Careers
                     </Link>
 
@@ -176,7 +174,7 @@ const Sidebar = () => {
 
                         <Link
                           href="/careers"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
                         >
                           Work culture
                         </Link>
@@ -185,7 +183,7 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/careers"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
                         >
                           Join our team
                         </Link>
@@ -200,7 +198,7 @@ const Sidebar = () => {
           ) : (
             <>
 
-              <Link href="/about-us" >ABOUT US </Link>
+              <Link href="/about-us" className={styles.lineLink}>ABOUT US </Link>
             
              
               {showAboutList && (
@@ -213,16 +211,15 @@ const Sidebar = () => {
               )}
 
              
-              <Link href="/services">SERVICES</Link>
-              <Link href="/products" >PRODUCTS</Link>
-              <Link href="/careers">CAREERS</Link>
-              <Link href="/contact" >CONTACT</Link>
+              <Link href="/services" className={styles.lineLink}>SERVICES</Link>
+              <Link href="/products" className={styles.lineLink}>PRODUCTS</Link>
+              <Link href="/careers" className={styles.lineLink}>CAREERS</Link>
+              <Link href="/contact" className={styles.lineLink}>CONTACT</Link>
 
               {showAboutHeading && <h1>ABOUT US</h1>}
               <div className={styles.socialIcons}>
       <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
         <LinkedinOutlined className={styles.iconStyle}   />
-        
       </a>
       <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
       <FacebookFilled className={styles.iconStyle} />
@@ -242,5 +239,4 @@ const Sidebar = () => {
     </div>
   );
 };
-
 export default Sidebar;
