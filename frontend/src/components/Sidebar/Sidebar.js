@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
-import { MenuOutlined,LinkedinOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
-import  Link  from 'next/link';
+import {
+  MenuOutlined,
+  LinkedinOutlined,
+  FacebookFilled,
+  TwitterOutlined,
+  InstagramFilled,
+} from "@ant-design/icons";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -36,8 +42,9 @@ const Sidebar = () => {
 
   return (
     <div
-      className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${scrolling ? styles.scrolling : ""
-        } ${isMenuExpanded ? styles.menuExpanded : ""}`}
+      className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${
+        scrolling ? styles.scrolling : ""
+      } ${isMenuExpanded ? styles.menuExpanded : ""}`}
     >
       <div
         style={{
@@ -45,14 +52,15 @@ const Sidebar = () => {
           height: "100%",
           boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
         }}
-      >  
-        <div className={styles.header}> 
-      
-          <Image
-            src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
-            width="180"
-            height="42"
-          />
+      >
+        <div className={styles.header}>
+          <Link href="/">
+            <Image
+              src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
+              width="180"
+              height="42"
+            />
+          </Link>
           <div
             className={styles.hamburgerIcon}
             onClick={() => setIsMenuExpanded(!isMenuExpanded)}
@@ -61,45 +69,58 @@ const Sidebar = () => {
           </div>{" "}
         </div>
         <nav className={`${styles.nav} ${expanded ? styles.expanded : ""}`}>
-          {isMenuExpanded ? ( 
-            
+          {isMenuExpanded ? (
             <div className={styles.outerbar}>
               <div className="lg:flex lg:items-start lg:gap-8">
-
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-
-                    <Link href="/about-us" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>About us</Link>
+                    <Link
+                      href="/about-us"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                    >
+                      About us
+                    </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-
-                        <Link href="/about-us" className={styles.lineLink}>About us </Link>
+                        <Link href="/about-us" className={styles.lineLink}>
+                          About us{" "}
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/process" className={styles.lineLink} >Process</Link>
+                        <Link href="/process" className={styles.lineLink}>
+                          Process
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/technologies" className={styles.lineLink}>Technologies</Link>
+                        <Link href="/technologies" className={styles.lineLink}>
+                          Technologies
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/our-works" className={styles.lineLink}>Our Works</Link>
-
+                        <Link href="/our-works" className={styles.lineLink}>
+                          Our Works
+                        </Link>
                       </li>
                     </ul>
                   </div>
 
                   <div className=" hover:bg-yellow-400 pr-1 pl-10 py-10">
-                  <Link href="/services" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>
+                    <Link
+                      href="/services"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                    >
                       Services
                     </Link>
 
                     <ul class="mt-3 space-y-2 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-
                         <Link
-                          href="/it-consulting"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
+                          href="/services/it-consulting/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           IT consulting
                         </Link>
@@ -107,8 +128,9 @@ const Sidebar = () => {
 
                       <li>
                         <Link
-                          href="/custom-software-development"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"className={styles.lineLink}
+                          href="/services/custom-software-development/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           Custom software development
                         </Link>
@@ -116,28 +138,31 @@ const Sidebar = () => {
 
                       <li>
                         <Link
-                          href="/managed-it-services"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
+                          href="/services/managed-it-services/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           Managed IT services
                         </Link>
-
                       </li>
-
                     </ul>
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-                  <Link href="/products" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>
+                    <Link
+                      href="/products"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                    >
                       Products
                     </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-
                         <Link
-                          href="/jobsoid"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"className={styles.lineLink}
+                          href="/products/jobsoid/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           Jobsoid
                         </Link>
@@ -145,36 +170,40 @@ const Sidebar = () => {
 
                       <li>
                         <Link
-                          href="/ivue-video"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
+                          href="/products/ivue-video/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           iVue video
                         </Link>
                       </li>
                       <li>
                         <Link
-                          href="/adhoc-reporting-platform"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
+                          href="/products/adhoc-reporting-platform/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
-                           Rix Adhoc
+                          Rix Adhoc
                         </Link>
-
                       </li>
                     </ul>
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-                  <Link href="/careers" class="font-bold text-2xl dark:text-black" className={styles.lineLink}>
+                    <Link
+                      href="/careers"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                    >
                       Careers
                     </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-                     
                       <li>
-
                         <Link
                           href="/careers"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           Work culture
                         </Link>
@@ -183,24 +212,23 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/careers"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200" className={styles.lineLink}
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
                         >
                           Join our team
                         </Link>
-
                       </li>
-                    </ul> 
-                   
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           ) : (
             <>
+              <Link href="/about-us" className={styles.lineLink}>
+                ABOUT US{" "}
+              </Link>
 
-              <Link href="/about-us" className={styles.lineLink}>ABOUT US </Link>
-            
-             
               {/* {showAboutList && (
                 <ul>
                   <li>About Us</li>
@@ -210,28 +238,50 @@ const Sidebar = () => {
                 </ul>
               )} */}
 
-             
-              <Link href="/services" className={styles.lineLink}>SERVICES</Link>
-              <Link href="/products" className={styles.lineLink}>PRODUCTS</Link>
-              <Link href="/careers" className={styles.lineLink}>CAREERS</Link>
-              <Link href="/contact" className={styles.lineLink}>CONTACT</Link>
+              <Link href="/services" className={styles.lineLink}>
+                SERVICES
+              </Link>
+              <Link href="/products" className={styles.lineLink}>
+                PRODUCTS
+              </Link>
+              <Link href="/careers" className={styles.lineLink}>
+                CAREERS
+              </Link>
+              <Link href="/contact" className={styles.lineLink}>
+                CONTACT
+              </Link>
 
               {showAboutHeading && <h1>ABOUT US</h1>}
               <div className={styles.socialIcons}>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-        <LinkedinOutlined className={styles.iconStyle}   />
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-      <FacebookFilled className={styles.iconStyle} />
-      </a>
-      <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-        <TwitterOutlined className={styles.iconStyle} />
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-      <InstagramFilled className={styles.iconStyle} />
-      </a>
-  </div>
-             
+                <a
+                  href="https://www.linkedin.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkedinOutlined className={styles.iconStyle} />
+                </a>
+                <a
+                  href="https://www.facebook.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FacebookFilled className={styles.iconStyle} />
+                </a>
+                <a
+                  href="https://twitter.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TwitterOutlined className={styles.iconStyle} />
+                </a>
+                <a
+                  href="https://www.instagram.com/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InstagramFilled className={styles.iconStyle} />
+                </a>
+              </div>
             </>
           )}
         </nav>
