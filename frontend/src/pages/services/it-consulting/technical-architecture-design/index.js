@@ -13,21 +13,26 @@ export async function getServerSideProps() {
 
   const serviceAdvantageResponse = await fetch("http://13.233.214.226:1337/api/service-advantages?populate=*");
 
+  const serviceVectorResponse = await fetch("http://13.233.214.226:1337/api/service-page-vectors?populate=*");
+
   const headerData = await headerResponse.json();
   
   const serviceAdvantageData = await serviceAdvantageResponse.json();
   
+  const serviceVectorData=await serviceVectorResponse.json();
+  
   return {
     props: {
       headerData: headerData.data,
-      serviceAdvantageData:serviceAdvantageData.data
+      serviceAdvantageData:serviceAdvantageData.data,
+      serviceVectorData:serviceVectorData.data
       
       
     },
   };
 }
 
-export default function Home({ headerData, serviceAdvantageData }) {
+export default function Home({ headerData, serviceAdvantageData,serviceVectorData }) {
   
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
@@ -40,6 +45,14 @@ export default function Home({ headerData, serviceAdvantageData }) {
     );
   };
 
+  const filterImageByType = (data, type) => {
+    return data.filter((item) => item.attributes.Type === type);
+  };
+
+  const filteredSvg = filterImageByType(serviceVectorData, "CaterTo");
+
+  const filteredProcess = filterImageByType(serviceVectorData, "OurProcess");
+
 
   return (
     <div>
@@ -47,6 +60,24 @@ export default function Home({ headerData, serviceAdvantageData }) {
       
       <Header data={getDataBySortOrder(headerData, 0)} />
       <ContainerLeft data={filterService(serviceAdvantageData,"WhyUs",1)} />
+
+      <div className={Styles.child}>
+        {filteredSvg.map((image) => (
+          <Container key={image.id} data={image} />
+        ))}
+      </div>
+      
+      
+      
+      <h1 className="text-center text-8xl">
+        Our Process
+      </h1>
+      <div className={Styles.child}>
+        {filteredProcess.map((image) => (
+          <Container key={image.id} data={image} />
+        ))}
+      </div>
+
       <Header data={getDataBySortOrder(headerData,1)} />
 
       
