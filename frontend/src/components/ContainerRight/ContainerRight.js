@@ -31,8 +31,8 @@ export default function ContainerRight({ data }) {
                   <Image
                     src={host + containerImage.attributes.url}
                     alt="container Image"
-                    width={1300}
-                    height={1300} />
+                    width={1000}
+                    height={1000} />
                 )}
 
               </div>
