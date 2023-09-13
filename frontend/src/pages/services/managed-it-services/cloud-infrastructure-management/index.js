@@ -3,6 +3,7 @@ import ContainerLeft from "@/components/ContainerLeft/ContainerLeft";
 import Styles from "@/components/SixCards/SixCards.module.css";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Container from "@/components/Container/Container";
+import CaterTo from "@/components/CaterTo/CaterTo";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -61,13 +62,7 @@ export default function Home({
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
       <ContainerLeft data={filterService(serviceAdvantageData, "WhyUs", 1)} />
-      <Header data={getDataBySortOrder(headerData, 1)} />
-
-      <div className={Styles.child}>
-        {filteredSvg.map((image) => (
-          <Container key={image.id} data={image} />
-        ))}
-      </div>
+      <CaterTo />
 
       <h1 className="text-center text-6xl">What technologies we use?</h1>
 
