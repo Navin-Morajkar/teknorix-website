@@ -1,3 +1,4 @@
+import Collage from "@/components/Collage/Collage";
 import Header from "@/components/Header/Header";
 import { useState, useEffect } from "react";
 
@@ -31,6 +32,7 @@ export default function index() {
     <div>
       <Header data={getDataBySortOrder(0)} />
       <Header data={getDataBySortOrder(1)} />
+      <Collage />
     </div>
   );
 }
