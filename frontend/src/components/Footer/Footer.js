@@ -14,7 +14,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/about-us/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     About Us
@@ -23,7 +23,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/careers"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Careers
@@ -32,7 +32,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/our-works/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Our Works
@@ -41,7 +41,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/blog/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Blog
@@ -58,7 +58,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/services/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Strategy
@@ -67,7 +67,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/services/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Design
@@ -84,7 +84,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/services/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Lifecycle
@@ -101,7 +101,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/process/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Teknorix Flow
@@ -110,7 +110,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/technologies/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Technologies
@@ -127,7 +127,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/products/jobsoid"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Jobsoid
@@ -136,7 +136,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/products/ivue-video"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     iVue Video
@@ -145,7 +145,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="http://localhost:3000/products/adhoc-reporting-platform"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Rix Adhoc
