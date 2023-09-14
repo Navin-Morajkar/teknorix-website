@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Image from 'next/image';
 import Style from "../ContainerLeft/ContainerLeft.module.css"
+import ReactMarkdown from 'react-markdown';
 export default function ContainerRight({ data }) {
   const router = useRouter();
   const navigateToSpecificEntry = () => {
@@ -41,7 +42,7 @@ export default function ContainerRight({ data }) {
               <div className={Style.alignRight}>
                 <h1>{data.attributes.title} </h1>
                 <hr />
-                <p>{data.attributes.description}</p>
+                <ReactMarkdown>{data.attributes.description}</ReactMarkdown>
                 {link  && <button className={Style.buttonGreen} onClick={navigateToSpecificEntry}>
                   Explore now
                 </button>}
