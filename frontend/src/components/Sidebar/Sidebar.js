@@ -15,20 +15,20 @@ const Sidebar = () => {
   const [scrolling, setScrolling] = useState(false);
   const [showAboutHeading, setShowAboutHeading] = useState(true);
   const [navbarBackground, setNavbarBackground] = useState("transparent");
-  const [showAboutList, setShowAboutList] = useState(false);
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false); // State for the drawer
+  // const [showAboutList, setShowAboutList] = useState(false);
+  // const [isDrawerVisible, setIsDrawerVisible] = useState(false); // State for the drawer
   const [isMenuExpanded, setIsMenuExpanded] = useState(false); // State for the menu expansion
 
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > window.innerHeight / 2) {
         setScrolling(true);
-        setShowAboutList(true);
+        // setShowAboutList(true);
         setShowAboutHeading(false);
         setNavbarBackground("white");
       } else {
         setScrolling(false);
-        setShowAboutList(false);
+        // setShowAboutList(false);
         setShowAboutHeading(true);
         setNavbarBackground("transparent");
       }

@@ -26,8 +26,8 @@ export default function SixCards({ data }) {
                         <Image 
                         src={host + aImage.attributes.url} 
                         alt="Header Image" 
-                        width="700"
-                        height="700"/>
+                        width="500"
+                        height="500"/>
                     )}              
                       <h2>{data.attributes.name}</h2>  
                       <div className={Style.flexContainer}>

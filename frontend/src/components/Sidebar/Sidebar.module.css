@@ -249,10 +249,10 @@ width: 100%;
 .socialIcons a::before {
   content: ''; /* Create a pseudo-element for the ring effect */
   position: absolute;
-  top: -4px;
+  top: -1px;
   left: -7px;
   right: -7px;
-  bottom: -4px;
+  bottom: -6px;
   border: 2px solid transparent; /* Transparent border to start */
   border-radius: 50%; /* Circle border */
   transition: border-color 0.3s; /* Transition border color on hover */
