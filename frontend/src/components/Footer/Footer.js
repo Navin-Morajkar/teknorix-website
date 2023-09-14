@@ -5,7 +5,7 @@ function Footer() {
     <footer className="bg-white dark:bg-gray-900">
       <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
         <div className="lg:flex lg:items-start lg:gap-8">
-          <div className="flex space-x-72">
+          <div className="flex space-x-1 md:space-x-64 sm:space-x-16 ">
             <div className="col-span-2 sm:col-span-1">
               <p className="font-medium text-gray-900 dark:text-white">
                 Who we are
@@ -14,7 +14,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="http://localhost:3000/about-us/"
+                    href="/about-us/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     About Us
@@ -23,7 +23,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/careers"
+                    href="/careers/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Careers
@@ -32,7 +32,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/our-works/"
+                    href="/our-works/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Our Works
@@ -41,7 +41,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/blog/"
+                    href="/blog/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Blog
@@ -58,7 +58,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="http://localhost:3000/services/"
+                    href="/services/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Strategy
@@ -67,7 +67,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/services/"
+                    href="/services/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Design
@@ -76,7 +76,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="#"
+                    href="/services"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Development
@@ -84,7 +84,7 @@ function Footer() {
                 </li>
                 <li>
                   <a
-                    href="http://localhost:3000/services/"
+                    href="/services/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Lifecycle
@@ -101,7 +101,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="http://localhost:3000/process/"
+                    href="/process/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Teknorix Flow
@@ -110,7 +110,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/technologies/"
+                    href="/technologies/"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Technologies
@@ -127,7 +127,7 @@ function Footer() {
               <ul className="mt-6 space-y-4 text-sm">
                 <li>
                   <a
-                    href="http://localhost:3000/products/jobsoid"
+                    href="/products/jobsoid"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Jobsoid
@@ -136,7 +136,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/products/ivue-video"
+                    href="/products/ivue-video"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     iVue Video
@@ -145,7 +145,7 @@ function Footer() {
 
                 <li>
                   <a
-                    href="http://localhost:3000/products/adhoc-reporting-platform"
+                    href="/products/adhoc-reporting-platform"
                     className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                   >
                     Rix Adhoc
