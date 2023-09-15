@@ -13,7 +13,7 @@ const Contact = () => {
         "service_jx4by2i",
         "template_zrqo015",
         e.target,
-        "lX0vHePnHa2dOYepK"
+        "azUTjfG6BJE6Jmzv-"
       )
       .then(
         (result) => {
@@ -37,7 +37,7 @@ const Contact = () => {
           </p>
           <form onSubmit={sendEmail}>
             <Form.Item
-              name="Name"
+              name="user_name"
               rules={[
                 {
                   message: "Please input your Name!",
@@ -47,7 +47,7 @@ const Contact = () => {
               <Input type="text" placeholder="Name" />
             </Form.Item>
             <Form.Item
-              name="email"
+              name="user_email"
               rules={[
                 {
                   message: "Please input your Email!",
