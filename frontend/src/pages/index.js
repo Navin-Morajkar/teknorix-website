@@ -1,8 +1,10 @@
 import Container from "@/components/Container/Container";
 import Header from "@/components/Header/Header";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import { useState, useEffect } from "react";
 import Styles from "../components/SixCards/SixCards.module.css";
 import { Button } from "antd";
+import Footer from "@/components/Footer/Footer";
 import Achievement from "@/components/Achievement/achievement";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import OurWork from "@/components/OurWork/OurWork";
@@ -59,7 +61,7 @@ export default function index() {
         <Container data={getDataBySortOrder(qualityData, 2)} />
         <Container data={getDataBySortOrder(qualityData, 3)} />
       </div>
-
+      <div className="text-center" >
       <Button
         href="/services"
         type="primary"
@@ -68,6 +70,7 @@ export default function index() {
         size="large">
         Learn More about our services
       </Button>
+      </div>
 
       <h1 className="text-center text-6xl">
         Our Unique 3U's towards your success
