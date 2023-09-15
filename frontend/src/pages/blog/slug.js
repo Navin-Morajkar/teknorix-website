@@ -1,3 +1,4 @@
+//Rename to [slug].js
 import React, { useEffect, useState } from "react";
 import markdownToHtml from "@/lib/MarkdownToHtml";
 
