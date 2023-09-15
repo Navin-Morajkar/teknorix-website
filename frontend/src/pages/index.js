@@ -61,7 +61,7 @@ export default function index() {
         <Container data={getDataBySortOrder(qualityData, 2)} />
         <Container data={getDataBySortOrder(qualityData, 3)} />
       </div>
-
+      <div className="text-center" >
       <Button
         href="/services"
         type="primary"
@@ -70,6 +70,7 @@ export default function index() {
         size="large">
         Learn More about our services
       </Button>
+      </div>
 
       <h1 className="text-center text-6xl">
         Our Unique 3U's towards your success
