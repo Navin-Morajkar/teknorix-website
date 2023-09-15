@@ -12,15 +12,20 @@ export async function getServerSideProps() {
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=ContactUsPage"
   );
 
+  const textResponse = await fetch(
+    "http://13.233.214.226:1337/api/contact-uses?populate=*"
+  );
   const headerData = await headerResponse.json();
+  const textData = await textResponse.json();
   return {
     props: {
       headerData: headerData.data,
+      textData: textData.data,
     },
   };
 }
 
-export default function Home({ headerData }) {
+export default function Home({ headerData, textData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
@@ -31,7 +36,12 @@ export default function Home({ headerData }) {
         item.attributes.Type === type && item.attributes.SortOrder === sortOrder
     );
   };
-
+  const filterImage = (data, type, sortOrder) => {
+    return data.find(
+      (item) =>
+        item.attributes.Type === type && item.attributes.SortOrder === sortOrder
+    );
+  };
   const filterImageByType = (data, type) => {
     return data.filter((item) => item.attributes.Type === type);
   };
@@ -39,9 +49,17 @@ export default function Home({ headerData }) {
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
+
       {/* <QuoteForm /> */}
       <Contact />
-      <ImageCard />
+      <div className={Styles.parent}>
+        <ImageCard data={getDataBySortOrder(textData, 1)} />
+        <ImageCard data={getDataBySortOrder(textData, 2)} />
+      </div>
+      <div className={Styles.parent}>
+        <ImageCard data={getDataBySortOrder(textData, 3)} />
+        <ImageCard data={getDataBySortOrder(textData, 4)} />
+      </div>
     </div>
   );
 }
