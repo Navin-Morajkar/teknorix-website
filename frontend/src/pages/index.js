@@ -1,8 +1,10 @@
 import Container from "@/components/Container/Container";
 import Header from "@/components/Header/Header";
+import Sidebar from "@/components/Sidebar/Sidebar";
 import { useState, useEffect } from "react";
 import Styles from "../components/SixCards/SixCards.module.css";
 import { Button } from "antd";
+import Footer from "@/components/Footer/Footer";
 import Achievement from "@/components/Achievement/achievement";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import OurWork from "@/components/OurWork/OurWork";
