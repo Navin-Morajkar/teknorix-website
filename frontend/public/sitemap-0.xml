@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
+<url><loc>http://localhost:3000</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/about-us</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/blog</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/careers</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/contact</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/our-works</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/process</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/products</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/products/adhoc-reporting-platform</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/products/ivue-video</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/products/jobsoid</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/server-sitemap.xml/sitemap.xml</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/custom-software-development</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/custom-software-development/low-code-development</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/custom-software-development/mobile-app-development</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/custom-software-development/web-app-development</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/it-consulting</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/it-consulting/product-strategy</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/it-consulting/technical-architecture-design</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/it-consulting/ui-ux-design</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/managed-it-services</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/managed-it-services/cloud-infrastructure-management</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/managed-it-services/devops-service</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/services/managed-it-services/support-helpdesk</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/sitemapTest</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/technologies</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+<url><loc>http://localhost:3000/test</loc><lastmod>2023-09-15T03:43:23.201Z</lastmod><changefreq>daily</changefreq><priority>0.7</priority></url>
+</urlset>
