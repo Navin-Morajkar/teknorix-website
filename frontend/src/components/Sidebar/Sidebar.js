@@ -20,6 +20,7 @@ const Sidebar = () => {
   const [isMenuExpanded, setIsMenuExpanded] = useState(false); // State for the menu expansion
   const handleMenuClick = () => {
     setIsMenuExpanded(!isMenuExpanded);
+    setNavbarBackground(!navbarBackground);
   }; 
   const toggleBodyScrollbar = () => {
     document.body.style.overflowY = expanded ? "hidden" : "auto";
