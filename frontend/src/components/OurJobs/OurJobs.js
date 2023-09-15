@@ -42,7 +42,7 @@ const our_jobs = ({entryId}) => {
   };
 
   const specificEntry = data.find(entry => entry.id === entryId);
-  console.log(specificEntry);
+  //console.log(specificEntry);
   // const headerImageUrl =  specificEntry.attributes.headerImage.data.attributes.url;
   
   const host = "http://13.233.214.226:1337";
