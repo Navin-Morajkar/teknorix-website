@@ -15,13 +15,13 @@ const testimonialsData = [
     text: '“Every day is a new opportunity to learn, and every challenge is a new opportunity to grow.”', 
     photo: 'https://www.teknorix.com/wp-content/uploads/2023/08/Aditya-500x500.jpg' },
   { name: 'Prinoy', 
-    text: '“Arrey baie”', 
+    text: '“It’s been 8 years since I joined Teknorix, and I am convinced that this is the best career decision I made.”', 
     photo: 'https://www.teknorix.com/wp-content/uploads/2023/08/Prinoy-500x500.jpg' },
   // ... more testimonials
 ];
 
 const Testimonial = ({ name, text }) => (
-  <div className="text-left w-1/2 m-0 mx-auto p-8 border border-white border-solid bg-blue-50">
+  <div className="text-left  m-0 mx-auto p-8 border border-white border-solid bg-blue-50">
     <p className="text-2xl italic text-slate-500 pb-8 mb-8">{text}</p>
     <p className="text-2xl font-bold pt-8">{name}</p>
   </div>
