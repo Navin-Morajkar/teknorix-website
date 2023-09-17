@@ -1,69 +1,70 @@
 /*card*/
 .card {
-    width: 300px;
-    height: 300px;
-    padding: 20px;
-    border: 1px solid #ccc;
-    background-color: #ffffff;
-    transition: background-color 0.3s ease-in-out;
-    position: relative; 
-   
-  }
+  width: 300px;
+  height: 300px;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #ffffff;
+  transition: background-color 0.3s ease-in-out;
+  position: relative; 
+ 
+}
+
+.card:hover {
+  background-color: #b2caec;
+  /* Adjust color as needed */
+}
+
+.initialDetails {
+  color: #555;
+
+  box-sizing: border-box;
+} 
+.hr{
+  margin-left: 2rem; 
+ 
+}
+.initialDetails h2 {
+ 
+  color: #000000;
+padding-left: 50px; 
+margin-bottom: 50px;
   
-  .card:hover {
-    background-color: #b2caec;
-    /* Adjust color as needed */
-  }
+}
+.card:hover .initialDetails {
+  display: none;
+}
+
+.details {
+  position: absolute;
   
-  .initialDetails {
-    color: #555;
   
-    box-sizing: border-box;
-  } 
-  .hr{
-    margin-left: 2rem; 
-   
-  }
-  .initialDetails h2 {
-   
-    color: #000000;
-  padding-left: 50px; 
-  margin-bottom: 50px;
-    
-  }
-  .card:hover .initialDetails {
-    display: none;
-  }
-  
-  .details {
-    position: absolute;
-    
-    
-    display: none;
-    color: #555;
-    padding: 20px;
-    box-sizing: border-box;
-  }
-  
-  .card:hover .details {
-    display: block;
-  }
-  .arrowButton{ 
-    margin-top: 6rem; 
-    margin-left: 12rem;
-    width:2.5rem;
-    height: 2.5rem;
-  } 
-  .title {
-    position: absolute;
-   top:79%;/* Stick to the bottom of the initialDetails */
-    left: 0; /* Align to the left */
-    right: 0; /* Align to the right */
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    padding: 1rem 20px;
-    cursor: pointer;
-    align-items: center;
-    /* Add other styling properties */
-  } 
-  
+  display: none;
+  color: #555;
+  padding: 20px;
+  box-sizing: border-box;
+}
+
+.card:hover .details {
+  display: block;
+}
+.arrowButton{ 
+  margin-top: 10rem; 
+  margin-left: 12rem;
+  width:2.5rem;
+  height: 2.5rem; 
+  box-sizing: border-box; 
+  background-color: #ffffff;
+} 
+.title {
+  position: absolute;
+ top:79%;/* Stick to the bottom of the initialDetails */
+  left: 0; /* Align to the left */
+  right: 0; /* Align to the right */
+  background-color: rgba(0, 0, 0, 0.7);
+  color: white;
+  padding: 1.3rem 20px;
+  cursor: pointer;
+  align-items: center;
+  /* Add other styling properties */
+}

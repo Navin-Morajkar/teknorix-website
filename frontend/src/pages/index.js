@@ -10,51 +10,56 @@ import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
 
-export default function index() {
-  const [headerData, setHeaderData] = useState([]);
-  const [qualityData, setQualityData] = useState([]);
-  const [expertiseData, setExpertiseData] = useState([]);
-  const [achievementData, setAchievementData] = useState([]);
-
-  useEffect(() => {
-    makeApiCall(
-      "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=HomePage",
-      setHeaderData
-    );
-    makeApiCall(
-      "http://13.233.214.226:1337/api/qualities?populate[image][fields][0]=name&populate[image][fields][1]=url&filters[Page][$eq]=HomePage",
-      setQualityData
-    );
-    makeApiCall(
+export async function getServerSideProps() {
+  
+  const headerResponse = await fetch(
+    "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=AboutUsPage"
+  );
+  const qualityResponse = await fetch(
+    "http://13.233.214.226:1337/api/qualities?populate=*&filters[page][$eq]=HomePage"
+  );
+  const expertiseDataResponse = await fetch(
       "http://13.233.214.226:1337/api/our-expertises?populate[image][fields][0]=name&populate[image][fields][1]=url",
-      setExpertiseData
+     
     );
-    makeApiCall(
+    const achievementResponse = await fetch(
       "http://13.233.214.226:1337/api/achievements?populate[image][fields][1]=url",
-      setAchievementData
+     
+    );  
+    const ourJobsDataResponse = await fetch(
+      "http://13.233.214.226:1337/api/our-works?populate=*&filters[Page][$eq]=AboutUsPage"
     );
-    //http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=HomePage
-    //http://13.233.214.226:1337/api/headers?populate[headerImage][fields][0]=name&populate[headerImage][fields][1]=url&populate[bodyImage][fields][1]=url&filters[page][$eq]=homePage
-  }, []);
-
-  const makeApiCall = async (url, setFunction) => {
-    await fetch(url)
-      .then((response) => {
-        return response.json();
-      })
-      .then((data) => {
-        //console.log("API Response:", data);
-        setFunction(data.data);
-      });
-  };
-
-  const getDataBySortOrder = (data, sortOrder) => {
-    return data.find((item) => item.attributes.SortOrder === sortOrder);
-  };
+    const headerData = await headerResponse.json();
+    const qualityData = await qualityResponse.json();
+    const expertiseData = await expertiseDataResponse.json();
+    const achievementData = await achievementResponse.json();  
+    const ourJobsData = await ourJobsDataResponse.json();
+    
+   
+    return {
+      props: {
+        headerData: headerData.data,
+        qualityData: qualityData.data,
+        expertiseData: expertiseData.data,
+        achievementData:achievementData.data,
+        ourJobsData:ourJobsData.data
+      },
+    };
+  }
+  export default function Home({ headerData, qualityData, expertiseData,achievementData,ourJobsData }) {
+    const getDataBySortOrder = (data, sortOrder) => {
+      return data.find((item) => item.attributes.SortOrder === sortOrder);
+    }; 
+    const filterAchievementByType = (data, type) => {
+      return data.filter((item) => item.attributes.Type === type);
+    };
+  
+    const filteredWeb = filterAchievementByType(achievementData, "MainPage");
 
   return (
-    <div>
-      <Header data={getDataBySortOrder(headerData, 0)} />
+    <div className="bg-gray-100">
+      <div className="bg-yellow-300"> 
+      <Header   data={getDataBySortOrder(headerData, 0)} />
 
       <div className={Styles.parent}>
         <Container data={getDataBySortOrder(qualityData, 1)} />
@@ -81,7 +86,7 @@ export default function index() {
         <Container data={getDataBySortOrder(qualityData, 5)} />
         <Container data={getDataBySortOrder(qualityData, 6)} />
       </div>
-
+      </div>
       <h1 className="text-center text-6xl">Our Expertise</h1>
 
       <div className={Styles.parent}>
@@ -94,13 +99,21 @@ export default function index() {
       <Header data={getDataBySortOrder(headerData, 1)} />
 
 
-      <div className={Styles.parent}>
-        <OurWork />
-        <OurJobs entryId={4} />
-        <OurJobs entryId={5} />
-      </div>
+      <div className="container mx-auto">
+  <div className="flex flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurWork />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3  ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
+    </div>
+  </div>
+</div>
       <QuoteForm />
       
     </div>
   );
-}
+  }
