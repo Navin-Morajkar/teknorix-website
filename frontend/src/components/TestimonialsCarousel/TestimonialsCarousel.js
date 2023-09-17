@@ -71,22 +71,26 @@ const TestimonialsCarousel = () => {
     };
   }, [currentIdx]);
 
-  // Check if the screen is small (tailwind class `md:hidden` hides the element on medium and larger screens)
-  const isSmallScreen = window.innerWidth < 768; // Adjust the breakpoint as needed
+  useEffect(() => {
+    // Check if the screen is small (tailwind class `md:hidden` hides the element on medium and larger screens)
+    const isSmallScreen = window.innerWidth < 768; // Adjust the breakpoint as needed
+
+    if (!isSmallScreen) {
+      // Your code that depends on window.innerWidth can go here
+    }
+  }, []); // Empty dependency array means this effect runs once after the initial render
 
   return (
     <div className="relative flex flex-col items-center">
       <Testimonial {...testimonialsData[currentIdx]} />
 
-      <div className={`absolute bottom-0 right-0 ${isSmallScreen ? 'md:hidden' : 'md:right-48'} flex justify-end items-end`}>
+      <div className="absolute bottom-0 right-0 md:right-48 flex justify-end items-end">
         <PaginationDots testimonials={testimonialsData} currentIdx={currentIdx} onDotClick={handleDotClick} />
-        {!isSmallScreen && (
-          <RightCircleFilled
-            onClick={handleNext}
-            className="w-12 h-12 cursor-pointer mt-2"
-            style={{ fontSize: '5rem', color: '#ffc801', marginRight: '2rem' }}
-          />
-        )}
+        <RightCircleFilled
+          onClick={handleNext}
+          className="w-12 h-12 cursor-pointer mt-2"
+          style={{ fontSize: '5rem', color: '#ffc801', marginRight: '2rem' }}
+        />
       </div>
     </div>
   );
