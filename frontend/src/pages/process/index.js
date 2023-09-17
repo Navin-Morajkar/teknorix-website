@@ -6,6 +6,7 @@ import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Footer from "@/components/Footer/Footer";
 import SixCards from "@/components/SixCards/SixCards";
 import FlowContainer from "@/components/FlowContainer/FlowContainer";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -68,7 +69,7 @@ export default function Home({ headerData, advantageData, flowData,ourJobsData }
           <div className="w-full md:w-1/2 lg:w-1/3 ">
             <SixCards data={getDataBySortOrder(advantageData, 6)} />
           </div>
-        </div>
+        </div>        
       </div>
 
       <Header data={getDataBySortOrder(headerData, 1)} />
@@ -92,8 +93,7 @@ export default function Home({ headerData, advantageData, flowData,ourJobsData }
   </div>
 </div>
 
-      <QuoteForm />
-     
+<WantToLearnMore />     
     </div>
   );
 }
