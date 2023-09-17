@@ -25,8 +25,7 @@ const Container = ({ data }) => {
               height={100} // Increase the height of the image
             />
           )}
-          <h1 className="font-bold text-sm sm:text-2xl md:text-3xl lg:text-4xl">
-          
+          <h1 className="font-bold text-xs sm:text-sm md:text-lg lg:text-xl">
             {data.attributes.title}
           </h1>
           <hr className="bg-blue-500 h-1 w-12 mt-2 mb-4" />
