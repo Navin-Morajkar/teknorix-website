@@ -1,7 +1,8 @@
 import Sidebar from "@/components/Sidebar/Sidebar";
 import Header from "@/components/Header/Header";
 import TechStack from "@/components/TechStack/TechStack";
-
+import OurWork from "@/components/OurWork/OurWork";
+import OurJobs from "@/components/OurJobs/OurJobs";
 import Style from "@/components/SixCards/SixCards.module.css";
 
 export async function getServerSideProps() {
@@ -14,16 +15,20 @@ export async function getServerSideProps() {
     "http://13.233.214.226:1337/api/tech-stacks?populate=*&pagination[start]=0&pagination[limit]=100"
   );
   const technologyData = await technologyResponse.json();
-
+  const ourJobsDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/our-works?populate=*&filters[Page][$eq]"
+  );
+  const ourJobsData = await ourJobsDataResponse.json();
   return {
     props: {
       headerData: headerData.data,
       technologyData: technologyData.data,
+      ourJobsData:ourJobsData.data
     },
   };
 }
 
-export default function Home({ headerData, technologyData }) {
+export default function Home({ headerData, technologyData,ourJobsData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
@@ -86,7 +91,20 @@ export default function Home({ headerData, technologyData }) {
         {filteredCloud.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
-      </div>
+      </div> 
+      <div className="container mx-auto">
+  <div className="flex flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurWork />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 5)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3  ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
+    </div>
+  </div>
+</div>
     </div>
   );
 }
