@@ -8,6 +8,7 @@ import OurJobs from "@/components/OurJobs/OurJobs";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Footer from "@/components/Footer/Footer";
 import SixCards from "@/components/SixCards/SixCards";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -76,8 +77,7 @@ export default function Home({ headerData, employeeData, advantageData }) {
         <OurJobs entryId={4} />
         <OurJobs entryId={5} />
       </div>
-      <QuoteForm />
-      {/* <Footer /> */}
+      <WantToLearnMore />
     </div>
   );
 }

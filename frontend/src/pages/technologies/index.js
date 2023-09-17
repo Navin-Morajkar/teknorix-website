@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import TechStack from "@/components/TechStack/TechStack";
 
 import Style from "@/components/SixCards/SixCards.module.css";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -87,6 +88,7 @@ export default function Home({ headerData, technologyData }) {
           <TechStack key={technology.id} data={technology} />
         ))}
       </div>
+      <WantToLearnMore />
     </div>
   );
 }

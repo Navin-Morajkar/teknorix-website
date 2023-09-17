@@ -9,6 +9,8 @@ import Achievement from "@/components/Achievement/achievement";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
+import Contact from "@/components/WantToLearnMoreForm/emailjs";
 
 export default function index() {
   const [headerData, setHeaderData] = useState([]);
@@ -61,15 +63,16 @@ export default function index() {
         <Container data={getDataBySortOrder(qualityData, 2)} />
         <Container data={getDataBySortOrder(qualityData, 3)} />
       </div>
-      <div className="text-center" >
-      <Button
-        href="/services"
-        type="primary"
-        styles={{ backgroudColor: "#4d94e4;" }}
-        shape="round"
-        size="large">
-        Learn More about our services
-      </Button>
+      <div className="text-center">
+        <Button
+          href="/services"
+          type="primary"
+          styles={{ backgroudColor: "#4d94e4;" }}
+          shape="round"
+          size="large"
+        >
+          Learn More about our services
+        </Button>
       </div>
 
       <h1 className="text-center text-6xl">
@@ -93,14 +96,12 @@ export default function index() {
       <Achievement data={getDataBySortOrder(achievementData, 1)} />
       <Header data={getDataBySortOrder(headerData, 1)} />
 
-
       <div className={Styles.parent}>
         <OurWork />
         <OurJobs entryId={4} />
         <OurJobs entryId={5} />
       </div>
-      <QuoteForm />
-      
+      <Contact />
     </div>
   );
 }
