@@ -1,12 +1,26 @@
-import React from 'react' 
-import Image from 'next/image';
+import React from "react";
+import Image from "next/image";
+import { useContext, useEffect, useState } from 'react';
+import { MyContext } from '../MyContext';
 
-const header_image = () => {
+const HeaderImage = () => {
+  const { headerImageLink } = useContext(MyContext);
+  const [width, setWidth] = useState(0);
+  
+  useEffect(() => {
+    setWidth(window.innerWidth);
+  });
+  
   return (
-    <div>
-    <Image src="/images/image1.jpg" alt="My Image" width={1470} height={650} />
-    </div>
-  )
-}
+    <>
+      <Image
+        src={headerImageLink}
+        alt="My Image"
+        width={width}
+        height={650}
+      />
+    </>
+  );
+};
 
-export default header_image
+export default HeaderImage;

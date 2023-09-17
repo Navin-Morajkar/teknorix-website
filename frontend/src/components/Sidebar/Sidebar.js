@@ -1,18 +1,40 @@
 import { useState, useEffect } from "react";
 import styles from "./Sidebar.module.css";
 import Image from "next/image";
-import { MenuOutlined, LinkedinOutlined, FacebookFilled, TwitterOutlined, InstagramFilled } from "@ant-design/icons";
-import  Link  from 'next/link';
-
+import {
+  MenuOutlined,
+  LinkedinOutlined,
+  FacebookFilled,
+  TwitterOutlined,
+  InstagramFilled,
+} from "@ant-design/icons";
+import Link from "next/link";
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
   const [scrolling, setScrolling] = useState(false);
   const [showAboutHeading, setShowAboutHeading] = useState(true);
   const [navbarBackground, setNavbarBackground] = useState("transparent");
-  const [showAboutList, setShowAboutList] = useState(false);
-  const [isDrawerVisible, setIsDrawerVisible] = useState(false); // State for the drawer
   const [isMenuExpanded, setIsMenuExpanded] = useState(false); // State for the menu expansion
+  const [openMenu, setOpenMenu] = useState(null); // Track the open main menu
+  const [showAboutList, setShowAboutList] = useState(false);
+  const handleMenuClick = () => {
+    setIsMenuExpanded(!isMenuExpanded);
+    setNavbarBackground(!navbarBackground);
+  };
+  // const toggleBodyScrollbar = () => {
+  //   document.body.style.overflowY = expanded ? "hidden" : "auto";
+  // };
+  const handleMainLinkClick = (menu) => {
+    if (window.scrollY > window.innerHeight / 2) {
+      if (openMenu === menu) {
+        setOpenMenu(null); // Clicking on the same main link closes the list
+
+      } else {
+        setOpenMenu(menu); // Clicking on a different main link opens its list
+      }
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,16 +51,21 @@ const Sidebar = () => {
       }
     };
 
+    handleScroll(); // Call it initially to set the correct state
+    // toggleBodyScrollbar(); // Set body scrollbar initially based on expanded state
+
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
+      // toggleBodyScrollbar(); // Reset the body scrollbar when the component unmounts
     };
-  }, []);
+  }, [expanded]);
 
   return (
     <div
-      className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${scrolling ? styles.scrolling : ""
-        } ${isMenuExpanded ? styles.menuExpanded : ""}`}
+      className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${
+        scrolling ? styles.scrolling : ""
+      } ${isMenuExpanded ? styles.menuExpanded : ""}`}
     >
       <div
         style={{
@@ -46,62 +73,102 @@ const Sidebar = () => {
           height: "100%",
           boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
         }}
-      >  
-        <div className={styles.header}> 
-      
-          <Image
-            src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
-            width="180"
-            height="42"
-          />
+      >
+        <div className={styles.header}>
+          <Link href="/">
+            <Image
+              src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
+              width="180"
+              height="42"
+            />
+          </Link>
           <div
             className={styles.hamburgerIcon}
             onClick={() => setIsMenuExpanded(!isMenuExpanded)}
           >
-            <MenuOutlined />
+            <MenuOutlined
+              onClick={() => {
+                setNavbarBackground("white");
+                // toggleBodyScrollbar();
+              }}
+            />
           </div>{" "}
         </div>
-        <nav className={`${styles.nav} ${expanded ? styles.expanded : ""}`}>
-          {isMenuExpanded ? ( 
-            
+        <nav
+          className={`${styles.nav} ${expanded ? styles.expanded : ""}`}
+          style={{ overflowY: "hidden" }}
+        >
+          {isMenuExpanded ? (
             <div className={styles.outerbar}>
               <div className="lg:flex lg:items-start lg:gap-8">
-
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-
-                    <Link href="/about-us" class="font-bold text-2xl dark:text-black">About us</Link>
+                    <Link
+                      href="/about-us"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}
+                    >
+                      About us
+                    </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-
-                        <Link href="/about-us">About us </Link>
+                        <Link
+                          href="/about-us"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
+                        >
+                          About us{" "}
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/process"  >Process</Link>
+                        <Link
+                          href="/process"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
+                        >
+                          Process
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/technologies" >Technologies</Link>
+                        <Link
+                          href="/technologies"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
+                        >
+                          Technologies
+                        </Link>
                       </li>
                       <li>
-                        <Link href="/our-works">Our Works</Link>
-
+                        <Link
+                          href="/our-works"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
+                        >
+                          Our Works
+                        </Link>
                       </li>
                     </ul>
                   </div>
 
-
                   <div className=" hover:bg-yellow-400 pr-1 pl-10 py-10">
-                  <Link href="/services" class="font-bold text-2xl dark:text-black">
+                    <Link
+                      href="/services"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}
+                    >
                       Services
                     </Link>
 
                     <ul class="mt-3 space-y-2 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-
                         <Link
-                          href="/it-consulting"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          href="/services/it-consulting/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           IT consulting
                         </Link>
@@ -109,8 +176,10 @@ const Sidebar = () => {
 
                       <li>
                         <Link
-                          href="/custom-software-development"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          href="/services/custom-software-development/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           Custom software development
                         </Link>
@@ -118,28 +187,34 @@ const Sidebar = () => {
 
                       <li>
                         <Link
-                          href="/managed-it-services"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          href="/services/managed-it-services/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           Managed IT services
                         </Link>
-
                       </li>
-
                     </ul>
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-                  <Link href="/products" class="font-bold text-2xl dark:text-black">
+                    <Link
+                      href="/products"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}
+                    >
                       Products
                     </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
                       <li>
-
                         <Link
-                          href="/jobsoid"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          href="/products/jobsoid/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           Jobsoid
                         </Link>
@@ -147,36 +222,44 @@ const Sidebar = () => {
 
                       <li>
                         <Link
-                          href="/ivue-video"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          href="/products/ivue-video/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           iVue video
                         </Link>
                       </li>
                       <li>
                         <Link
-                          href="/adhoc-reporting-platform"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          href="/products/adhoc-reporting-platform/"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
-                           Rix Adhoc
+                          Rix Adhoc
                         </Link>
-
                       </li>
                     </ul>
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
-                  <Link href="/about-us" class="font-bold text-2xl dark:text-black">
+                    <Link
+                      href="/careers"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}
+                    >
                       Careers
                     </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-                     
                       <li>
-
                         <Link
                           href="/careers"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           Work culture
                         </Link>
@@ -185,56 +268,176 @@ const Sidebar = () => {
                       <li>
                         <Link
                           href="/careers"
-                          className="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
                         >
                           Join our team
                         </Link>
-
                       </li>
-                    </ul> 
-                   
+                    </ul>
                   </div>
                 </div>
               </div>
             </div>
           ) : (
             <>
+              <Link
+                href="/about-us"
+                className={styles.lineLink}
+                onClick={() => handleMainLinkClick("about")}
+              >
+                ABOUT US
+              </Link>
 
-              <Link href="/about-us" >ABOUT US </Link>
-            
-             
-              {showAboutList && (
-                <ul>
-                  <li>About Us</li>
-                  <li>Process</li>
-                  <li>Technologies</li>
-                  <li>Our Works</li>
+              {showAboutList && openMenu === "about" && (
+                <ul className={styles.subMenu}>
+                  <li>
+                    <Link href="/about-us" className={styles.subLink}>
+                      About Us
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/process" className={styles.subLink}>
+                      Process
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/technologies" className={styles.subLink}>
+                      Technologies
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/our-works" className={styles.subLink}>
+                      Our Works
+                    </Link>
+                  </li>
                 </ul>
               )}
 
-             
-              <Link href="/services">SERVICES</Link>
-              <Link href="/products" >PRODUCTS</Link>
-              <Link href="/careers">CAREERS</Link>
-              <Link href="/contact" >CONTACT</Link>
+              <Link
+                href="/services"
+                className={styles.lineLink}
+                onClick={() => handleMainLinkClick("services")}
+              >
+                SERVICES
+              </Link>
+              {showAboutList && openMenu === "services" && (
+                <ul className={styles.subMenu}>
+                  <li>
+                    <Link
+                      href="/services/it-consulting/"
+                      className={styles.subLink}
+                    >
+                      IT consulting
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/custom-software-development/"
+                      className={styles.subLink}
+                    >
+                      Custom software development
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/services/managed-it-services/"
+                      className={styles.subLink}
+                    >
+                      Managed IT services
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              <Link
+                href="/products"
+                className={styles.lineLink}
+                onClick={() => handleMainLinkClick("products")}
+              >
+                PRODUCTS
+              </Link>
+              {showAboutList && openMenu === "products" && (
+                <ul className={styles.subMenu}>
+                  <li>
+                    <Link href="/products/jobsoid/" className={styles.subLink}>
+                      Jobsoid
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/products/ivue-video/"
+                      className={styles.subLink}
+                    >
+                      iVue video
+                    </Link>
+                  </li>
+                  <li>
+                    <Link
+                      href="/products/adhoc-reporting-platform/"
+                      className={styles.subLink}
+                    >
+                      Rix Adhoc
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              <Link
+                href="/careers"
+                className={styles.lineLink}
+                onClick={() => handleMainLinkClick("careers")}
+              >
+                CAREERS
+              </Link>
+              {showAboutList && openMenu === "careers" && (
+                <ul className={styles.subMenu}>
+                  <li>
+                    <Link href="/careers" className={styles.subLink}>
+                      Work culture
+                    </Link>
+                  </li>
+                  <li>
+                    <Link href="/careers" className={styles.subLink}>
+                      Join our team
+                    </Link>
+                  </li>
+                </ul>
+              )}
+              <Link href="/contact" className={styles.lineLink}>
+                CONTACT
+              </Link>
 
               {showAboutHeading && <h1>ABOUT US</h1>}
               <div className={styles.socialIcons}>
-      <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer">
-        <LinkedinOutlined className={styles.iconStyle}   />
-        
-      </a>
-      <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-      <FacebookFilled className={styles.iconStyle} />
-      </a>
-      <a href="https://twitter.com/" target="_blank" rel="noopener noreferrer">
-        <TwitterOutlined className={styles.iconStyle} />
-      </a>
-      <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer">
-      <InstagramFilled className={styles.iconStyle} />
-      </a>
-  </div>
-             
+                <a
+                  href="https://www.linkedin.com/company/teknorix/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <LinkedinOutlined className={styles.iconStyle} />
+                </a>
+                <a
+                  href="https://www.facebook.com/teknorix"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <FacebookFilled className={styles.iconStyle} />
+                </a>
+                <a
+                  href="https://twitter.com/teknorix"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <TwitterOutlined className={styles.iconStyle} />
+                </a>
+                <a
+                  href="https://www.instagram.com/teknorix/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  <InstagramFilled className={styles.iconStyle} />
+                </a>
+              </div>
             </>
           )}
         </nav>
@@ -242,5 +445,4 @@ const Sidebar = () => {
     </div>
   );
 };
-
 export default Sidebar;

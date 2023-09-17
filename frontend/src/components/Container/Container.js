@@ -1,7 +1,5 @@
-import React, { useState, useEffect } from "react";
-import { useRouter } from "next/router";
+import React from "react";
 import Image from "next/image";
-import Style from "../ContainerLeft/ContainerLeft.module.css";
 import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import { Button } from "antd";
 
@@ -16,38 +14,34 @@ const Container = ({ data }) => {
   }
 
   return (
-    <div className={Style.flexContainer}>
+    <div className="mt-4 sm:flex sm:justify-between sm:p-4 md:p-8 lg:p-12 xl:p-20">
       {data ? (
-        <>
-          <div className={Style.alignLeft}>
-            {containerImage && (
-              <Image
-                src={host + containerImage.attributes.url}
-                alt="My Image"
-                width="200"
-                height="200"
-              />
-            )}
-            <h1>{data.attributes.title}</h1>
-            <hr />
-            <ReactMarkdown>{data.attributes.description}</ReactMarkdown>
+        <div className="sm:w-4/3 sm:mr-auto sm:ml-4">
+          {containerImage && (
+            <Image
+              src={host + containerImage.attributes.url}
+              alt="My Image"
+              width={100} // Increase the width of the image
+              height={100} // Increase the height of the image
+            />
+          )}
+          <h1 className="font-bold text-xs sm:text-sm md:text-lg lg:text-xl">
+            {data.attributes.title}
+          </h1>
+          <hr className="bg-blue-500 h-1 w-12 mt-2 mb-4" />
 
-            {link ? (
-              <>
-                <Button
-                  href={ link }
-                  type="primary"
-                  style={{ background: "#ffc801", color: "#212529", fontWeight: "bold"}}
-                  shape="round"
-                  size="large">
-                  Discover More
-                </Button>
-              </>
-            ) : (
-              <></>
-            )}
-          </div>
-        </>
+          <ReactMarkdown>{data.attributes.description}</ReactMarkdown>
+
+          {link && (
+            <Button
+              href={link}
+              type="primary"
+              className="bg-yellow-400 text-gray-800 font-bold rounded-full px-6 py-2 mt-4 hover:bg-green-400"
+            >
+              Discover More
+            </Button>
+          )}
+        </div>
       ) : (
         <></>
       )}
