@@ -9,35 +9,36 @@ import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Footer from "@/components/Footer/Footer";
 import SixCards from "@/components/SixCards/SixCards";
 
-
 export async function getServerSideProps() {
-    const headerResponse = await fetch(
-      "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=AboutUsPage"
-    );
-    const headerData = await headerResponse.json();
-  
-    const employeeResponse = await fetch(
-      "http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100&sort[0]=id&sort[1]=SortOrder"
-    );
-    const employeeData = await employeeResponse.json();
+  const headerResponse = await fetch(
+    "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=AboutUsPage"
+  );
+  const headerData = await headerResponse.json();
 
-    const advantageResponse = await fetch(
-      "http://13.233.214.226:1337/api/advantages?populate=*&filters[Page][$eq]=AboutUsPage"
-    );
-    const advantageData = await advantageResponse.json();
-  
-  
-    return {
-      props: {
-        headerData: headerData.data,
-        employeeData: employeeData.data,
-        advantageData:advantageData.data
-      },
-    };
-  }
-  
+  const employeeResponse = await fetch(
+    "http://13.233.214.226:1337/api/employees?populate=*&pagination[start]=0&pagination[limit]=100&sort[0]=id&sort[1]=SortOrder"
+  );
+  const employeeData = await employeeResponse.json();
 
-export default function Home({ headerData, employeeData,advantageData }) {
+  const advantageResponse = await fetch(
+    "http://13.233.214.226:1337/api/advantages?populate=*&filters[Page][$eq]=AboutUsPage"
+  );
+  const advantageData = await advantageResponse.json();
+  const ourJobsDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/our-works?populate=*&filters[Page][$eq]=AboutUsPage"
+  );
+  const ourJobsData = await ourJobsDataResponse.json();
+  return {
+    props: {
+      headerData: headerData.data,
+      employeeData: employeeData.data,
+      advantageData: advantageData.data,
+      ourJobsData:ourJobsData.data
+    },
+  };
+}
+
+export default function Home({ headerData, employeeData, advantageData,ourJobsData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
@@ -49,43 +50,60 @@ export default function Home({ headerData, employeeData,advantageData }) {
   const filteredEmployees = filterEmployeesByType(employeeData, "Employee");
 
   return (
-    <div>
-      {/* <Sidebar /> */}
-      <Header data={getDataBySortOrder(headerData, 0)} />
-      {/* <div style={{ marginLeft: "20%", paddingLeft: "1%", height: "150vh" }}> */}
-      <div className={Style.parent}>
-          
-          <SixCards data={getDataBySortOrder(advantageData,1)} />
-          <SixCards data={getDataBySortOrder(advantageData,2)} />
-          <SixCards data={getDataBySortOrder(advantageData,3)} />
-      </div>
-      <div className={Style.parent}>
-          
-          <SixCards data={getDataBySortOrder(advantageData,4)} />
-          <SixCards data={getDataBySortOrder(advantageData,5)} />
-          <SixCards data={getDataBySortOrder(advantageData,6)} />
-      </div>
-        <Header data={getDataBySortOrder(headerData, 1)} />
-        <h2 className={Style.textcenter}>Our Team</h2>
-        <div className={Style.parent}>
-          <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
-          <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
-        </div>
-        <div className={Style.child}>
-          {filteredEmployees.map((employee) => (
-            <EmployeeImage key={employee.SortOrder} data={employee} />
-          ))}
-        </div>
-        <div className={Style.parent}>
-          <OurWork />
-          <OurJobs entryId={4} />
-          <OurJobs entryId={5} />
-        </div>
-        <QuoteForm />
-        {/* <Footer /> */}
-      </div>
+    <div className="bg-gray-100">
     
+      <Header data={getDataBySortOrder(headerData, 0)} />
+      <div className="container mx-auto">
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 1)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 2)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 3)} />
+          </div>
+        </div>
+
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 4)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 5)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 6)} />
+          </div>
+        </div>
+      </div>
+      <Header data={getDataBySortOrder(headerData, 1)} />
+      <h2 className={Style.textcenter}>Our Team</h2>
+      <div className={Style.parent}>
+        <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
+        <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
+      </div>
+      <div className={Style.child}>
+        {filteredEmployees.map((employee) => (
+          <EmployeeImage key={employee.SortOrder} data={employee} />
+        ))}
+      </div>
+      <div className="container mx-auto">
+  <div className="flex flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurWork />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3  ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
+    </div>
+  </div>
+</div>
+      <QuoteForm />
+      {/* <Footer /> */}
+    </div>
   );
 }
-
-
