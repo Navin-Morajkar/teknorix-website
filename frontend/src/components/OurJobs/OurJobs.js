@@ -18,6 +18,8 @@ export default function our_jobs({ data }) {
     router.push(specificLink); // Use Next.js router's push method
   };
 
+
+ 
   return (
     <div>
       {data ? (
