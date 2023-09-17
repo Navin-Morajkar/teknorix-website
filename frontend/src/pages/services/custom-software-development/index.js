@@ -51,11 +51,18 @@ export default function Home({ headerData, serviceData, serviceAdvantageData,our
       
       <Header data={getDataBySortOrder(headerData, 0)} />
 
-      <div className={Styles.parent}>
-      <Container  data={filterService(serviceData,"CustomSoftwareDevelopment",1)} />
-      <Container data={filterService(serviceData,"CustomSoftwareDevelopment",2)} />
-      <Container data={filterService(serviceData,"CustomSoftwareDevelopment",3)} />
-      </div>
+      <div className="flex flex-wrap justify-around py-12 items-stretch">
+  <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+    <Container data={filterService(serviceData, "CustomSoftwareDevelopment", 1)} />
+  </div>
+  <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+    <Container data={filterService(serviceData, "CustomSoftwareDevelopment", 2)} />
+  </div>
+  <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+    <Container data={filterService(serviceData, "CustomSoftwareDevelopment", 3)} />
+  </div>
+</div>
+
 
       <ContainerLeft data={getDataBySortOrder(serviceAdvantageData,1)} />
       <ContainerRight data={getDataBySortOrder(serviceAdvantageData,2)} />

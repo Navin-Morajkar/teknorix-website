@@ -11,7 +11,7 @@ export default function EmployeeImage({ data }) {
   const eImage = data.attributes.image?.data;
 
   return (
-    <div className="text-center mt-4">
+    <div className="text-center mt-4 w-full sm:w-1/2 md:w-1/3 lg:w-1/4 xl:w-1/4"> {/* Responsive width */}
       {eImage && (
         <Image
           className="mx-auto mb-4 rounded-full"
