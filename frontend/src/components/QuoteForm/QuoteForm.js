@@ -3,11 +3,11 @@ import { Button, Form, Input } from "antd";
 import Style from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css";
 
 const QuoteForm = () => {
-  const [form] = Form.useForm(); // Uncomment this line
+  const [form] = Form.useForm();
 
   useEffect(() => {
-    form.validateFields(); // Validate fields at the beginning
-  }, [form]); // Add form as a dependency
+    form.validateFields();
+  }, [form]);
 
   const onFinish = (values) => {
     console.log("Finish:", values);
@@ -15,57 +15,84 @@ const QuoteForm = () => {
 
   return (
     <div className={Style.formStyle}>
-      <div className={Style.formContainer}>
-        <h1>Want to Learn More?</h1>
-        <p>
-          Share your contact details and one of our Product Specialists will get
-          in touch with you.
+      <div className="max-w-screen-xl mx-auto text-white">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center">
+          Get a Quote for your Project!
+        </h1>
+        <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-center mb-8">
+          Contact us to discuss more about your project and get a quote.
         </p>
         <Form
           form={form}
           name="horizontal_login"
-          layout="inline"
-          onFinish={onFinish}>
+          layout="horizontal"
+          onFinish={onFinish}
+        >
+        
           <Form.Item
             name="username"
-            label="username"
+            label="Your Name"
             rules={[
               {
+                required: true,
                 message: "Please Enter Your Name!",
               },
-            ]}>
-            <Input type="text" placeholder="Enter your first name" />
+            ]}
+          >
+            <Input
+              placeholder="Enter your first name"
+              className="w-48 py-2 px-3 rounded-sm"
+            />
           </Form.Item>
           <Form.Item
             name="email"
-            label="email"
+            label="Email Address"
             rules={[
               {
+                required: true,
+                type: "email",
                 message: "Enter your email address",
               },
-            ]}>
-            <Input type="email" placeholder="Enter your email" />
+            ]}
+          >
+            <Input
+              placeholder="Enter your email"
+              className="w-48 py-2 px-3 rounded-sm"
+            />
           </Form.Item>
           <Form.Item
             name="number"
-            label="Phone number:"
+            label="Phone Number"
             rules={[
               {
+                required: true,
                 message: "Enter your correct number!",
               },
-            ]}>
-            <Input type="number" placeholder="Enter your phone number" />
+            ]}
+          >
+            <Input
+              placeholder="Enter your phone number"
+              className="w-48 py-2 px-3 rounded-sm"
+            />
           </Form.Item>
-
           <Form.Item
             name="intro"
             label="Project Brief"
-            rules={[{ required: true, message: "Please input Intro" }]}>
-            <Input.TextArea showCount maxLength={100} />
+            rules={[{ required: true, message: "Please input Intro" }]}
+          >
+            <Input.TextArea
+              showCount
+              maxLength={100}
+              className="w-64 py-2 px-3 rounded-sm"
+            />
           </Form.Item>
           <Form.Item shouldUpdate>
             {() => (
-              <Button type="primary" htmlType="submit">
+              <Button
+                type="primary"
+                htmlType="submit"
+                className="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full px-6 py-2"
+              >
                 Contact us
               </Button>
             )}
