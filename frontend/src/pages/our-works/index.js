@@ -31,11 +31,10 @@ export default function Home({ headerData, portfolioData }) {
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
-      
+
       {portfolioData.map((item) => (
         <ContainerLeft key={item.SortOrder} data={item} />
       ))}
-      
     </div>
   );
 }

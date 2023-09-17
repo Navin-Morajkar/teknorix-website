@@ -52,10 +52,12 @@ export default function Home({ headerData,productData,productIntroData,importanc
       <Header data={getDataBySortOrder(headerData, 0)} />
       <ContainerLeft  data={getDataBySortOrder(productIntroData,2)} />  
       <Header data={getDataBySortOrder(headerData, 1)} />
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredIvueVideo.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
+      </div>
       </div>
       
       <Header data={getDataBySortOrder(headerData, 2)} />

@@ -66,17 +66,31 @@ export default function Home({ headerData,productData,advantageData,productIntro
       <ContainerRight  data={getDataBySortOrder(productData,2)} /> 
       <ContainerLeft  data={getDataBySortOrder(productData,3)} /> 
       <Header data={getDataBySortOrder(headerData, 3)} />
-      <div className={Style.parent}>
+      <div className="container mx-auto">
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 1)} />
+          </div>
           
-          <SixCards data={getDataBySortOrder(advantageData ,1)} />
-          <SixCards data={getDataBySortOrder(advantageData ,2)} />
-          <SixCards data={getDataBySortOrder(advantageData ,3)} />
-      </div>
-      <div className={Style.parent}>
-          
-          <SixCards data={getDataBySortOrder(advantageData ,4)} />
-          <SixCards data={getDataBySortOrder(advantageData ,5)} />
-          <SixCards data={getDataBySortOrder(advantageData ,6)} />
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 2)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 3)} />
+          </div>
+        </div>
+
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 4)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 5)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 6)} />
+          </div>
+        </div>
       </div>
     </div>
   )

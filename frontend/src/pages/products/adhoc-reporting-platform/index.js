@@ -54,10 +54,12 @@ export default function Home({ headerData,productData,productIntroData,advantage
       <Header data={getDataBySortOrder(headerData, 0)} />
       <ContainerLeft  data={getDataBySortOrder(productIntroData,3)} />
       <Header data={getDataBySortOrder(headerData, 1)} />
-       <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredAdhocReportingPlatform.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
+      </div>
       </div>
      
       <Header data={getDataBySortOrder(headerData, 2)} />
@@ -65,17 +67,31 @@ export default function Home({ headerData,productData,productIntroData,advantage
       <ContainerRight  data={getDataBySortOrder(productData,2)} /> 
       <ContainerLeft  data={getDataBySortOrder(productData,3)} /> 
       <Header data={getDataBySortOrder(headerData, 3)} />
-      <div className={Style.parent}>
+      <div className="container mx-auto">
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 1)} />
+          </div>
           
-          <SixCards data={getDataBySortOrder(advantageData ,1)} />
-          <SixCards data={getDataBySortOrder(advantageData ,2)} />
-          <SixCards data={getDataBySortOrder(advantageData ,3)} />
-      </div>
-      <div className={Style.parent}>
-          
-          <SixCards data={getDataBySortOrder(advantageData ,4)} />
-          <SixCards data={getDataBySortOrder(advantageData ,5)} />
-          <SixCards data={getDataBySortOrder(advantageData ,6)} />
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 2)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 3)} />
+          </div>
+        </div>
+
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 4)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 5)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <SixCards data={getDataBySortOrder(advantageData, 6)} />
+          </div>
+        </div>
       </div>
       
     </div>

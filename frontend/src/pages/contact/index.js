@@ -30,21 +30,7 @@ export default function Home({ headerData, textData }) {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
 
-  const filterService = (data, type, sortOrder) => {
-    return data.find(
-      (item) =>
-        item.attributes.Type === type && item.attributes.SortOrder === sortOrder
-    );
-  };
-  const filterImage = (data, type, sortOrder) => {
-    return data.find(
-      (item) =>
-        item.attributes.Type === type && item.attributes.SortOrder === sortOrder
-    );
-  };
-  const filterImageByType = (data, type) => {
-    return data.filter((item) => item.attributes.Type === type);
-  };
+  
 
   return (
     <div>
@@ -52,23 +38,14 @@ export default function Home({ headerData, textData }) {
 
       {/* <QuoteForm /> */}
       <Contact />
-      <div className={Styles.parent}>
-        <ImageCard data={getDataBySortOrder(textData, 1)} />
-        <ImageCard data={getDataBySortOrder(textData, 2)} />
-      </div>
-      <div className={Styles.parent}>
-        <ImageCard data={getDataBySortOrder(textData, 3)} />
-        <ImageCard data={getDataBySortOrder(textData, 4)} />
+      <div className="text-center mt-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0 mt-4">
+          <ImageCard data={getDataBySortOrder(textData, 1)} />
+          <ImageCard data={getDataBySortOrder(textData, 2)} />
+          <ImageCard data={getDataBySortOrder(textData, 3)} />
+          <ImageCard data={getDataBySortOrder(textData, 4)} />
+        </div>
       </div>
     </div>
   );
 }
-
-// export default function index() {
-//   return (
-//     <div>
-//       <h2>Contact Us</h2>
-//       <ImageCard />
-//     </div>
-//   )
-// }

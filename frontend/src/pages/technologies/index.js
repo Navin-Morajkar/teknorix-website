@@ -56,42 +56,49 @@ export default function Home({ headerData, technologyData,ourJobsData }) {
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
 
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredWeb.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
       </div>
+      </div>
       <Header data={getDataBySortOrder(headerData, 1)} />
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredMobile.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
-      </div>
+      </div></div>
       <Header data={getDataBySortOrder(headerData, 2)} />
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredDataScience.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
-      </div>
+      </div></div>
       <Header data={getDataBySortOrder(headerData, 3)} />
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredBigData.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
-      </div>
+      </div></div>
       <Header data={getDataBySortOrder(headerData, 4)} />
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredMaps.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
-      </div>
+      </div></div>
 
       <Header data={getDataBySortOrder(headerData, 5)} />
-      <div className={Style.child}>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
         {filteredCloud.map((technology) => (
           <TechStack key={technology.id} data={technology} />
         ))}
-      </div> 
+      </div> </div>
       <div className="container mx-auto">
   <div className="flex flex-wrap -mx-0">
     <div className="w-full md:w-1/2 lg:w-1/3 ">
