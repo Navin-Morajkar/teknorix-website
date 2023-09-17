@@ -45,7 +45,6 @@ export default function Home({ headerData, advantageData, flowData,ourJobsData }
   return (
     <div className="bg-gray-100">
       <Header data={getDataBySortOrder(headerData, 0)} />
-
       <div className="container mx-auto">
         <div className="flex flex-wrap -mx-0">
           <div className="w-full md:w-1/2 lg:w-1/3 ">
