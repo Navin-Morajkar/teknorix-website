@@ -72,14 +72,14 @@ export default function Home({
   //Navin's code
   const { sidebarContent, setSidebarContent } = useSidebar();
 
-  // Update the Sidebar content when you navigate to this page
-  useEffect(() => {
-    setSidebarContent({
-      title: sidebarData[0].attributes.title,
-      subtitle: sidebarData[0].attributes.subtitle,
-      description: sidebarData[0].attributes.description,
-    });
-  }, []);
+  // // Update the Sidebar content when you navigate to this page
+  // useEffect(() => {
+  //   setSidebarContent({
+  //     title: sidebarData.attributes.title,
+  //     subtitle: sidebarData.attributes.subtitle,
+  //     description: sidebarData.attributes.description,
+  //   });
+  // }, []);
 
   //End of Navin's code
 
@@ -141,11 +141,7 @@ export default function Home({
   </div>
 </div>
       
-      <div className={Styles.parent}>
-        <OurWork />
-        <OurJobs entryId={4} />
-        <OurJobs entryId={5} />
-      </div>
+   
       <Contact />
     </div>
   );
