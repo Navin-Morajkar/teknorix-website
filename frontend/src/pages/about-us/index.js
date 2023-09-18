@@ -107,11 +107,7 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
   </div>
 </div>
       <QuoteForm />
-      <div className={Style.parent}>
-        <OurWork />
-        <OurJobs entryId={4} />
-        <OurJobs entryId={5} />
-      </div>
+    
       <WantToLearnMore />
     </div>
   );
