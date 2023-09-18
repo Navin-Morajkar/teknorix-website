@@ -53,12 +53,13 @@ export default function Home({ headerData, serviceData, serviceAdvantageData,our
       
       <Header data={getDataBySortOrder(headerData, 0)} />
 
-      <div className={Styles.parent}>
+      <div className="text-center mt-4">
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-8 mt-4 lg:mt-8">
       <Container  data={filterService(serviceData,"ManagedITServices",1)} />
       <Container data={filterService(serviceData,"ManagedITServices",2)} />
       <Container data={filterService(serviceData,"ManagedITServices",3)} />
       </div>
-
+</div>
       <ContainerLeft data={getDataBySortOrder(serviceAdvantageData,1)} />
       <ContainerRight data={getDataBySortOrder(serviceAdvantageData,2)} />
       <ContainerLeft data={getDataBySortOrder(serviceAdvantageData,3)} />
