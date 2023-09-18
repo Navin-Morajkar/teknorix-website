@@ -60,6 +60,7 @@ export async function getServerSideProps() {
     <div className="bg-gray-100">
       <div className="bg-yellow-300"> 
       <Header   data={getDataBySortOrder(headerData, 0)} />
+      <Achievement />
 
       <div className={Styles.parent}>
         <Container data={getDataBySortOrder(qualityData, 1)} />
@@ -95,7 +96,7 @@ export async function getServerSideProps() {
         <Container data={getDataBySortOrder(expertiseData, 3)} />
       </div>
 
-      <Achievement data={getDataBySortOrder(achievementData, 1)} />
+      <Achievement />
       <Header data={getDataBySortOrder(headerData, 1)} />
 
 
