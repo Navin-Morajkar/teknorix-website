@@ -9,11 +9,8 @@ import Container from "@/components/Container/Container";
 import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
-  const headerResponse = await fetch("http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=CustomSoftwareDevelopmentsPage");
-  const serviceResponse = await fetch("http://13.233.214.226:1337/api/our-services?populate[image][fields][1]=url");
-  const serviceAdvantageResponse = await fetch("http://13.233.214.226:1337/api/service-advantages?populate=*");
-  const ourJobsDataResponse = await fetch(
-    "http://13.233.214.226:1337/api/our-works?populate=*&filters[Type][$eq]=CustomSoftwareDevelopment"
+  const headerResponse = await fetch(
+    "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=CustomSoftwareDevelopmentsPage"
   );
   const serviceResponse = await fetch(
     "http://13.233.214.226:1337/api/our-services?populate[image][fields][1]=url"
@@ -24,6 +21,7 @@ export async function getServerSideProps() {
   const ourJobsDataResponse = await fetch(
     "http://13.233.214.226:1337/api/our-works?populate=*&filters[Type][$eq]=CustomSoftwareDevelopment"
   );
+
   const headerData = await headerResponse.json();
   const serviceData = await serviceResponse.json();
   const serviceAdvantageData = await serviceAdvantageResponse.json();
@@ -43,9 +41,8 @@ export default function Home({
   headerData,
   serviceData,
   serviceAdvantageData,
-  ourJobsData
+  ourJobsData,
 }) {
-
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
