@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import ContainerLeft from "@/components/ContainerLeft/ContainerLeft";
 import Style from "@/components/SixCards/SixCards.module.css";
 import ContainerRight from "@/components/ContainerRight/ContainerRight";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -31,11 +32,10 @@ export default function Home({ headerData, portfolioData }) {
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
-      
+
       {portfolioData.map((item) => (
         <ContainerLeft key={item.SortOrder} data={item} />
       ))}
-      
     </div>
   );
 }

@@ -4,6 +4,7 @@ import Styles from "@/components/SixCards/SixCards.module.css";
 import Container from "@/components/Container/Container";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import CaterTo from "@/components/CaterTo/CaterTo";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=WebDevelopment"
@@ -66,7 +67,7 @@ export default function Home({
       ))}
     </div>
 
-    <QuoteForm />
+  <WantToLearnMore />
   </div>
   );
 }

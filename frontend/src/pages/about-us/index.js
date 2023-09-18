@@ -8,6 +8,7 @@ import OurJobs from "@/components/OurJobs/OurJobs";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Footer from "@/components/Footer/Footer";
 import SixCards from "@/components/SixCards/SixCards";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -58,6 +59,7 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
           <div className="w-full md:w-1/2 lg:w-1/3 ">
             <SixCards data={getDataBySortOrder(advantageData, 1)} />
           </div>
+          
           <div className="w-full md:w-1/2 lg:w-1/3 ">
             <SixCards data={getDataBySortOrder(advantageData, 2)} />
           </div>
@@ -79,16 +81,18 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
         </div>
       </div>
       <Header data={getDataBySortOrder(headerData, 1)} />
-      <h2 className={Style.textcenter}>Our Team</h2>
-      <div className={Style.parent}>
+      <div className="text-center mt-4">
+      <h2 className="text-xl lg:text-2xl xl:text-3xl font-semibold">Our Team</h2>
+      <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-8 mt-4 lg:mt-8">
         <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
         <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
       </div>
-      <div className={Style.child}>
+      <div className="flex flex-wrap flex-row">
         {filteredEmployees.map((employee) => (
           <EmployeeImage key={employee.SortOrder} data={employee} />
         ))}
-      </div>
+     </div>
+    </div>
       <div className="container mx-auto">
   <div className="flex flex-wrap -mx-0">
     <div className="w-full md:w-1/2 lg:w-1/3 ">
@@ -103,7 +107,12 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
   </div>
 </div>
       <QuoteForm />
-      {/* <Footer /> */}
+      <div className={Style.parent}>
+        <OurWork />
+        <OurJobs entryId={4} />
+        <OurJobs entryId={5} />
+      </div>
+      <WantToLearnMore />
     </div>
   );
 }

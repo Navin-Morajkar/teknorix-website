@@ -7,6 +7,8 @@ import Achievement from "@/components/Achievement/achievement";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
+import Contact from "@/components/WantToLearnMoreForm/emailjs";
 import { useSidebar } from "../components/SidebarContext";
 
 export async function getServerSideProps() {
@@ -87,21 +89,22 @@ export default function Home({
       <div className="bg-yellow-300">
         <Header data={getDataBySortOrder(headerData, 0)} />
 
-        <div className={Styles.parent}>
-          <Container data={getDataBySortOrder(qualityData, 1)} />
-          <Container data={getDataBySortOrder(qualityData, 2)} />
-          <Container data={getDataBySortOrder(qualityData, 3)} />
-        </div>
-        <div className="text-center">
-          <Button
-            href="/services"
-            type="primary"
-            styles={{ backgroudColor: "#4d94e4;" }}
-            shape="round"
-            size="large">
-            Learn More about our services
-          </Button>
-        </div>
+      <div className={Styles.parent}>
+        <Container data={getDataBySortOrder(qualityData, 1)} />
+        <Container data={getDataBySortOrder(qualityData, 2)} />
+        <Container data={getDataBySortOrder(qualityData, 3)} />
+      </div>
+      <div className="text-center">
+        <Button
+          href="/services"
+          type="primary"
+          styles={{ backgroudColor: "#4d94e4;" }}
+          shape="round"
+          size="large"
+        >
+          Learn More about our services
+        </Button>
+      </div>
 
         <h1 className="text-center text-6xl">
           Our Unique 3U's towards your success
@@ -125,19 +128,25 @@ export default function Home({
       <Header data={getDataBySortOrder(headerData, 1)} />
 
       <div className="container mx-auto">
-        <div className="flex flex-wrap -mx-0">
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <OurWork />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/3  ">
-            <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
-          </div>
-        </div>
+  <div className="flex flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurWork />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3  ">
+      <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
+    </div>
+  </div>
+</div>
+      
+      <div className={Styles.parent}>
+        <OurWork />
+        <OurJobs entryId={4} />
+        <OurJobs entryId={5} />
       </div>
-      <QuoteForm />
+      <Contact />
     </div>
   );
 }

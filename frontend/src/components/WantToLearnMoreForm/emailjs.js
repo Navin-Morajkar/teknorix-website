@@ -1,13 +1,35 @@
-// Import necessary dependencies
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Form, Input, Button } from "antd";
 import Styles from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // Basic validation
+    if (!name.trim() || !email.trim()) {
+      setErrorMessage("Please fill out all fields.");
+      return;
+    }
+
+    // Clear any previous error or success message
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    // Send the email using emailjs
     emailjs
       .sendForm(
         "service_jx4by2i",
@@ -18,10 +40,11 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          console.log("message sent");
+          setSuccessMessage("Message sent successfully!");
         },
         (error) => {
           console.log(error.text);
+          setErrorMessage("Error sending the message. Please try again.");
         }
       );
   };
@@ -30,43 +53,42 @@ const Contact = () => {
     <div className={Styles.flexContainer}>
       <div className={Styles.formStyle}>
         <div className={Styles.formContainer}>
-          <h1>Want to Learn More?</h1>
+          <h1>Want to discuss a product idea?</h1>
           <p>
-            Share your contact details, and one of our Product Specialists will
-            get in touch with you.
+            Share your contact details and one of our Product Engineering
+            Specialists will get in touch.
           </p>
           <form onSubmit={sendEmail}>
-            <Form.Item
-              name="user_name"
-              rules={[
-                {
-                  message: "Please input your Name!",
-                },
-              ]}
-            >
-              <Input type="text" placeholder="Name" />
-            </Form.Item>
-            <Form.Item
-              name="user_email"
-              rules={[
-                {
-                  message: "Please input your Email!",
-                },
-              ]}
-            >
-              <Input type="email" placeholder="Email" />
-            </Form.Item>
-            <Form.Item shouldUpdate>
-              {() => (
-                <Button
-                  htmlType="submit"
-                  style={{ backgroundColor: "#09ab6f", borderColor: "#09ab6f" }}
-                >
-                  Contact us
-                </Button>
-              )}
-            </Form.Item>
+            <div className="form-group">
+              <label htmlFor="name">Name</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                value={name}
+                onChange={handleNameChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <div className="form-group">
+              <label htmlFor="email">Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                value={email}
+                onChange={handleEmailChange}
+                className="form-control"
+                required
+              />
+            </div>
+            <button type="submit" className="btn btn-primary">
+              Submit
+            </button>
           </form>
+          {errorMessage && <p className="text-danger">{errorMessage}</p>}
+          {successMessage && <p className="text-success">{successMessage}</p>}
         </div>
       </div>
     </div>
