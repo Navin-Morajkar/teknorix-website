@@ -8,6 +8,7 @@ import {
   FacebookFilled,
   TwitterOutlined,
   InstagramFilled,
+  CaretRightOutlined 
 } from "@ant-design/icons";
 import Link from "next/link";
 
@@ -64,61 +65,71 @@ const Sidebar = () => {
   // //Navin's code
   const { sidebarContent, setSidebarContent } = useSidebar();
 
-  // // Update the Sidebar content when you navigate to this page
-  // useEffect(() => {
-  //   setSidebarContent({
-  //     title: "Page 1 Title",
-  //     subtitle: "Page 1 Subtitle",
-  //     description: "Page 1 Description",
-  //   });
-  // }, []);
+  // Update the Sidebar content when you navigate to this page
+  useEffect(() => {
+    setSidebarContent({
+      title: "Page 1 Title",
+      subtitle: "Page 1 Subtitle",
+      description: "Page 1 Description",
+    });
+  }, []);
 
-  // //End of Navin's code
+  //End of Navin's code
 
   return (
     <div
       className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${
         scrolling ? styles.scrolling : ""
-      } ${isMenuExpanded ? styles.menuExpanded : ""}`}>
-      <div
-        style={{
-          backgroundColor: navbarBackground,
-          height: "100%",
-          boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
-        }}>
-        <div className={styles.header}>
+
+      } ${isMenuExpanded ? styles.menuExpanded : ""}`}
+    >
+      <div className={`bg-${navbarBackground} h-screen shadow-lg lg:shadow-xl`}>
+      <div className="bg-transparent flex justify-between items-center p-5 border-r border-gray-300">
+
           <Link href="/">
             <Image
               src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
               width="180"
-              height="42"
+              height="42" 
+              className="w-36 h-8" 
             />
           </Link>
           <div
             className={styles.hamburgerIcon}
-            onClick={() => setIsMenuExpanded(!isMenuExpanded)}>
-            <MenuOutlined
-              onClick={() => {
-                setNavbarBackground("white");
-                // toggleBodyScrollbar();
-              }}
-            />
+
+            onClick={() => setIsMenuExpanded(!isMenuExpanded)}
+          >
+        <MenuOutlined
+  onClick={() => {
+    if (isMenuExpanded) {
+      setNavbarBackground("transparent"); // Set to transparent when menu is expanded
+    } else {
+      setNavbarBackground("white"); // Set to white when menu is not expanded
+    }
+    setIsMenuExpanded(!isMenuExpanded); // Toggle the menu
+    // toggleBodyScrollbar();
+  }}
+/>
+
           </div>{" "}
         </div>
         <nav
           className={`${styles.nav} ${expanded ? styles.expanded : ""}`}
           style={{ overflowY: "hidden" }}>
           {isMenuExpanded ? (
-            <div className={styles.outerbar}>
+          <div className="mx-auto max-w-screen-xl px-4 py-16 overflow-hidden">
               <div className="lg:flex lg:items-start lg:gap-8">
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
                     <Link
                       href="/about-us"
-                      class="font-bold text-2xl dark:text-black"
+                      class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                       className={styles.lineLink}
-                      onClick={handleMenuClick}>
-                      About us
+
+                      onClick={handleMenuClick}
+                    >
+                    About us 
+
                     </Link>
 
                     <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
@@ -286,23 +297,23 @@ const Sidebar = () => {
               {showAboutList && openMenu === "about" && (
                 <ul className={styles.subMenu}>
                   <li>
-                    <Link href="/about-us" className={styles.subLink}>
-                      About Us
+                    <Link href="/about-us" className={styles.lineLink}>
+                    <CaretRightOutlined />About Us
                     </Link>
                   </li>
                   <li>
-                    <Link href="/process" className={styles.subLink}>
-                      Process
+                    <Link href="/process" className={styles.lineLink}>
+                    <CaretRightOutlined /> Process
                     </Link>
                   </li>
                   <li>
-                    <Link href="/technologies" className={styles.subLink}>
-                      Technologies
+                    <Link href="/technologies" className={styles.lineLink}>
+                    <CaretRightOutlined />Technologies
                     </Link>
                   </li>
                   <li>
-                    <Link href="/our-works" className={styles.subLink}>
-                      Our Works
+                    <Link href="/our-works" className={styles.lineLink}>
+                    <CaretRightOutlined />  Our Works
                     </Link>
                   </li>
                 </ul>
@@ -319,22 +330,31 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/services/it-consulting/"
-                      className={styles.subLink}>
-                      IT consulting
+
+                      className={styles.lineLink}
+                    >
+                    <CaretRightOutlined />  IT consulting
+
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/services/custom-software-development/"
-                      className={styles.subLink}>
-                      Custom software development
+
+                      className={styles.lineLink}
+                    >
+                    <CaretRightOutlined />  Custom software development
+
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/services/managed-it-services/"
-                      className={styles.subLink}>
-                      Managed IT services
+
+                      className={styles.lineLink}
+                    >
+                    <CaretRightOutlined />  Managed IT services
+
                     </Link>
                   </li>
                 </ul>
@@ -348,22 +368,28 @@ const Sidebar = () => {
               {showAboutList && openMenu === "products" && (
                 <ul className={styles.subMenu}>
                   <li>
-                    <Link href="/products/jobsoid/" className={styles.subLink}>
-                      Jobsoid
+                    <Link href="/products/jobsoid/" className={styles.lineLink}>
+                    <CaretRightOutlined />   Jobsoid
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/products/ivue-video/"
-                      className={styles.subLink}>
-                      iVue video
+
+                      className={styles.lineLink}
+                    >
+                    <CaretRightOutlined />  iVue video
+
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/products/adhoc-reporting-platform/"
-                      className={styles.subLink}>
-                      Rix Adhoc
+
+                      className={styles.lineLink}
+                    >
+                    <CaretRightOutlined />  Rix Adhoc
+
                     </Link>
                   </li>
                 </ul>
@@ -377,13 +403,13 @@ const Sidebar = () => {
               {showAboutList && openMenu === "careers" && (
                 <ul className={styles.subMenu}>
                   <li>
-                    <Link href="/careers" className={styles.subLink}>
-                      Work culture
+                    <Link href="/careers" className={styles.lineLink}>
+                    <CaretRightOutlined />   Work culture
                     </Link>
                   </li>
                   <li>
-                    <Link href="/careers" className={styles.subLink}>
-                      Join our team
+                    <Link href="/careers" className={styles.lineLink}>
+                    <CaretRightOutlined />   Join our team
                     </Link>
                   </li>
                 </ul>
