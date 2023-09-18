@@ -21,11 +21,12 @@ export async function getServerSideProps() {
   const ourJobsDataResponse = await fetch(
     "http://13.233.214.226:1337/api/our-works?populate=*&filters[Type][$eq]=CustomSoftwareDevelopment"
   );
+
   const headerData = await headerResponse.json();
   const serviceData = await serviceResponse.json();
   const serviceAdvantageData = await serviceAdvantageResponse.json();
   const ourJobsData = await ourJobsDataResponse.json();
-  
+
   return {
     props: {
       headerData: headerData.data,
@@ -40,6 +41,7 @@ export default function Home({
   headerData,
   serviceData,
   serviceAdvantageData,
+  ourJobsData,
 }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
