@@ -21,69 +21,79 @@ const testimonialsData = [
 ];
 
 const Testimonial = ({ name, text }) => (
-  <div className="text-left  m-0 mx-auto p-8 border border-white border-solid bg-blue-50">
+  <div className="text-left m-0 mx-auto p-8 border border-white border-solid bg-blue-50">
     <p className="text-2xl italic text-slate-500 pb-8 mb-8">{text}</p>
     <p className="text-2xl font-bold pt-8">{name}</p>
   </div>
 );
 
 const PaginationDots = ({ testimonials, currentIdx, onDotClick }) => {
-    const numTestimonials = testimonials.length;
-    const dotsToShow = [];
-    
-    for (let i = currentIdx; i < currentIdx + 3; i++) {
-      dotsToShow.push(i % numTestimonials);
-    }
-  
-    return (
-      <div className="flex w-24 h-24">
-        {dotsToShow.map((idx) => (
-          <img
-            key={idx}
-            src={testimonials[idx].photo}
-            alt={testimonials[idx].name}
-            width={100}
-            // className={idx === currentIdx ? 'active' : 'notactive'}
-            className="rounded-full m-1.5 border-2 border-blue-600 cursor-pointer"
-            onClick={() => onDotClick(idx)}
-          />
-        ))}
-      </div>
-    );
-};    
+  const numTestimonials = testimonials.length;
+  const dotsToShow = [];
+
+  for (let i = currentIdx; i < currentIdx + 3; i++) {
+    dotsToShow.push(i % numTestimonials);
+  }
+
+  return (
+    <div className="flex w-24 h-24">
+      {dotsToShow.map((idx) => (
+        <img
+          key={idx}
+          src={testimonials[idx].photo}
+          alt={testimonials[idx].name}
+          width={100}
+          className="rounded-full m-1.5 border-2 border-blue-600 cursor-pointer"
+          onClick={() => onDotClick(idx)}
+        />
+      ))}
+    </div>
+  );
+};
 
 const TestimonialsCarousel = () => {
-    const [currentIdx, setCurrentIdx] = useState(0);
-  
-    const handleNext = () => {
-      setCurrentIdx((currentIdx + 1) % testimonialsData.length);
-    };
-  
-    const handleDotClick = (dotIndex) => {
-      setCurrentIdx(dotIndex);
-    };
-    
-    useEffect(() => {
-      const AUTO_CHANGE_INTERVAL = 5000; // 5 seconds
-      const intervalId = setInterval(handleNext, AUTO_CHANGE_INTERVAL);
-      
-      return () => {
-        clearInterval(intervalId);
-      };
-    }, [currentIdx]);
+  const [currentIdx, setCurrentIdx] = useState(0);
 
-    return (
-      <div className="relative flex flex-col items-center">
-        <Testimonial {...testimonialsData[currentIdx]} />
-                
-        <div className="absolute bottom-0 right-400 flex items-center space-x-2 mb-3">
-          <PaginationDots testimonials={testimonialsData} currentIdx={currentIdx} onDotClick={handleDotClick} />
-          <RightCircleFilled onClick={handleNext} className="w-12 h-12 cursor-pointer" style={{ marginLeft: '20rem', fontSize: '5rem', color: '#ffc801' }}/>
-          
-        </div>
-        
+  const handleNext = () => {
+    setCurrentIdx((currentIdx + 1) % testimonialsData.length);
+  };
+
+  const handleDotClick = (dotIndex) => {
+    setCurrentIdx(dotIndex);
+  };
+
+  useEffect(() => {
+    const AUTO_CHANGE_INTERVAL = 5000; // 5 seconds
+    const intervalId = setInterval(handleNext, AUTO_CHANGE_INTERVAL);
+
+    return () => {
+      clearInterval(intervalId);
+    };
+  }, [currentIdx]);
+
+  useEffect(() => {
+    // Check if the screen is small (tailwind class `md:hidden` hides the element on medium and larger screens)
+    const isSmallScreen = window.innerWidth < 768; // Adjust the breakpoint as needed
+
+    if (!isSmallScreen) {
+      // Your code that depends on window.innerWidth can go here
+    }
+  }, []); // Empty dependency array means this effect runs once after the initial render
+
+  return (
+    <div className="relative flex flex-col items-center">
+      <Testimonial {...testimonialsData[currentIdx]} />
+
+      <div className="absolute bottom-0 right-0 md:right-48 flex justify-end items-end">
+        <PaginationDots testimonials={testimonialsData} currentIdx={currentIdx} onDotClick={handleDotClick} />
+        <RightCircleFilled
+          onClick={handleNext}
+          className="w-12 h-12 cursor-pointer mt-2"
+          style={{ fontSize: '5rem', color: '#ffc801', marginRight: '2rem' }}
+        />
       </div>
-    );
-};  
+    </div>
+  );
+};
 
 export default TestimonialsCarousel;

@@ -1,13 +1,35 @@
-// Import necessary dependencies
-import React from "react";
+import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
-import { Form, Input, Button } from "antd";
 import Styles from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css";
 
 const Contact = () => {
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [errorMessage, setErrorMessage] = useState("");
+  const [successMessage, setSuccessMessage] = useState("");
+
+  const handleNameChange = (e) => {
+    setName(e.target.value);
+  };
+
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
   const sendEmail = (e) => {
     e.preventDefault();
 
+    // Basic validation
+    if (!name.trim() || !email.trim()) {
+      setErrorMessage("Please fill out all fields.");
+      return;
+    }
+
+    // Clear any previous error or success message
+    setErrorMessage("");
+    setSuccessMessage("");
+
+    // Send the email using emailjs
     emailjs
       .sendForm(
         "service_jx4by2i",
@@ -18,57 +40,70 @@ const Contact = () => {
       .then(
         (result) => {
           console.log(result.text);
-          console.log("message sent");
+          setSuccessMessage("Message sent successfully!");
         },
         (error) => {
           console.log(error.text);
+          setErrorMessage("Error sending the message. Please try again.");
         }
       );
   };
 
   return (
-    <div className={Styles.flexContainer}>
-      <div className={Styles.formStyle}>
-        <div className={Styles.formContainer}>
-          <h1>Want to Learn More?</h1>
-          <p>
-            Share your contact details, and one of our Product Specialists will
-            get in touch with you.
-          </p>
-          <form onSubmit={sendEmail}>
-            <Form.Item
-              name="user_name"
-              rules={[
-                {
-                  message: "Please input your Name!",
-                },
-              ]}
-            >
-              <Input type="text" placeholder="Name" />
-            </Form.Item>
-            <Form.Item
-              name="user_email"
-              rules={[
-                {
-                  message: "Please input your Email!",
-                },
-              ]}
-            >
-              <Input type="email" placeholder="Email" />
-            </Form.Item>
-            <Form.Item shouldUpdate>
-              {() => (
-                <Button
-                  htmlType="submit"
-                  style={{ backgroundColor: "#09ab6f", borderColor: "#09ab6f" }}
-                >
-                  Contact us
-                </Button>
-              )}
-            </Form.Item>
-          </form>
+    <div className={Styles.formStyle}>
+      <div className="text-2xl md:text-3xl lg:text-4xl mb-4">
+        <div className={" text-white  rounded-lg "}>
+          <h1 class="text-center ...">Want to discuss a product idea?</h1>
         </div>
       </div>
+      <div className="mb-4">
+        <div className={" text-white  rounded-lg "}>
+          <p className="text-center ...">
+            Share your contact details and one of our Product Engineering
+            Specialists will get in touch.
+          </p>
+        </div>
+      </div>
+      <form onSubmit={sendEmail}>
+        <div className="mb-4 ">
+          <label htmlFor="name" className="block mb-1 text-white  rounded-lg ">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block mb-1 text-white  rounded-lg ">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={handleEmailChange}
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 focus:outline-none focus:ring focus:border-blue-300"
+        >
+          Submit
+        </button>
+      </form>
+      {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+      {successMessage && (
+        <p className="text-green-500 mt-4">{successMessage}</p>
+      )}
     </div>
   );
 };

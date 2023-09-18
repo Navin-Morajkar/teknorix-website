@@ -79,7 +79,7 @@ overflow-y: hidden;
    /* Display the navigation links in a row */
   /* flex-direction: column; */
  
-  padding: 4rem;
+  padding: 0 1.5rem;
 }
 
 .nav a {
@@ -92,9 +92,9 @@ overflow-y: hidden;
   font-size: 1rem;
 }
 .nav h1{
-  font-size: 4rem; 
-  color: black ;
-  margin-top:10rem ;
+  font-size: 3.6rem; 
+  color: #2B2D38 ;
+  margin-top: 10rem ;
   font-weight: bold; /* Add bold styling */
 } 
 
@@ -269,7 +269,7 @@ width: 100%;
   position: relative;
   text-decoration: none;
   color: #000;
-  padding: 10px 0;
+  padding: 5px 0;
 }
 
 .lineLink::before {
@@ -285,5 +285,5 @@ width: 100%;
 
 .lineLink:hover::before {
   width: 100%; /* Increase width to 100% on hover */
-}
+} 
 
