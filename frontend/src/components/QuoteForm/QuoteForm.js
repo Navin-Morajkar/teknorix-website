@@ -25,76 +25,86 @@ const QuoteForm = () => {
         <Form
           form={form}
           name="horizontal_login"
-          layout="horizontal"
+          layout="vertical" // Change layout to vertical
           onFinish={onFinish}
         >
-        
-          <Form.Item
-            name="username"
-            label="Your Name"
-            rules={[
-              {
-                required: true,
-                message: "Please Enter Your Name!",
-              },
-            ]}
-          >
-            <Input
-              placeholder="Enter your first name"
-              className="w-48 py-2 px-3 rounded-sm"
-            />
-          </Form.Item>
-          <Form.Item
-            name="email"
-            label="Email Address"
-            rules={[
-              {
-                required: true,
-                type: "email",
-                message: "Enter your email address",
-              },
-            ]}
-          >
-            <Input
-              placeholder="Enter your email"
-              className="w-48 py-2 px-3 rounded-sm"
-            />
-          </Form.Item>
-          <Form.Item
-            name="number"
-            label="Phone Number"
-            rules={[
-              {
-                required: true,
-                message: "Enter your correct number!",
-              },
-            ]}
-          >
-            <Input
-              placeholder="Enter your phone number"
-              className="w-48 py-2 px-3 rounded-sm"
-            />
-          </Form.Item>
+          <div className="flex flex-wrap justify-center"> {/* Wrap Name, Email, Phone in a flex container */}
+            <div className="w-full md:w-1/3 px-4">
+              <Form.Item
+                name="username"
+                label={<span className={Style.labelStyle}>Name</span>}
+                rules={[
+                  {
+                    required: true,
+                    message: "Please Enter Your Name!",
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Enter your first name"
+                  className="w-full py-2 px-3 rounded-sm"
+                />
+              </Form.Item>
+            </div>
+            <div className="w-full md:w-1/3 px-4">
+              <Form.Item
+                name="email"
+                label={<span className={Style.labelStyle}>Email Address</span>}
+                rules={[
+                  {
+                    required: true,
+                    type: "email",
+                    message: "Enter your email address",
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Enter your email"
+                  className="w-full py-2 px-3 rounded-sm"
+                />
+              </Form.Item>
+            </div>
+            <div className="w-full md:w-1/3 px-4">
+              <Form.Item
+                name="number"
+                label={<span className={Style.labelStyle}>Phone Number</span>}
+                rules={[
+                  {
+                    required: true,
+                    message: "Enter your correct number!",
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Enter your phone number"
+                  className="w-full py-2 px-3 rounded-sm"
+                />
+              </Form.Item>
+            </div>
+          </div>
           <Form.Item
             name="intro"
-            label="Project Brief"
+            label={<span className={Style.labelStyle}>Project Brief</span>}
             rules={[{ required: true, message: "Please input Intro" }]}
           >
             <Input.TextArea
               showCount
               maxLength={100}
-              className="w-64 py-2 px-3 rounded-sm"
+              className="w-full py-2 px-3 rounded-sm"
+              placeholder="Tell Us About Your Project"
             />
           </Form.Item>
           <Form.Item shouldUpdate>
             {() => (
-              <Button
-                type="primary"
-                htmlType="submit"
-                className="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full px-6 py-2"
-              >
-                Contact us
-              </Button>
+              <div className="text-center"> {/* Center the button */}
+                <Button
+                  type="primary"
+                  htmlType="submit"
+                  className="bg-green-500 hover:bg-green-700 text-white font-bold rounded-full px-6 py-2"
+                >
+                  Contact us
+                </Button>
+              </div>
             )}
           </Form.Item>
         </Form>

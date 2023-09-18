@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import Styles from "../ContainerLeft/ContainerLeft.module.css";
-
+import Style from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css";
 const CustomForm = () => {
   const [form] = Form.useForm();
   const [formData, setFormData] = useState({ name: '', email: '' });
@@ -32,49 +32,56 @@ const CustomForm = () => {
   };
 
   return (
-    <div className="mt-4 sm:p-4 md:p-8 lg:p-12 xl:p-20">
-      <div className="bg-yellow-400 bg-cover bg-center p-8">
-        <div className="max-w-screen-xl mx-auto text-white">
-          <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center">
-            Want to Learn More?
-          </h1>
-          <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-center mb-8">
-            Share your contact details, and one of our Product Specialists will get in touch with you.
-          </p>
-          <Form
-            form={form}
-            onFinish={handleSubmit}
-            initialValues={{ name: '', email: '' }}
-          >
-            <Form.Item
-              name="name"
-              rules={[
-                {
-                  required: true,
-                  message: 'Please input your Name!',
-                },
-              ]}
-            >
-              <Input
-                placeholder="Name"
-                className="bg-white px-4 py-2 rounded-lg w-full sm:w-64 md:w-72 lg:w-80 xl:w-96 mx-auto"
-              />
-            </Form.Item>
-            <Form.Item
-              name="email"
-              rules={[
-                {
-                  required: true,
-                  type: 'email',
-                  message: 'Please input a valid Email!',
-                },
-              ]}
-            >
-              <Input
-                placeholder="Email"
-                className="bg-white px-4 py-2 rounded-lg w-full sm:w-64 md:w-72 lg:w-80 xl:w-96 mx-auto"
-              />
-            </Form.Item>
+    <div className={`${Style.formStyle}  flex flex-col justify-center items-center`}>
+      <div className="text-white">
+        <h1 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 text-center">
+          Want to Learn More?
+        </h1>
+        <p className="text-base md:text-lg lg:text-xl xl:text-2xl text-center mb-8">
+          Share your contact details, and one of our Product Specialists will get in touch with you.
+        </p>
+        <Form
+          form={form}
+          onFinish={handleSubmit}
+          initialValues={{ name: '', email: '' }}
+          layout="vertical"
+        >
+          <div className="flex flex-wrap justify-center">
+            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-2/4 p-2">
+              <Form.Item
+                name="name"
+                rules={[
+                  {
+                    required: true,
+                    message: 'Please input your Name!',
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Name"
+                  className="bg-white px-4 py-2 rounded-lg w-full"
+                />
+              </Form.Item>
+            </div>
+            <div className="w-full sm:w-1/2 md:w-1/2 lg:w-1/3 xl:w-2/4 p-2">
+              <Form.Item
+                name="email"
+                rules={[
+                  {
+                    required: true,
+                    type: 'email',
+                    message: 'Please input a valid Email!',
+                  },
+                ]}
+              >
+                <Input
+                  placeholder="Email"
+                  className="bg-white px-4 py-2 rounded-lg w-full"
+                />
+              </Form.Item>
+            </div>
+          </div>
+          <div className="text-center">
             <Form.Item>
               <Button
                 type="primary"
@@ -85,8 +92,8 @@ const CustomForm = () => {
                 Contact us
               </Button>
             </Form.Item>
-          </Form>
-        </div>
+          </div>
+        </Form>
       </div>
     </div>
   );
