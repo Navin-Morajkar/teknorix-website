@@ -4,12 +4,13 @@ import Image from "next/image";
 import { useState, React } from "react";
 import { MyContext } from "./MyContext";
 import HeaderImage from "./HeaderImage/HeaderImage";
+import { SidebarProvider } from "./SidebarContext";
 
 export default function Layout({ children }) {
   const [headerImageLink, setHeaderImageLink] = useState();
 
   return (
-    <>
+    <SidebarProvider>
       <Sidebar />
       <div className="w-full">
         <MyContext.Provider value={{ headerImageLink, setHeaderImageLink }}>
@@ -25,6 +26,6 @@ export default function Layout({ children }) {
           <Footer />
         </div>
       </div>
-    </>
+    </SidebarProvider>
   );
 }
