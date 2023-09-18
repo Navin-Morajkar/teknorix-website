@@ -1,30 +1,30 @@
-/*form*/
+/* Form container */
 .formStyle {
+  background-color: #ffc801;
+  background-image: url(https://www.teknorix.com/wp-content/uploads/2019/01/Contact-Form-Yellow-Background-Image.png);
+  background-repeat: no-repeat;
+  background-size: cover; /* Use 'cover' to make the image cover the entire container */
+  padding: 60px 80px;
+  display: flex; /* Make the container a flex container */
+  justify-content: center; /* Center horizontally */
+  align-items: center; /* Center vertically */
+  /* Make sure the container takes up at least the full viewport height */
+}
 
-    background-color: #ffc801;
-    background-image: url(https://www.teknorix.com/wp-content/uploads/2019/01/Contact-Form-Yellow-Background-Image.png);
-    background-repeat: no-repeat;
-  
-    background-size: contain;
-    padding: 60px 80px;
-  
-  }
-  
-  .formContainer {
-   
-    padding-left: 10rem;
-  }
-  
-  .formContainer p {
-    color: white;
-  }
-  
-  .formContainer h1 {
-    align-items: center;
-    color: white;
-  }
-  
-  .formStyle Input {
-    padding: 10px 28px;
-  } 
-  
+/* Text styles */
+.formContainer p,
+.formContainer h1 {
+  color: white;
+}
+
+/* Input styles */
+.formStyle Input {
+  padding: 10px 28px;
+  background: rgba(255, 255, 255, 0.8); /* Add a transparent white background to the input fields for better readability */
+}
+
+.labelStyle {
+  font-size: 24px; /* Adjust the font size as needed */
+  color:white; /* Your desired color */
+  /* Add any other label styles here */
+}

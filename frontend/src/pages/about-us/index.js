@@ -81,9 +81,11 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
         </div>
       </div>
       <Header data={getDataBySortOrder(headerData, 1)} />
+
       <div className="text-center mt-4">
       <h2 className="text-xl lg:text-2xl xl:text-3xl font-semibold">Our Team</h2>
       <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-8 mt-4 lg:mt-8">
+
         <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
         <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
       </div>
