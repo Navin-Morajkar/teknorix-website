@@ -65,16 +65,16 @@ const Sidebar = () => {
   // //Navin's code
   const { sidebarContent, setSidebarContent } = useSidebar();
 
-  // // Update the Sidebar content when you navigate to this page
-  // useEffect(() => {
-  //   setSidebarContent({
-  //     title: "Page 1 Title",
-  //     subtitle: "Page 1 Subtitle",
-  //     description: "Page 1 Description",
-  //   });
-  // }, []);
+  // Update the Sidebar content when you navigate to this page
+  useEffect(() => {
+    setSidebarContent({
+      title: "Page 1 Title",
+      subtitle: "Page 1 Subtitle",
+      description: "Page 1 Description",
+    });
+  }, []);
 
-  // //End of Navin's code
+  //End of Navin's code
 
   return (
     <div
