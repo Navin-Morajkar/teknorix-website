@@ -86,8 +86,8 @@ export default function Home({
 
   return (
     <div className="bg-gray-100">
-      <div className="bg-yellow-300">
-        <Header data={getDataBySortOrder(headerData, 0)} />
+      <div className="bg-yellow-300"> 
+      <Header   data={getDataBySortOrder(headerData, 0)} />
 
       <div className={Styles.parent}>
         <Container data={getDataBySortOrder(qualityData, 1)} />
@@ -124,7 +124,7 @@ export default function Home({
         <Container data={getDataBySortOrder(expertiseData, 3)} />
       </div>
 
-      <Achievement data={getDataBySortOrder(achievementData, 1)} />
+      <Achievement />
       <Header data={getDataBySortOrder(headerData, 1)} />
 
       <div className="container mx-auto">

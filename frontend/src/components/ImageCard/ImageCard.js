@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import { EnvironmentOutlined, PhoneOutlined, MailOutlined } from "@ant-design/icons"; // Import Ant Design icons
+import { EnvironmentOutlined, PhoneOutlined, MailOutlined } from "@ant-design/icons";
 import styles from "../ImageCard/ImageCard.module.css";
 
 const ImageCard = ({ data }) => {
@@ -24,7 +24,7 @@ const ImageCard = ({ data }) => {
             />
           )}
 
-          <div className="absolute inset-0 flex items-center justify-center text-white bg-black bg-opacity-50">
+          <div className="absolute inset-0 flex flex-col items-center justify-center text-white bg-black bg-opacity-50">
             <div className="text-center">
               <h2 className="text-2xl font-bold">{data.attributes.title}</h2>
               <h3 className="text-lg">{data.attributes.companyName}</h3>
