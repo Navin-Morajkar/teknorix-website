@@ -50,47 +50,60 @@ const Contact = () => {
   };
 
   return (
-    <div className={Styles.flexContainer}>
-      <div className={Styles.formStyle}>
-        <div className={Styles.formContainer}>
-          <h1>Want to discuss a product idea?</h1>
-          <p>
+    <div className={Styles.formStyle}>
+      <div className="text-2xl md:text-3xl lg:text-4xl mb-4">
+        <div className={" text-white  rounded-lg "}>
+          <h1 class="text-center ...">Want to discuss a product idea?</h1>
+        </div>
+      </div>
+      <div className="mb-4">
+        <div className={" text-white  rounded-lg "}>
+          <p className="text-center ...">
             Share your contact details and one of our Product Engineering
             Specialists will get in touch.
           </p>
-          <form onSubmit={sendEmail}>
-            <div className="form-group">
-              <label htmlFor="name">Name</label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={name}
-                onChange={handleNameChange}
-                className="form-control"
-                required
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="email">Email</label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={email}
-                onChange={handleEmailChange}
-                className="form-control"
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary">
-              Submit
-            </button>
-          </form>
-          {errorMessage && <p className="text-danger">{errorMessage}</p>}
-          {successMessage && <p className="text-success">{successMessage}</p>}
         </div>
       </div>
+      <form onSubmit={sendEmail}>
+        <div className="mb-4 ">
+          <label htmlFor="name" className="block mb-1 text-white  rounded-lg ">
+            Name
+          </label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={name}
+            onChange={handleNameChange}
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            required
+          />
+        </div>
+        <div className="mb-4">
+          <label htmlFor="email" className="block mb-1 text-white  rounded-lg ">
+            Email
+          </label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={email}
+            onChange={handleEmailChange}
+            className="w-full p-2 border rounded-md focus:outline-none focus:ring focus:border-blue-300"
+            required
+          />
+        </div>
+        <button
+          type="submit"
+          className="bg-blue-700 text-white py-2 px-4 rounded-md hover:bg-blue-800 focus:outline-none focus:ring focus:border-blue-300"
+        >
+          Submit
+        </button>
+      </form>
+      {errorMessage && <p className="text-red-500 mt-4">{errorMessage}</p>}
+      {successMessage && (
+        <p className="text-green-500 mt-4">{successMessage}</p>
+      )}
     </div>
   );
 };

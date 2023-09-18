@@ -5,7 +5,6 @@ import Style from "@/components/SixCards/SixCards.module.css";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
-import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -24,13 +23,13 @@ export async function getServerSideProps() {
   return {
     props: {
       headerData: headerData.data,
-      serviceData:serviceData.data,
-      ourJobsData:ourJobsData.data
+      serviceData: serviceData.data,
+      ourJobsData: ourJobsData.data,
     },
   };
 }
 
-export default function Home({ headerData, serviceData,ourJobsData }) {
+export default function Home({ headerData, serviceData, ourJobsData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
@@ -46,7 +45,9 @@ export default function Home({ headerData, serviceData,ourJobsData }) {
       <Header data={getDataBySortOrder(headerData, 0)} />
 
       <ContainerRight data={filterService(serviceData, "ITConsulting", 1)} />
+
       <ContainerLeft data={filterService(serviceData, "ITConsulting", 2)} />
+
       <ContainerRight data={filterService(serviceData, "ITConsulting", 3)} />
 
       <Header data={getDataBySortOrder(headerData, 1)} />
@@ -71,21 +72,21 @@ export default function Home({ headerData, serviceData,ourJobsData }) {
       <ContainerRight
         data={filterService(serviceData, "ManagedITServices", 3)}
       />
-              
+
       <div className="container mx-auto">
-  <div className="flex flex-wrap -mx-0">
-    <div className="w-full md:w-1/2 lg:w-1/3 ">
-      <OurWork />
-    </div>
-    <div className="w-full md:w-1/2 lg:w-1/3 ">
-      <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
-    </div>
-    <div className="w-full md:w-1/2 lg:w-1/3  ">
-      <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
-    </div>
-  </div>
-</div>
-      <WantToLearnMore />
+        <div className="flex flex-wrap -mx-0">
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <OurWork />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3 ">
+            <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
+          </div>
+          <div className="w-full md:w-1/2 lg:w-1/3  ">
+            <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
+          </div>
+        </div>
+      </div>
+      <QuoteForm />
     </div>
   );
 }

@@ -72,22 +72,22 @@ export default function Home({
   //Navin's code
   const { sidebarContent, setSidebarContent } = useSidebar();
 
-  // Update the Sidebar content when you navigate to this page
-  useEffect(() => {
-    setSidebarContent({
-      title: sidebarData[0].attributes.title,
-      subtitle: sidebarData[0].attributes.subtitle,
-      description: sidebarData[0].attributes.description,
-    });
-  }, []);
+  // // Update the Sidebar content when you navigate to this page
+  // useEffect(() => {
+  //   setSidebarContent({
+  //     title: sidebarData.attributes.title,
+  //     subtitle: sidebarData.attributes.subtitle,
+  //     description: sidebarData.attributes.description,
+  //   });
+  // }, []);
 
   //End of Navin's code
 
 
   return (
     <div className="bg-gray-100">
-      <div className="bg-yellow-300">
-        <Header data={getDataBySortOrder(headerData, 0)} />
+      <div className="bg-yellow-300"> 
+      <Header   data={getDataBySortOrder(headerData, 0)} />
 
       <div className={Styles.parent}>
         <Container data={getDataBySortOrder(qualityData, 1)} />
@@ -124,7 +124,7 @@ export default function Home({
         <Container data={getDataBySortOrder(expertiseData, 3)} />
       </div>
 
-      <Achievement data={getDataBySortOrder(achievementData, 1)} />
+      <Achievement />
       <Header data={getDataBySortOrder(headerData, 1)} />
 
       <div className="container mx-auto">
@@ -141,11 +141,7 @@ export default function Home({
   </div>
 </div>
       
-      <div className={Styles.parent}>
-        <OurWork />
-        <OurJobs entryId={4} />
-        <OurJobs entryId={5} />
-      </div>
+   
       <Contact />
     </div>
   );
