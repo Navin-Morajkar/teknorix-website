@@ -1,3 +1,8 @@
+
+
+
+
+
 import Header from "@/components/Header/Header";
 import ContainerLeft from "@/components/ContainerLeft/ContainerLeft";
 import ContainerRight from "@/components/ContainerRight/ContainerRight";
@@ -43,18 +48,13 @@ export default function Home({ headerData, serviceData, ourJobsData }) {
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
-      <div className="flex flex-wrap justify-around py-12 items-stretch">
-        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-          <ContainerRight
-            data={filterService(serviceData, "ITConsulting", 1)}
-          />
-        </div>{" "}
-        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-          <ContainerLeft data={filterService(serviceData, "ITConsulting", 2)} />
-        </div>{" "}
-        <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4"></div>
-        <ContainerRight data={filterService(serviceData, "ITConsulting", 3)} />
-      </div>
+
+      <ContainerRight data={filterService(serviceData, "ITConsulting", 1)} />
+
+      <ContainerLeft data={filterService(serviceData, "ITConsulting", 2)} />
+
+      <ContainerRight data={filterService(serviceData, "ITConsulting", 3)} />
+
       <Header data={getDataBySortOrder(headerData, 1)} />
 
       <ContainerRight

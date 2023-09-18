@@ -3,6 +3,7 @@ import Header from "@/components/Header/Header";
 import ContainerLeft from "@/components/ContainerLeft/ContainerLeft";
 import Style from "@/components/SixCards/SixCards.module.css";
 import ContainerRight from "@/components/ContainerRight/ContainerRight";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(

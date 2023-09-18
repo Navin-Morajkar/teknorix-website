@@ -5,7 +5,7 @@ import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Container from "@/components/Container/Container";
 import CaterTo from "@/components/CaterTo/CaterTo";
 import ImageCard from "@/components/ImageCard/ImageCard";
-import Contact from "@/components/WantToLearnMoreForm/emailjs";
+import Contact from "@/components/WantToLearnMoreForm/emailjs.js";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
