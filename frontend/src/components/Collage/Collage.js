@@ -33,20 +33,31 @@ export default function Collage() {
 
     return (
         <>
-            <PhotoAlbum
-                photos={collageImages}
-                layout="rows"
-                targetRowHeight={350}
-                onClick={({ index }) => setIndex(index)}
-            />
-
-            <Lightbox
-                slides={collageImages}
-                open={index >= 0}
-                index={index}
-                close={() => setIndex(-1)}
-                plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
-            />
-        </>
+        <div className="container mx-auto p-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+            {collageImages.map((image, i) => (
+              <div
+                key={i}
+                className="w-full h-64 sm:h-80 md:h-96 lg:h-80 xl:h-64 relative cursor-pointer"
+                onClick={() => setIndex(i)}
+              >
+                <img
+                  src={image.src}
+                  alt={`Collage ${i + 1}`}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        </div>
+  
+        <Lightbox
+          slides={collageImages}
+          open={index >= 0}
+          index={index}
+          close={() => setIndex(-1)}
+          plugins={[Fullscreen, Slideshow, Thumbnails, Zoom]}
+        />
+      </>
     );
 }

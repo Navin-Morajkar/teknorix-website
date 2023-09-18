@@ -4,6 +4,7 @@ import Styles from "@/components/SixCards/SixCards.module.css";
 import Container from "@/components/Container/Container";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import CaterTo from "@/components/CaterTo/CaterTo";
+import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=MobileDevelopment"
@@ -57,14 +58,18 @@ export default function Home({
       />
       <CaterTo />
 
-      <h1 className="text-center text-6xl">What technologies we use?</h1>
-      <div className={Styles.child}>
-        {filteredTechnology.map((image) => (
-          <Container key={image.id} data={image} />
-        ))}
-      </div>
+      <h1 className="text-center text-4xl sm:text-5xl md:text-6xl lg:text-7xl">
+      What technologies we use?
+    </h1>
+    <div className="flex flex-wrap justify-center">
+      {filteredTechnology.map((image) => (
+        <div key={image.id} className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
+          <Container data={image} />
+        </div>
+      ))}
+    </div>
 
-      <QuoteForm />
+      <WantToLearnMore />
     </div>
   );
 }
