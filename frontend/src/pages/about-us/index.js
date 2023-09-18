@@ -79,7 +79,7 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
         </div>
       </div>
       <Header data={getDataBySortOrder(headerData, 1)} />
-      <h2 className={Style.textcenter}>Our Team</h2>
+      <h1 className="text-center text-6xl">Our Team</h1>
       <div className={Style.parent}>
         <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
         <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
