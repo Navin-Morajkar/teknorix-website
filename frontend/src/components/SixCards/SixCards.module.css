@@ -75,9 +75,7 @@ margin-bottom: 50px;
 .child {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
-  text-align: center;
-  justify-content: space-around;
+  flex-direction: row; /* Stack content vertically */
 }
 .textcenter{
   text-align: center;

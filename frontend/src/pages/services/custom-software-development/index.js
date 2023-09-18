@@ -15,17 +15,27 @@ export async function getServerSideProps() {
   const ourJobsDataResponse = await fetch(
     "http://13.233.214.226:1337/api/our-works?populate=*&filters[Type][$eq]=CustomSoftwareDevelopment"
   );
+  const serviceResponse = await fetch(
+    "http://13.233.214.226:1337/api/our-services?populate[image][fields][1]=url"
+  );
+  const serviceAdvantageResponse = await fetch(
+    "http://13.233.214.226:1337/api/service-advantages?populate=*"
+  );
+  const ourJobsDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/our-works?populate=*&filters[Type][$eq]=CustomSoftwareDevelopment"
+  );
   const headerData = await headerResponse.json();
   const serviceData = await serviceResponse.json();
   const serviceAdvantageData = await serviceAdvantageResponse.json();
   const ourJobsData = await ourJobsDataResponse.json();
+
   return {
     props: {
       headerData: headerData.data,
       serviceData: serviceData.data,
       serviceAdvantageData: serviceAdvantageData.data,
-      ourJobsData: ourJobsData.data
-    }
+      ourJobsData: ourJobsData.data,
+    },
   };
 }
 
@@ -53,13 +63,19 @@ export default function Home({
 
       <div className="flex flex-wrap justify-around py-12 items-stretch">
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-          <Container data={filterService(serviceData, "CustomSoftwareDevelopment", 1)} />
+          <Container
+            data={filterService(serviceData, "CustomSoftwareDevelopment", 1)}
+          />
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-          <Container data={filterService(serviceData, "CustomSoftwareDevelopment", 2)} />
+          <Container
+            data={filterService(serviceData, "CustomSoftwareDevelopment", 2)}
+          />
         </div>
         <div className="w-full sm:w-1/2 md:w-1/3 lg:w-1/4 p-4">
-          <Container data={filterService(serviceData, "CustomSoftwareDevelopment", 3)} />
+          <Container
+            data={filterService(serviceData, "CustomSoftwareDevelopment", 3)}
+          />
         </div>
       </div>
 
@@ -80,7 +96,7 @@ export default function Home({
           </div>
         </div>
       </div>
-      <WantToLearnMore />
+      <QuoteForm />
     </div>
   );
 }

@@ -16,30 +16,30 @@ export default function Header({ data }) {
     headerImage = data.attributes.headerImage?.data;
     bodyImage = data.attributes.bodyImage?.data;
     pageLink = data.attributes?.Link;
-  }
 
-  if (headerImage) {
-    setHeaderImageLink(host + headerImage.attributes.url);
+    if (headerImage) {
+      setHeaderImageLink(host + headerImage.attributes.url);
+    }
+    
   }
 
   return (
     <div>
       {data ? (
-        <div className="bg-blue-400 text-white p-4 sm:p-8 md:p-12 lg:p-16 xl:p-20">
+        <div className="bg-blue-400 text-white p-4 sm:p-6 md:p-8 lg:p-10 xl:p-12">
           <div className="md:flex items-center">
             <div className="md:w-7/8 md:pl-4">
-              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold">
+              <h1 className="text-3xl md:text-4xl lg:text-5xl font-semibold mb-4">
                 {data.attributes.title}
               </h1>
-              <p className="font-bold md:w-full">
+              <p className="text-base md:text-lg lg:text-xl xl:text-2xl md:w-full">
                 {data.attributes.description}
               </p>
               {pageLink && (
                 <Button
                   href={pageLink}
                   type="primary"
-                  className="bg-blue-700 rounded-full px-6 py-2 mt-4 text-white"
-                >
+                  className="bg-blue-700 rounded-full px-6 py-2 mt-4 text-white">
                   Read More
                 </Button>
               )}
@@ -49,8 +49,8 @@ export default function Header({ data }) {
                 <Image
                   src={host + bodyImage.attributes.url}
                   alt="Body Image"
-                  width={1000}
-                  height={400}
+                  width={3600}
+                  height={3600}
                 />
               </div>
             )}

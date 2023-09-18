@@ -1,9 +1,7 @@
-// CaterTo.js
-
 import React, { useEffect, useState } from "react";
 import Header from "@/components/Header/Header";
-import Styles from "@/components/SixCards/SixCards.module.css";
 import Container from "@/components/Container/Container";
+import Styles from "@/components/SixCards/SixCards.module.css"; // You can remove this import if not needed
 
 function CaterTo() {
   const [headerData, setHeaderData] = useState(null);
@@ -45,11 +43,13 @@ function CaterTo() {
   return (
     <div>
       {headerData && <Header data={getDataBySortOrder(headerData, 1)} />}
-      <div className={Styles.child}>
-        {filteredSvg.map((image) => (
-          <Container key={image.id} data={image} />
-        ))}
-      </div>
+      <div className="flex flex-wrap justify-center">
+  {filteredSvg.map((image) => (
+    <div key={image.id} className="w-1/4 p-4">
+      <Container data={image} />
+    </div>
+  ))}
+</div>
     </div>
   );
 }

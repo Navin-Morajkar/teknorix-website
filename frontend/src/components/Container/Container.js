@@ -16,7 +16,7 @@ const Container = ({ data }) => {
   return (
     <div className="mt-4 sm:flex sm:justify-between sm:p-4 md:p-8 lg:p-12 xl:p-20">
       {data ? (
-        <div className="sm:w-1/2 sm:mr-auto sm:ml-4">
+        <div className="sm:w-4/3 sm:mr-auto sm:ml-4">
           {containerImage && (
             <Image
               src={host + containerImage.attributes.url}
@@ -25,15 +25,12 @@ const Container = ({ data }) => {
               height={100} // Increase the height of the image
             />
           )}
-          <h1 className="font-bold text-xl sm:text-2xl md:text-3xl lg:text-4xl">
+          <h1 className="font-bold text-xs sm:text-sm md:text-lg lg:text-xl">
             {data.attributes.title}
           </h1>
-          <hr className="bg-blue-500 h-1 w-12 mt-2 mb-4" /> {/* Increase hr width and height */}
-          
+          <hr className="bg-blue-500 h-1 w-12 mt-2 mb-4" />
 
-         
-            <ReactMarkdown>{data.attributes.description}</ReactMarkdown>
-          
+          <ReactMarkdown>{data.attributes.description}</ReactMarkdown>
 
           {link && (
             <Button
