@@ -55,37 +55,36 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
     
       <Header data={getDataBySortOrder(headerData, 0)} />
       <div className="container mx-auto">
-        <div className="flex flex-wrap -mx-0">
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <SixCards data={getDataBySortOrder(advantageData, 1)} />
-          </div>
-          
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <SixCards data={getDataBySortOrder(advantageData, 2)} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <SixCards data={getDataBySortOrder(advantageData, 3)} />
-          </div>
-        </div>
+  <div className="md:flex md:flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3 px-2">
+      <SixCards data={getDataBySortOrder(advantageData, 1)} />
+    </div>
 
-        <div className="flex flex-wrap -mx-0">
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <SixCards data={getDataBySortOrder(advantageData, 4)} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <SixCards data={getDataBySortOrder(advantageData, 5)} />
-          </div>
-          <div className="w-full md:w-1/2 lg:w-1/3 ">
-            <SixCards data={getDataBySortOrder(advantageData, 6)} />
-          </div>
-        </div>
-      </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 px-2">
+      <SixCards data={getDataBySortOrder(advantageData, 2)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 px-2">
+      <SixCards data={getDataBySortOrder(advantageData, 3)} />
+    </div>
+  </div>
+
+  <div className="md:flex md:flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3 px-2">
+      <SixCards data={getDataBySortOrder(advantageData, 4)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 px-2">
+      <SixCards data={getDataBySortOrder(advantageData, 5)} />
+    </div>
+    <div className="w-full md:w-1/2 lg:w-1/3 px-2">
+      <SixCards data={getDataBySortOrder(advantageData, 6)} />
+    </div>
+  </div>
+</div>
+
       <Header data={getDataBySortOrder(headerData, 1)} />
-
       <div className="text-center mt-4">
       <h2 className="text-xl lg:text-2xl xl:text-3xl font-semibold">Our Team</h2>
       <div className="flex flex-col lg:flex-row justify-center items-center lg:space-x-8 mt-4 lg:mt-8">
-
         <ProfileImage data={getDataBySortOrder(employeeData, 1)} />
         <ProfileImage data={getDataBySortOrder(employeeData, 2)} />
       </div>
@@ -95,22 +94,24 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
         ))}
      </div>
     </div>
-      <div className="container mx-auto">
-  <div className="flex flex-wrap -mx-0">
-    <div className="w-full md:w-1/2 lg:w-1/3 ">
+    <div className="container mx-auto">
+  <div className="md:flex md:flex-wrap -mx-0">
+    <div className="w-full md:w-1/2 lg:w-1/3">
       <OurWork />
     </div>
-    <div className="w-full md:w-1/2 lg:w-1/3 ">
+    <div className="w-full md:w-1/2 lg:w-1/3">
       <OurJobs data={getDataBySortOrder(ourJobsData, 3)} />
     </div>
-    <div className="w-full md:w-1/2 lg:w-1/3  ">
+    <div className="w-full md:w-1/2 lg:w-1/3">
       <OurJobs data={getDataBySortOrder(ourJobsData, 8)} />
     </div>
   </div>
 </div>
+
+
       <QuoteForm />
-{/*     
-      <WantToLearnMore /> */}
+    
+      <WantToLearnMore />
     </div>
   );
 }
