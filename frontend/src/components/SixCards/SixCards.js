@@ -13,7 +13,7 @@ export default function SixCards({ data }) {
     <div>
       {data ? (
         <>
-         <div className="w-80 h-60 md:w-96 md:h-72 border bg-white transition duration-300 transform hover:bg-blue-300 relative flex flex-col items-center justify-center">
+          <div className="w-80 h-60 md:w-96 md:h-72 border bg-white transition duration-300 transform hover:bg-blue-300 relative flex flex-col items-center justify-center">
             {aImage && (
               <Image
                 src={host + aImage.attributes.url}
