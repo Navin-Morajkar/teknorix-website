@@ -18,10 +18,12 @@ const Sidebar = () => {
   const [navbarBackground, setNavbarBackground] = useState("transparent");
   const [isMenuExpanded, setIsMenuExpanded] = useState(false); // State for the menu expansion
   const [openMenu, setOpenMenu] = useState(null); // Track the open main menu
-  const [showAboutList, setShowAboutList] = useState(false);
+  const [showAboutList, setShowAboutList] = useState(false); 
+  const [isHeightExpanded, setIsHeightExpanded] = useState(false);
   const handleMenuClick = () => {
     setIsMenuExpanded(!isMenuExpanded);
-    setNavbarBackground(!navbarBackground);
+    setNavbarBackground(!navbarBackground); 
+    setIsHeightExpanded(!isHeightExpanded); // Toggle height expansion
   };
   // const toggleBodyScrollbar = () => {
   //   document.body.style.overflowY = expanded ? "hidden" : "auto";
@@ -102,7 +104,32 @@ const Sidebar = () => {
             />
           </div>{" "}
         </div>
-      
+        <div className={`nav ${isMenuExpanded ? "expanded" : ""}`}>
+  {isMenuExpanded && (
+    <>
+       {window.innerWidth <= 768 && (
+      <Link
+        href="/about-us"
+        className={styles.lineLink}
+        onClick={() => handleMainLinkClick("about")}
+      >
+        ABOUT US
+      </Link>
+  )}
+      {/* Link specific to mobile */}
+      {window.innerWidth <= 768 && (
+        <Link
+          href="/mobile-specific-link"
+          className={styles.lineLink}
+          onClick={() => handleMainLinkClick()}
+        >
+          MOBILE LINK
+        </Link>
+      )}
+    </>
+  )}
+
+</div>
         <nav
           className={`${styles.nav} ${expanded ? styles.expanded : ""}`}
           style={{ overflowY: "hidden" }}
