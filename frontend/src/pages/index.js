@@ -72,14 +72,14 @@ export default function Home({
   //Navin's code
   const { sidebarContent, setSidebarContent } = useSidebar();
 
-  // Update the Sidebar content when you navigate to this page
-  useEffect(() => {
-    setSidebarContent({
-      title: sidebarData.attributes.title,
-      subtitle: sidebarData.attributes.subtitle,
-      description: sidebarData.attributes.description,
-    });
-  }, []);
+  // // Update the Sidebar content when you navigate to this page
+  // useEffect(() => {
+  //   setSidebarContent({
+  //     title: sidebarData.attributes.title,
+  //     subtitle: sidebarData.attributes.subtitle,
+  //     description: sidebarData.attributes.description,
+  //   });
+  // }, []);
 
   // End of Navin's code
 
