@@ -14,11 +14,11 @@ export default function our_jobs({ data }) {
   }
 
   const navigateToSpecificEntry = () => {
-    const specificLink = specificEntry.attributes.link;
-    router.push(specificLink); // Use Next.js router's push method
+    const link = data?.attributes?.link;
+    if (link) {
+      router.push(link);
+    }
   };
-
-
  
   return (
     <div>
