@@ -7,7 +7,7 @@ import {
   FacebookFilled,
   TwitterOutlined,
   InstagramFilled,
-  CaretRightOutlined 
+  CaretRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
 
@@ -30,7 +30,6 @@ const Sidebar = () => {
     if (window.scrollY > window.innerHeight / 2) {
       if (openMenu === menu) {
         setOpenMenu(null); // Clicking on the same main link closes the list
-
       } else {
         setOpenMenu(menu); // Clicking on a different main link opens its list
       }
@@ -62,46 +61,54 @@ const Sidebar = () => {
     };
   }, [expanded]);
 
-  return (
+  return ( 
+   
     <div
       className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${
         scrolling ? styles.scrolling : ""
       } ${isMenuExpanded ? styles.menuExpanded : ""}`}
     >
-      <div className={`bg-${navbarBackground} h-screen shadow-lg lg:shadow-xl`}>
-      <div className="bg-transparent flex justify-between items-center p-5 border-r border-gray-300">
+     <div
+        style={{
+          backgroundColor: navbarBackground,
+          height: "100%",
+          boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
+        }}
+      >  
+        <div className={styles.header}> 
+      
           <Link href="/">
             <Image
               src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
               width="180"
-              height="42" 
+              height="42"
               className="w-36 h-8"
             />
           </Link>
           <div
-           className="inline-block cursor-pointer text-gray-600 ml-3"
+            className="inline-block cursor-pointer text-gray-600 ml-3"
             onClick={() => setIsMenuExpanded(!isMenuExpanded)}
           >
-          <MenuOutlined
-  onClick={() => {
-    if (isMenuExpanded) {
-      setNavbarBackground("transparent"); // Set to transparent when menu is expanded
-    } else {
-      setNavbarBackground("white"); // Set to white when menu is not expanded
-    }
-    setIsMenuExpanded(!isMenuExpanded); // Toggle the menu
-    // toggleBodyScrollbar();
-  }}
-/>
-
+            <MenuOutlined
+              onClick={() => {
+                if (isMenuExpanded) {
+                  setNavbarBackground("transparent"); // Set to transparent when menu is expanded
+                } else {
+                  setNavbarBackground("white"); // Set to white when menu is not expanded
+                }
+                setIsMenuExpanded(!isMenuExpanded); // Toggle the menu
+                // toggleBodyScrollbar();
+              }}
+            />
           </div>{" "}
         </div>
+      
         <nav
           className={`${styles.nav} ${expanded ? styles.expanded : ""}`}
           style={{ overflowY: "hidden" }}
         >
           {isMenuExpanded ? (
-          <div className="mx-auto max-w-screen-xl px-4 py-16 overflow-hidden">
+           <div className={styles.outerbar}>
               <div className="lg:flex lg:items-start lg:gap-8">
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
@@ -296,22 +303,22 @@ const Sidebar = () => {
                 <ul className={styles.subMenu}>
                   <li>
                     <Link href="/about-us" className={styles.subLink}>
-                    <CaretRightOutlined />  About Us
+                      <CaretRightOutlined /> About Us
                     </Link>
                   </li>
                   <li>
                     <Link href="/process" className={styles.subLink}>
-                    <CaretRightOutlined />  Process
+                      <CaretRightOutlined /> Process
                     </Link>
                   </li>
                   <li>
                     <Link href="/technologies" className={styles.subLink}>
-                    <CaretRightOutlined />    Technologies
+                      <CaretRightOutlined /> Technologies
                     </Link>
                   </li>
                   <li>
                     <Link href="/our-works" className={styles.subLink}>
-                    <CaretRightOutlined /> Our Works
+                      <CaretRightOutlined /> Our Works
                     </Link>
                   </li>
                 </ul>
@@ -331,7 +338,7 @@ const Sidebar = () => {
                       href="/services/it-consulting/"
                       className={styles.subLink}
                     >
-                   <CaretRightOutlined />   IT consulting
+                      <CaretRightOutlined /> IT consulting
                     </Link>
                   </li>
                   <li>
@@ -339,7 +346,7 @@ const Sidebar = () => {
                       href="/services/custom-software-development/"
                       className={styles.subLink}
                     >
-                    <CaretRightOutlined />  Custom software development
+                      <CaretRightOutlined /> Custom software development
                     </Link>
                   </li>
                   <li>
@@ -347,7 +354,7 @@ const Sidebar = () => {
                       href="/services/managed-it-services/"
                       className={styles.subLink}
                     >
-                    <CaretRightOutlined />  Managed IT services
+                      <CaretRightOutlined /> Managed IT services
                     </Link>
                   </li>
                 </ul>
@@ -363,7 +370,7 @@ const Sidebar = () => {
                 <ul className={styles.subMenu}>
                   <li>
                     <Link href="/products/jobsoid/" className={styles.subLink}>
-                    <CaretRightOutlined />     Jobsoid
+                      <CaretRightOutlined /> Jobsoid
                     </Link>
                   </li>
                   <li>
@@ -371,7 +378,7 @@ const Sidebar = () => {
                       href="/products/ivue-video/"
                       className={styles.subLink}
                     >
-                  <CaretRightOutlined />    iVue video
+                      <CaretRightOutlined /> iVue video
                     </Link>
                   </li>
                   <li>
@@ -379,7 +386,7 @@ const Sidebar = () => {
                       href="/products/adhoc-reporting-platform/"
                       className={styles.subLink}
                     >
-                  <CaretRightOutlined />    Rix Adhoc
+                      <CaretRightOutlined /> Rix Adhoc
                     </Link>
                   </li>
                 </ul>
@@ -395,12 +402,12 @@ const Sidebar = () => {
                 <ul className={styles.subMenu}>
                   <li>
                     <Link href="/careers" className={styles.subLink}>
-                    <CaretRightOutlined />  Work culture
+                      <CaretRightOutlined /> Work culture
                     </Link>
                   </li>
                   <li>
                     <Link href="/careers" className={styles.subLink}>
-                    <CaretRightOutlined />   Join our team
+                      <CaretRightOutlined /> Join our team
                     </Link>
                   </li>
                 </ul>
