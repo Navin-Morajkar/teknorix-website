@@ -32,10 +32,19 @@ export default function Home({ headerData, portfolioData }) {
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
+      <ContainerRight data={getDataBySortOrder(portfolioData,1)} />
+      <ContainerLeft data={getDataBySortOrder(portfolioData,2) } />
+      <ContainerRight data={getDataBySortOrder(portfolioData,3)} />
+      <ContainerLeft data={getDataBySortOrder(portfolioData,4) } />
+      <ContainerRight data={getDataBySortOrder(portfolioData,5)} />
+      <ContainerLeft data={getDataBySortOrder(portfolioData,6) } />
+      <ContainerRight data={getDataBySortOrder(portfolioData,7)} />
+      <ContainerLeft data={getDataBySortOrder(portfolioData,8) } />
+      <ContainerRight data={getDataBySortOrder(portfolioData,9)} />
 
-      {portfolioData.map((item) => (
+      {/* {portfolioData.map((item) => (
         <ContainerLeft key={item.SortOrder} data={item} />
-      ))}
+      ))} */}
     </div>
   );
 }

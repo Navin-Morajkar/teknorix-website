@@ -16,10 +16,12 @@ export default function ContainerRight({ data }) {
   const host = "http://13.233.214.226:1337";
   let containerImage = null;
   let link = null;
+  let details=null;
   
   if (data) {
     containerImage = data?.attributes?.image?.data;
     link = data?.attributes?.link;
+     details = data?.attributes?.details;
   }
   
   return (
@@ -41,9 +43,16 @@ export default function ContainerRight({ data }) {
               {data.attributes?.title}
             </h1>
             <hr className="bg-blue-500 h-1 w-16 mt-2 mb-4" />
+             {details && (
+              <ReactMarkdown className="lg:text-xl">
+                {details}
+              </ReactMarkdown>
+            )}
+
             <ReactMarkdown className="lg:text-xl">
               {data.attributes?.description}
             </ReactMarkdown>
+           
             {link && (
               <button
                 className="bg-green-500 text-white font-bold rounded-full px-6 py-2 mt-4 hover:bg-green-700"

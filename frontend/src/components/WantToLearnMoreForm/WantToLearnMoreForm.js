@@ -1,3 +1,4 @@
+
 import React, { useState } from "react";
 import emailjs from "@emailjs/browser";
 import Styles from "../WantToLearnMoreForm/WantToLearnMoreForm.module.css";
@@ -9,6 +10,8 @@ const Contact = () => {
   const [message, setMessage] = useState(""); // New message state
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+
+
 
   const handleNameChange = (e) => {
     setName(e.target.value);
@@ -60,6 +63,7 @@ const Contact = () => {
   };
 
   return (
+
     <div className={Styles.formStyle}>
       <div className="text-2xl md:text-3xl lg:text-4xl mb-4">
         <div className={" text-white  rounded-lg "}>
@@ -73,6 +77,8 @@ const Contact = () => {
             Specialists will get in touch.
           </p>
         </div>
+
+   
       </div>
       <form onSubmit={sendEmail}>
         <div className="mb-4 ">
