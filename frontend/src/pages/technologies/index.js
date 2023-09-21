@@ -2,8 +2,9 @@ import Header from "@/components/Header/Header";
 import TechStack from "@/components/TechStack/TechStack";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
-import Style from "@/components/SixCards/SixCards.module.css";
 import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
+import { useEffect } from "react";
+import { useSidebar } from "@/components/SidebarContext";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
@@ -21,16 +22,22 @@ export async function getServerSideProps() {
   );
   const ourJobsData = await ourJobsDataResponse.json();
 
+  const sidebarDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/sidebar-contents?filters[page][$eq]=TechnologiesPage"
+  );
+  const sidebarData = await sidebarDataResponse.json();
+
   return {
     props: {
       headerData: headerData.data,
       technologyData: technologyData.data,
       ourJobsData: ourJobsData.data,
+      sidebarData: sidebarData.data
     },
   };
 }
 
-export default function Home({ headerData, technologyData, ourJobsData }) {
+export default function Home({ headerData, technologyData, ourJobsData, sidebarData, }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
@@ -45,6 +52,17 @@ export default function Home({ headerData, technologyData, ourJobsData }) {
   const filteredBigData = filterTechnologyByType(technologyData, "BigData");
   const filteredMaps = filterTechnologyByType(technologyData, "GIS/Maps");
   const filteredCloud = filterTechnologyByType(technologyData, "Cloud");
+
+  const { setSidebarContent } = useSidebar();
+
+  //Update the Sidebar content when you navigate to this page
+  useEffect(() => {
+    setSidebarContent({
+      title: sidebarData[0].attributes.title,
+      subtitle: sidebarData[0].attributes.subtitle,
+      description: sidebarData[0].attributes.description,
+    });
+  }, []);
 
   return (
     <div>
