@@ -444,13 +444,22 @@ const Sidebar = () => {
                         </Link>
                       </li>
                     </ul>
-                  </div>
+                  </div> 
+                  <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
+                    <Link
+                      href="/contact"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}>
+                      Contacts
+                    </Link></div>
                 </div>
               </div>
             </div>
           ) : (
-            <>
-              {/* Rest of your navigation items */}
+            <> 
+            
+           
               <Link
                 href="/about-us"
                 className={styles.lineLink}
@@ -583,7 +592,7 @@ const Sidebar = () => {
                   </p>
                 </>
               )}
-              <div className={styles.socialIcons}>
+             <div className={`fixed ${styles.socialIcons}`}>
                 <a
                   href="https://www.linkedin.com/company/teknorix/"
                   target="_blank"
