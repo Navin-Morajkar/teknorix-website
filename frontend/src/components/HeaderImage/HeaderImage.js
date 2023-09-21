@@ -20,8 +20,8 @@ const HeaderImage = () => {
         src={headerImageLink}
         alt="My Image"
         width={width}
-        height={height}
-        className="w-auto"
+        height={200}
+        className="h-auto"
         // fill
         // priority
       />
