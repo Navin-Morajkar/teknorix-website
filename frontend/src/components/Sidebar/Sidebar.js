@@ -18,16 +18,15 @@ const Sidebar = () => {
   const [navbarBackground, setNavbarBackground] = useState("transparent");
   const [isMenuExpanded, setIsMenuExpanded] = useState(false); // State for the menu expansion
   const [openMenu, setOpenMenu] = useState(null); // Track the open main menu
-  const [showAboutList, setShowAboutList] = useState(false); 
-  const [isHeightExpanded, setIsHeightExpanded] = useState(false);
+  const [showAboutList, setShowAboutList] = useState(false);
+
   const handleMenuClick = () => {
     setIsMenuExpanded(!isMenuExpanded);
     setNavbarBackground(!navbarBackground); 
-    setIsHeightExpanded(!isHeightExpanded); // Toggle height expansion
+    // setIsHeightExpanded(!isHeightExpanded); // Toggle height expansion
   };
-  // const toggleBodyScrollbar = () => {
-  //   document.body.style.overflowY = expanded ? "hidden" : "auto";
-  // };
+
+
   const handleMainLinkClick = (menu) => {
     if (window.scrollY > window.innerHeight / 2) {
       if (openMenu === menu) {
@@ -54,31 +53,45 @@ const Sidebar = () => {
     };
 
     handleScroll(); // Call it initially to set the correct state
-    // toggleBodyScrollbar(); // Set body scrollbar initially based on expanded state
 
     window.addEventListener("scroll", handleScroll);
     return () => {
       window.removeEventListener("scroll", handleScroll);
-      // toggleBodyScrollbar(); // Reset the body scrollbar when the component unmounts
     };
-  }, [expanded]);
+  }, []);
 
-  return ( 
-   
+  // Add a useEffect to close the mobile menu when the screen size changes
+  useEffect(() => {
+    const handleResize = () => {
+      // Check if the screen width is greater than 768px (adjust this value as needed)
+      if (window.innerWidth > 768) {
+        setIsMenuExpanded(false); // Close the mobile menu
+        setNavbarBackground("transparent");
+      }
+    };
+
+    handleResize(); // Call it initially to handle the current screen size
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  return (
     <div
       className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${
         scrolling ? styles.scrolling : ""
       } ${isMenuExpanded ? styles.menuExpanded : ""}`}
     >
-     <div
+      <div
         style={{
           backgroundColor: navbarBackground,
           height: "100%",
           boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
         }}
-      >  
-        <div className={styles.header}> 
-      
+      >
+        <div className={styles.header}>
           <Link href="/">
             <Image
               src="https://www.teknorix.com/wp-content/uploads/2019/01/teknorix-logo.svg"
@@ -99,44 +112,207 @@ const Sidebar = () => {
                   setNavbarBackground("white"); // Set to white when menu is not expanded
                 }
                 setIsMenuExpanded(!isMenuExpanded); // Toggle the menu
-                // toggleBodyScrollbar();
               }}
             />
           </div>{" "}
         </div>
-        <div className={`nav ${isMenuExpanded ? "expanded" : ""}`}>
-  {isMenuExpanded && (
-    <>
-       {window.innerWidth <= 768 && (
-      <Link
-        href="/about-us"
-        className={styles.lineLink}
-        onClick={() => handleMainLinkClick("about")}
-      >
-        ABOUT US
-      </Link>
-  )}
-      {/* Link specific to mobile */}
-      {window.innerWidth <= 768 && (
-        <Link
-          href="/mobile-specific-link"
-          className={styles.lineLink}
-          onClick={() => handleMainLinkClick()}
-        >
-          MOBILE LINK
-        </Link>
-      )}
-    </>
-  )}
+       <div className={`nav ${isMenuExpanded ? "expanded" : ""}`}>
+  {isMenuExpanded && window.innerWidth <= 768 && (
 
+<div className="lg:flex lg:items-start lg:gap-8"style={{ maxHeight: '400px', overflowY: 'scroll',  }}>
+  <div className="flex">
+    <div className="pr-20 pl-10 py-10">
+      <div className="menu-container" >
+    <Link
+      href="/about-us"
+      class="font-bold text-2xl dark:text-black"
+      className={styles.lineLink}
+      onClick={handleMenuClick}
+    >
+      About us
+    </Link>
+
+    <ul className=" text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+      <li>
+        <Link
+          href="/about-us"
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+         <CaretRightOutlined />  About us
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/process"
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> Process
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/technologies"
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+           <CaretRightOutlined />Technologies
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/our-works"
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> Our Works
+        </Link>
+      </li>
+    </ul>
+
+    <Link
+      href="/services"
+      class="font-bold text-2xl dark:text-black"
+      className={styles.lineLink}
+      onClick={handleMenuClick}
+    >
+      Services
+    </Link>
+
+    <ul className="  text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+      <li>
+        <Link
+          href="/services/it-consulting/"
+          
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+         <CaretRightOutlined />  IT consulting
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/services/custom-software-development/"
+        
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+         <CaretRightOutlined />  Custom software development
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/services/managed-it-services/"
+          
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> Managed IT services
+        </Link>
+      </li>
+    </ul>
+
+    <Link
+      href="/products"
+      class="font-bold text-2xl dark:text-black"
+      className={styles.lineLink}
+      onClick={handleMenuClick}
+    >
+      Products
+    </Link>
+
+    <ul className=" text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+      <li>
+        <Link
+          href="/products/jobsoid/"
+         
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+           <CaretRightOutlined />Jobsoid
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/products/ivue-video/"
+          
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> iVue video
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/products/adhoc-reporting-platform/"
+        
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> Rix Adhoc
+        </Link>
+      </li>
+    </ul>
+
+    <Link
+      href="/careers"
+      class="font-bold text-2xl dark:text-black"
+      className={styles.lineLink}
+      onClick={handleMenuClick}
+    >
+      Careers
+    </Link>
+
+    <ul className="  text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+      <li>
+        <Link
+          href="/careers"
+       
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> Work culture
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/careers"
+         
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          <CaretRightOutlined /> Join our team
+        </Link>
+      </li>
+      <li>
+        <Link
+          href="/contact"
+          class="font-bold text-2xl dark:text-black"
+          className={styles.lineLink}
+          onClick={handleMenuClick}
+        >
+          Contact
+        </Link>
+      </li>
+    </ul> 
+    </div>
+  </div>
 </div>
+</div>
+
+    
+  )}
+</div>
+
+
         <nav
           className={`${styles.nav} ${expanded ? styles.expanded : ""}`}
           style={{ overflowY: "hidden" }}
         >
           {isMenuExpanded ? (
-           <div className={styles.outerbar}>
-              <div className="lg:flex lg:items-start lg:gap-8">
+            <div className={styles.outerbar}>
+            <div className="lg:flex lg:items-start lg:gap-8">
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
                     <Link
@@ -232,6 +408,7 @@ const Sidebar = () => {
                         </Link>
                       </li>
                     </ul>
+                   
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
@@ -277,6 +454,38 @@ const Sidebar = () => {
                         </Link>
                       </li>
                     </ul>
+                    <Link
+                      href="/careers"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}
+                    >
+                      Careers
+                    </Link>
+
+                    <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                      <li>
+                        <Link
+                          href="/careers"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
+                        >
+                          Work culture
+                        </Link>
+                      </li>
+
+                      <li>
+                        <Link
+                          href="/careers"
+                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}
+                        >
+                          Join our team
+                        </Link>
+                      </li>
+                    </ul>
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
@@ -316,8 +525,11 @@ const Sidebar = () => {
                 </div>
               </div>
             </div>
+
+            
           ) : (
             <>
+              {/* Rest of your navigation items */}
               <Link
                 href="/about-us"
                 className={styles.lineLink}
@@ -327,6 +539,8 @@ const Sidebar = () => {
               </Link>
 
               {showAboutList && openMenu === "about" && (
+             
+              
                 <ul className={styles.subMenu}>
                   <li>
                     <Link href="/about-us" className={styles.subLink}>
@@ -349,8 +563,11 @@ const Sidebar = () => {
                     </Link>
                   </li>
                 </ul>
+           
+                
               )}
 
+              {/* Add other main menu items and sub-menus here */}
               <Link
                 href="/services"
                 className={styles.lineLink}
@@ -360,7 +577,7 @@ const Sidebar = () => {
               </Link>
               {showAboutList && openMenu === "services" && (
                 <ul className={styles.subMenu}>
-                  <li>
+                 <li>
                     <Link
                       href="/services/it-consulting/"
                       className={styles.subLink}
@@ -395,7 +612,7 @@ const Sidebar = () => {
               </Link>
               {showAboutList && openMenu === "products" && (
                 <ul className={styles.subMenu}>
-                  <li>
+                 <li>
                     <Link href="/products/jobsoid/" className={styles.subLink}>
                       <CaretRightOutlined /> Jobsoid
                     </Link>
@@ -427,7 +644,7 @@ const Sidebar = () => {
               </Link>
               {showAboutList && openMenu === "careers" && (
                 <ul className={styles.subMenu}>
-                  <li>
+                <li>
                     <Link href="/careers" className={styles.subLink}>
                       <CaretRightOutlined /> Work culture
                     </Link>
@@ -481,4 +698,5 @@ const Sidebar = () => {
     </div>
   );
 };
+
 export default Sidebar;
