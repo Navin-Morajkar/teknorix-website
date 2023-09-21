@@ -10,6 +10,7 @@ import {
   CaretRightOutlined,
 } from "@ant-design/icons";
 import Link from "next/link";
+import { useSidebar } from "../SidebarContext";
 
 const Sidebar = () => {
   const [expanded, setExpanded] = useState(false);
@@ -19,13 +20,13 @@ const Sidebar = () => {
   const [isMenuExpanded, setIsMenuExpanded] = useState(false); // State for the menu expansion
   const [openMenu, setOpenMenu] = useState(null); // Track the open main menu
   const [showAboutList, setShowAboutList] = useState(false);
+  const { sidebarContent, setSidebarContent } = useSidebar();
 
   const handleMenuClick = () => {
     setIsMenuExpanded(!isMenuExpanded);
-    setNavbarBackground(!navbarBackground); 
+    setNavbarBackground(!navbarBackground);
     // setIsHeightExpanded(!isHeightExpanded); // Toggle height expansion
   };
-
 
   const handleMainLinkClick = (menu) => {
     if (window.scrollY > window.innerHeight / 2) {
@@ -82,15 +83,13 @@ const Sidebar = () => {
     <div
       className={`${styles.sidebar} ${expanded ? styles.expanded : ""} ${
         scrolling ? styles.scrolling : ""
-      } ${isMenuExpanded ? styles.menuExpanded : ""}`}
-    >
+      } ${isMenuExpanded ? styles.menuExpanded : ""}`}>
       <div
         style={{
           backgroundColor: navbarBackground,
           height: "100%",
           boxShadow: "-5px 0 10px rgba(255, 0, 0, 0.1)",
-        }}
-      >
+        }}>
         <div className={styles.header}>
           <Link href="/">
             <Image
@@ -102,8 +101,7 @@ const Sidebar = () => {
           </Link>
           <div
             className="inline-block cursor-pointer text-gray-600 ml-3"
-            onClick={() => setIsMenuExpanded(!isMenuExpanded)}
-          >
+            onClick={() => setIsMenuExpanded(!isMenuExpanded)}>
             <MenuOutlined
               onClick={() => {
                 if (isMenuExpanded) {
@@ -116,211 +114,184 @@ const Sidebar = () => {
             />
           </div>{" "}
         </div>
-       <div className={`nav ${isMenuExpanded ? "expanded" : ""}`}>
-  {isMenuExpanded && window.innerWidth <= 768 && (
+        <div className={`nav ${isMenuExpanded ? "expanded" : ""}`}>
+          {isMenuExpanded && window.innerWidth <= 768 && (
+            <div
+              className="lg:flex lg:items-start lg:gap-8"
+              style={{ maxHeight: "400px", overflowY: "scroll" }}>
+              <div className="flex">
+                <div className="pr-20 pl-10 py-10">
+                  <div className="menu-container">
+                    <Link
+                      href="/about-us"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}>
+                      About us
+                    </Link>
 
-<div className="lg:flex lg:items-start lg:gap-8"style={{ maxHeight: '400px', overflowY: 'scroll',  }}>
-  <div className="flex">
-    <div className="pr-20 pl-10 py-10">
-      <div className="menu-container" >
-    <Link
-      href="/about-us"
-      class="font-bold text-2xl dark:text-black"
-      className={styles.lineLink}
-      onClick={handleMenuClick}
-    >
-      About us
-    </Link>
+                    <ul className=" text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                      <li>
+                        <Link
+                          href="/about-us"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> About us
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/process"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Process
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/technologies"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined />
+                          Technologies
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/our-works"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Our Works
+                        </Link>
+                      </li>
+                    </ul>
 
-    <ul className=" text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-      <li>
-        <Link
-          href="/about-us"
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-         <CaretRightOutlined />  About us
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/process"
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> Process
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/technologies"
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-           <CaretRightOutlined />Technologies
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/our-works"
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> Our Works
-        </Link>
-      </li>
-    </ul>
+                    <Link
+                      href="/services"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}>
+                      Services
+                    </Link>
 
-    <Link
-      href="/services"
-      class="font-bold text-2xl dark:text-black"
-      className={styles.lineLink}
-      onClick={handleMenuClick}
-    >
-      Services
-    </Link>
+                    <ul className="  text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                      <li>
+                        <Link
+                          href="/services/it-consulting/"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> IT consulting
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/services/custom-software-development/"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Custom software development
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/services/managed-it-services/"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Managed IT services
+                        </Link>
+                      </li>
+                    </ul>
 
-    <ul className="  text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-      <li>
-        <Link
-          href="/services/it-consulting/"
-          
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-         <CaretRightOutlined />  IT consulting
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/services/custom-software-development/"
-        
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-         <CaretRightOutlined />  Custom software development
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/services/managed-it-services/"
-          
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> Managed IT services
-        </Link>
-      </li>
-    </ul>
+                    <Link
+                      href="/products"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}>
+                      Products
+                    </Link>
 
-    <Link
-      href="/products"
-      class="font-bold text-2xl dark:text-black"
-      className={styles.lineLink}
-      onClick={handleMenuClick}
-    >
-      Products
-    </Link>
+                    <ul className=" text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                      <li>
+                        <Link
+                          href="/products/jobsoid/"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined />
+                          Jobsoid
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/products/ivue-video/"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> iVue video
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/products/adhoc-reporting-platform/"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Rix Adhoc
+                        </Link>
+                      </li>
+                    </ul>
 
-    <ul className=" text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-      <li>
-        <Link
-          href="/products/jobsoid/"
-         
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-           <CaretRightOutlined />Jobsoid
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/products/ivue-video/"
-          
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> iVue video
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/products/adhoc-reporting-platform/"
-        
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> Rix Adhoc
-        </Link>
-      </li>
-    </ul>
+                    <Link
+                      href="/careers"
+                      class="font-bold text-2xl dark:text-black"
+                      className={styles.lineLink}
+                      onClick={handleMenuClick}>
+                      Careers
+                    </Link>
 
-    <Link
-      href="/careers"
-      class="font-bold text-2xl dark:text-black"
-      className={styles.lineLink}
-      onClick={handleMenuClick}
-    >
-      Careers
-    </Link>
-
-    <ul className="  text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-      <li>
-        <Link
-          href="/careers"
-       
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> Work culture
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/careers"
-         
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          <CaretRightOutlined /> Join our team
-        </Link>
-      </li>
-      <li>
-        <Link
-          href="/contact"
-          class="font-bold text-2xl dark:text-black"
-          className={styles.lineLink}
-          onClick={handleMenuClick}
-        >
-          Contact
-        </Link>
-      </li>
-    </ul> 
-    </div>
-  </div>
-</div>
-</div>
-
-    
-  )}
-</div>
-
+                    <ul className="  text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
+                      <li>
+                        <Link
+                          href="/careers"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Work culture
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/careers"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          <CaretRightOutlined /> Join our team
+                        </Link>
+                      </li>
+                      <li>
+                        <Link
+                          href="/contact"
+                          class="font-bold text-2xl dark:text-black"
+                          className={styles.lineLink}
+                          onClick={handleMenuClick}>
+                          Contact
+                        </Link>
+                      </li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+          )}
+        </div>
 
         <nav
           className={`${styles.nav} ${expanded ? styles.expanded : ""}`}
-          style={{ overflowY: "hidden" }}
-        >
+          style={{ overflowY: "hidden" }}>
           {isMenuExpanded ? (
             <div className={styles.outerbar}>
-            <div className="lg:flex lg:items-start lg:gap-8">
+              <div className="lg:flex lg:items-start lg:gap-8">
                 <div className="flex space-x-2">
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
                     <Link
                       href="/about-us"
                       class="font-bold text-2xl dark:text-black"
                       className={styles.lineLink}
-                      onClick={handleMenuClick}
-                    >
+                      onClick={handleMenuClick}>
                       About us
                     </Link>
 
@@ -329,8 +300,7 @@ const Sidebar = () => {
                         <Link
                           href="/about-us"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           About us{" "}
                         </Link>
                       </li>
@@ -338,8 +308,7 @@ const Sidebar = () => {
                         <Link
                           href="/process"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Process
                         </Link>
                       </li>
@@ -347,8 +316,7 @@ const Sidebar = () => {
                         <Link
                           href="/technologies"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Technologies
                         </Link>
                       </li>
@@ -356,8 +324,7 @@ const Sidebar = () => {
                         <Link
                           href="/our-works"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Our Works
                         </Link>
                       </li>
@@ -369,8 +336,7 @@ const Sidebar = () => {
                       href="/services"
                       class="font-bold text-2xl dark:text-black"
                       className={styles.lineLink}
-                      onClick={handleMenuClick}
-                    >
+                      onClick={handleMenuClick}>
                       Services
                     </Link>
 
@@ -380,8 +346,7 @@ const Sidebar = () => {
                           href="/services/it-consulting/"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           IT consulting
                         </Link>
                       </li>
@@ -391,8 +356,7 @@ const Sidebar = () => {
                           href="/services/custom-software-development/"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Custom software development
                         </Link>
                       </li>
@@ -402,13 +366,11 @@ const Sidebar = () => {
                           href="/services/managed-it-services/"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Managed IT services
                         </Link>
                       </li>
                     </ul>
-                   
                   </div>
 
                   <div class=" hover:bg-yellow-400 pr-20 pl-10 py-10">
@@ -416,8 +378,7 @@ const Sidebar = () => {
                       href="/products"
                       class="font-bold text-2xl dark:text-black"
                       className={styles.lineLink}
-                      onClick={handleMenuClick}
-                    >
+                      onClick={handleMenuClick}>
                       Products
                     </Link>
 
@@ -427,8 +388,7 @@ const Sidebar = () => {
                           href="/products/jobsoid/"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Jobsoid
                         </Link>
                       </li>
@@ -438,8 +398,7 @@ const Sidebar = () => {
                           href="/products/ivue-video/"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           iVue video
                         </Link>
                       </li>
@@ -448,41 +407,8 @@ const Sidebar = () => {
                           href="/products/adhoc-reporting-platform/"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Rix Adhoc
-                        </Link>
-                      </li>
-                    </ul>
-                    <Link
-                      href="/careers"
-                      class="font-bold text-2xl dark:text-black"
-                      className={styles.lineLink}
-                      onClick={handleMenuClick}
-                    >
-                      Careers
-                    </Link>
-
-                    <ul class="mt-3 space-y-1 text-sm text-gray-700 transition hover:opacity-75 dark:text-gray-200">
-                      <li>
-                        <Link
-                          href="/careers"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                          className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
-                          Work culture
-                        </Link>
-                      </li>
-
-                      <li>
-                        <Link
-                          href="/careers"
-                          class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
-                          className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
-                          Join our team
                         </Link>
                       </li>
                     </ul>
@@ -493,8 +419,7 @@ const Sidebar = () => {
                       href="/careers"
                       class="font-bold text-2xl dark:text-black"
                       className={styles.lineLink}
-                      onClick={handleMenuClick}
-                    >
+                      onClick={handleMenuClick}>
                       Careers
                     </Link>
 
@@ -504,8 +429,7 @@ const Sidebar = () => {
                           href="/careers"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Work culture
                         </Link>
                       </li>
@@ -515,8 +439,7 @@ const Sidebar = () => {
                           href="/careers"
                           class="text-gray-700 transition hover:opacity-75 dark:text-gray-200"
                           className={styles.lineLink}
-                          onClick={handleMenuClick}
-                        >
+                          onClick={handleMenuClick}>
                           Join our team
                         </Link>
                       </li>
@@ -525,22 +448,17 @@ const Sidebar = () => {
                 </div>
               </div>
             </div>
-
-            
           ) : (
             <>
               {/* Rest of your navigation items */}
               <Link
                 href="/about-us"
                 className={styles.lineLink}
-                onClick={() => handleMainLinkClick("about")}
-              >
+                onClick={() => handleMainLinkClick("about")}>
                 ABOUT US
               </Link>
 
               {showAboutList && openMenu === "about" && (
-             
-              
                 <ul className={styles.subMenu}>
                   <li>
                     <Link href="/about-us" className={styles.subLink}>
@@ -563,41 +481,35 @@ const Sidebar = () => {
                     </Link>
                   </li>
                 </ul>
-           
-                
               )}
 
               {/* Add other main menu items and sub-menus here */}
               <Link
                 href="/services"
                 className={styles.lineLink}
-                onClick={() => handleMainLinkClick("services")}
-              >
+                onClick={() => handleMainLinkClick("services")}>
                 SERVICES
               </Link>
               {showAboutList && openMenu === "services" && (
                 <ul className={styles.subMenu}>
-                 <li>
+                  <li>
                     <Link
                       href="/services/it-consulting/"
-                      className={styles.subLink}
-                    >
+                      className={styles.subLink}>
                       <CaretRightOutlined /> IT consulting
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/services/custom-software-development/"
-                      className={styles.subLink}
-                    >
+                      className={styles.subLink}>
                       <CaretRightOutlined /> Custom software development
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/services/managed-it-services/"
-                      className={styles.subLink}
-                    >
+                      className={styles.subLink}>
                       <CaretRightOutlined /> Managed IT services
                     </Link>
                   </li>
@@ -606,13 +518,12 @@ const Sidebar = () => {
               <Link
                 href="/products"
                 className={styles.lineLink}
-                onClick={() => handleMainLinkClick("products")}
-              >
+                onClick={() => handleMainLinkClick("products")}>
                 PRODUCTS
               </Link>
               {showAboutList && openMenu === "products" && (
                 <ul className={styles.subMenu}>
-                 <li>
+                  <li>
                     <Link href="/products/jobsoid/" className={styles.subLink}>
                       <CaretRightOutlined /> Jobsoid
                     </Link>
@@ -620,16 +531,14 @@ const Sidebar = () => {
                   <li>
                     <Link
                       href="/products/ivue-video/"
-                      className={styles.subLink}
-                    >
+                      className={styles.subLink}>
                       <CaretRightOutlined /> iVue video
                     </Link>
                   </li>
                   <li>
                     <Link
                       href="/products/adhoc-reporting-platform/"
-                      className={styles.subLink}
-                    >
+                      className={styles.subLink}>
                       <CaretRightOutlined /> Rix Adhoc
                     </Link>
                   </li>
@@ -638,13 +547,12 @@ const Sidebar = () => {
               <Link
                 href="/careers"
                 className={styles.lineLink}
-                onClick={() => handleMainLinkClick("careers")}
-              >
+                onClick={() => handleMainLinkClick("careers")}>
                 CAREERS
               </Link>
               {showAboutList && openMenu === "careers" && (
                 <ul className={styles.subMenu}>
-                <li>
+                  <li>
                     <Link href="/careers" className={styles.subLink}>
                       <CaretRightOutlined /> Work culture
                     </Link>
@@ -659,35 +567,45 @@ const Sidebar = () => {
               <Link href="/contact" className={styles.lineLink}>
                 CONTACT
               </Link>
-
-              {showAboutHeading && <h1>ABOUT US</h1>}
+              {showAboutHeading && (
+                <>
+                  {/* <h1 className="text-6xl text-zinc-800 tracking-wider mb-6">
+                    About Us
+                  </h1> */}
+                  <h1 className="text-6xl text-zinc-800 tracking-wider mb-6">
+                    {sidebarContent.title}
+                  </h1>
+                  <p className="text-2xl text-zinc-800 mb-6">
+                    {sidebarContent.subtitle}
+                  </p>
+                  <p className="text-xl text-zinc-800">
+                    {sidebarContent.description}
+                  </p>
+                </>
+              )}
               <div className={styles.socialIcons}>
                 <a
                   href="https://www.linkedin.com/company/teknorix/"
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   <LinkedinOutlined className={styles.iconStyle} />
                 </a>
                 <a
                   href="https://www.facebook.com/teknorix"
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   <FacebookFilled className={styles.iconStyle} />
                 </a>
                 <a
                   href="https://twitter.com/teknorix"
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   <TwitterOutlined className={styles.iconStyle} />
                 </a>
                 <a
                   href="https://www.instagram.com/teknorix/"
                   target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   <InstagramFilled className={styles.iconStyle} />
                 </a>
               </div>
