@@ -108,8 +108,8 @@ export default function Home({ headerData, employeeData, advantageData,ourJobsDa
   </div>
 </div>
 
-
-      <QuoteForm />
+{/* 
+      <QuoteForm /> */}
     
       <WantToLearnMore />
     </div>
