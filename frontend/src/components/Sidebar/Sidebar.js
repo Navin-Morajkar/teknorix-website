@@ -659,8 +659,16 @@ const Sidebar = () => {
               <Link href="/contact" className={styles.lineLink}>
                 CONTACT
               </Link>
-
-              {showAboutHeading && <h1>ABOUT US</h1>}
+              {showAboutHeading && (
+  <> 
+  <h1 className="text-6xl text-zinc-800 tracking-wider mb-6">About Us</h1>
+    {/* <p className="text-2xl text-zinc-800 mb-6">{sidebarContent.subtitle}</p>
+    <p className="text-xl text-zinc-800">{sidebarContent.description}</p> */}
+    {/* <h1 className="text-6xl text-zinc-800 tracking-wider mb-6">{sidebarContent.title}</h1>
+    <p className="text-2xl text-zinc-800 mb-6">{sidebarContent.subtitle}</p>
+    <p className="text-xl text-zinc-800">{sidebarContent.description}</p> */}
+  </>
+)}
               <div className={styles.socialIcons}>
                 <a
                   href="https://www.linkedin.com/company/teknorix/"
