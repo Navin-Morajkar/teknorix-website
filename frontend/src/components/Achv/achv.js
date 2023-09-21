@@ -64,7 +64,7 @@ const Achv = ({ data }) => {
   return (
     <div className="w-full sm:w-1/2 lg:w-1/4" ref={countRef}>
       {data ? (
-        <div className="bg-white p-7 rounded-lg ">
+        <div className="bg-white p-7 rounded-lg flex flex-col items-center text-center">
           {AImage && (
             <Image
               src={host + AImage.attributes.url}
@@ -73,15 +73,13 @@ const Achv = ({ data }) => {
               height={100}
             />
           )}
-        
-            <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">
-              {title}
-            </h1>
-            <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">
-              {count}+
-            </h1>
-          </div>
-       
+          <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl mt-4">
+            {count}+
+          </h1>
+          <h1 className="font-bold text-lg sm:text-xl md:text-2xl lg:text-3xl">
+            {title}
+          </h1>
+        </div>
       ) : (
         <></>
       )}
