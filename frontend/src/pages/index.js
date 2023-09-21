@@ -3,7 +3,7 @@ import Header from "@/components/Header/Header";
 import { useState, useEffect } from "react";
 import Styles from "../components/SixCards/SixCards.module.css";
 import { Button } from "antd";
-import Achievement from "@/components/Achievement/achievement";
+import Achv from "@/components/Achv/achv";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
@@ -60,11 +60,12 @@ export default function Home({
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
-  const filterAchievementByType = (data, type) => {
-    return data.filter((item) => item.attributes.Type === type);
+  const filterAchievementByType = (data, page) => {
+    return data.filter((item) => item.attributes.Page === page);
   };
 
-  const filteredWeb = filterAchievementByType(achievementData, "MainPage");
+
+  const achivementDisplay= filterAchievementByType(achievementData, "HomePage");
 
   // console.log(sidebarData[0].attributes.title);
   // console.log(typeof(sidebarData));
@@ -72,12 +73,12 @@ export default function Home({
   //Navin's code
   const { sidebarContent, setSidebarContent } = useSidebar();
 
-  // // Update the Sidebar content when you navigate to this page
+  // Update the Sidebar content when you navigate to this page
   // useEffect(() => {
   //   setSidebarContent({
-  //     title: sidebarData.attributes.title,
-  //     subtitle: sidebarData.attributes.subtitle,
-  //     description: sidebarData.attributes.description,
+  //     title: sidebarData[0].attributes.title,
+  //     subtitle: sidebarData[0].attributes.subtitle,
+  //     description: sidebarData[0].attributes.description,
   //   });
   // }, []);
 
@@ -88,6 +89,7 @@ export default function Home({
     <div className="bg-gray-100">
       <div className="bg-yellow-300"> 
       <Header   data={getDataBySortOrder(headerData, 0)} />
+      
 
       <div className={Styles.parent}>
         <Container data={getDataBySortOrder(qualityData, 1)} />
@@ -123,8 +125,14 @@ export default function Home({
         <Container data={getDataBySortOrder(expertiseData, 2)} />
         <Container data={getDataBySortOrder(expertiseData, 3)} />
       </div>
+      <div className="text-center mt-4">
+      <div className="flex flex-wrap flex-row">
+        {achivementDisplay.map((achievement) => (
+          <Achv key={achievement.id} data={achievement} />
+        ))}
+      </div></div>
 
-      <Achievement />
+      {/* <Achievement /> */}
       <Header data={getDataBySortOrder(headerData, 1)} />
 
       <div className="container mx-auto">
