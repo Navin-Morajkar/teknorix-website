@@ -190,11 +190,13 @@ width: 100%;
     width: 100%;
     height: auto;
     flex-direction: column;
+    
   }
 
   .expanded {
     width: 100%;
     height: 100%;
+    overflow: scroll;
   }
 
   .nav {
@@ -230,7 +232,12 @@ width: 100%;
   text-align:right;
   } */  
   /* Add this to your CSS */
-
+  .menu-container {
+    max-height: 400px; /* Adjust the max height as needed */
+    overflow-y: auto; /* Enable vertical scrolling when content overflows vertically */
+    float: right; /* Move scrollbar to the right */
+    /* Add any additional styles you need for your menu container */
+  }
 .socialIcons {
   display: flex;
   gap: 10px; /* Increased gap for more spacing between icons */
