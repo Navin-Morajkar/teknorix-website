@@ -8,7 +8,8 @@ import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Container from "@/components/Container/Container";
 import CaterTo from "@/components/CaterTo/CaterTo";
 import WantToLearnMore from "@/components/WantToLearnMoreForm/WantToLearnMoreForm";
-
+import { useEffect } from "react";
+import { useSidebar } from "@/components/SidebarContext";
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=UIUXPage"
@@ -19,18 +20,22 @@ export async function getServerSideProps() {
   );
   const serviceVectorResponse = await fetch(
     "http://13.233.214.226:1337/api/service-page-vectors?populate=*"
+  ); 
+  const sidebarDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/sidebar-contents?filters[page][$eq]=UIUXPage"
   );
 
   const headerData = await headerResponse.json();
 
   const serviceAdvantageData = await serviceAdvantageResponse.json();
   const serviceVectorData = await serviceVectorResponse.json();
-
+  const sidebarData = await sidebarDataResponse.json();
   return {
     props: {
       headerData: headerData.data,
       serviceAdvantageData: serviceAdvantageData.data,
-      serviceVectorData: serviceVectorData.data,
+      serviceVectorData: serviceVectorData.data, 
+      sidebarData: sidebarData.data,
     },
   };
 }
@@ -39,6 +44,7 @@ export default function Home({
   headerData,
   serviceAdvantageData,
   serviceVectorData,
+  sidebarData
 }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
@@ -61,7 +67,16 @@ export default function Home({
     serviceVectorData,
     "DesignTechnology"
   );
+  const { setSidebarContent } = useSidebar();
 
+  //Update the Sidebar content when you navigate to this page
+  useEffect(() => {
+    setSidebarContent({
+      title: sidebarData[0].attributes.title,
+      subtitle: sidebarData[0].attributes.subtitle,
+      description: sidebarData[0].attributes.description,
+    });
+  }, []);
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
