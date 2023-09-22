@@ -1,4 +1,4 @@
-/*form*/
+
 .formStyle {
 
     background-color: #ffc801;
@@ -23,8 +23,7 @@
     align-items: center;
     color: white;
   }
-  
+/*   
   .formStyle Input {
-    padding: 10px 28px;
-  } 
-  
+    padding:10 px;
+  } */
