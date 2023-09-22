@@ -7,7 +7,8 @@ import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Container from "@/components/Container/Container";
 import { useEffect } from "react";
 import { useSidebar } from "@/components/SidebarContext";
-
+import { useEffect } from "react";
+import { useSidebar } from "@/components/SidebarContext";
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=ITConsultingPage"
