@@ -4,7 +4,8 @@ import Styles from "@/components/SixCards/SixCards.module.css";
 import QuoteForm from "@/components/QuoteForm/QuoteForm";
 import Container from "@/components/Container/Container";
 import CaterTo from "@/components/CaterTo/CaterTo";
-
+import { useEffect } from "react";
+import { useSidebar } from "@/components/SidebarContext";
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=SupportHelpdesk "
@@ -21,11 +22,13 @@ export async function getServerSideProps() {
   const sectionHeaderResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=CloudInfrastructureManagementPage"
   );
-
+  const sidebarDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/sidebar-contents?filters[page][$eq]=SupportHelpdeskPage"
+  );
   const sectionHeaderData = await sectionHeaderResponse.json();
   const headerData = await headerResponse.json();
   const serviceVectorData = await serviceVectorResponse.json();
-
+  const sidebarData = await sidebarDataResponse.json();
   const serviceAdvantageData = await serviceAdvantageResponse.json();
   return {
     props: {
@@ -33,6 +36,7 @@ export async function getServerSideProps() {
       serviceAdvantageData: serviceAdvantageData.data,
       serviceVectorData: serviceVectorData.data,
       sectionHeaderData: sectionHeaderData.data,
+      sidebarData: sidebarData.data,
     },
   };
 }
@@ -42,6 +46,7 @@ export default function Home({
   serviceAdvantageData,
   serviceVectorData,
   sectionHeaderData,
+  sidebarData
 }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
@@ -61,7 +66,16 @@ export default function Home({
   const filteredSvg = filterImageByType(serviceVectorData, "CaterTo");
 
   const filteredTechnology = filterImageByType(serviceVectorData, "OurProcess");
+  const { setSidebarContent } = useSidebar();
 
+  //Update the Sidebar content when you navigate to this page
+  useEffect(() => {
+    setSidebarContent({
+      title: sidebarData[0].attributes.title,
+      subtitle: sidebarData[0].attributes.subtitle,
+      description: sidebarData[0].attributes.description,
+    });
+  }, []);
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
