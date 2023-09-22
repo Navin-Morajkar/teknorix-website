@@ -76,7 +76,29 @@ const TestimonialsCarousel = () => {
     const isSmallScreen = window.innerWidth < 768; // Adjust the breakpoint as needed
 
     if (!isSmallScreen) {
-      // Your code that depends on window.innerWidth can go here
+      const PaginationDots = ({ testimonials, currentIdx, onDotClick }) => {
+        const numTestimonials = testimonials.length;
+        const dotsToShow = [];
+      
+        for (let i = currentIdx; i < currentIdx + 1; i++) {
+          dotsToShow.push(i % numTestimonials);
+        }
+      
+        return (
+          <div className="flex w-24 h-24">
+            {dotsToShow.map((idx) => (
+              <img
+                key={idx}
+                src={testimonials[idx].photo}
+                alt={testimonials[idx].name}
+                width={100}
+                className="rounded-full m-1.5 border-2 border-blue-600 cursor-pointer"
+                onClick={() => onDotClick(idx)}
+              />
+            ))}
+          </div>
+        );
+      };
     }
   }, []); // Empty dependency array means this effect runs once after the initial render
 
@@ -89,7 +111,7 @@ const TestimonialsCarousel = () => {
         <RightCircleFilled
           onClick={handleNext}
           className="w-12 h-12 cursor-pointer mt-2"
-          style={{ fontSize: '5rem', color: '#ffc801', marginRight: '2rem' }}
+          style={{ fontSize: '5rem', color: '#ffc801', marginRight: '4rem' }}
         />
       </div>
     </div>
