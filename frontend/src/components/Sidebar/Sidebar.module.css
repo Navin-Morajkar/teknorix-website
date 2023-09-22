@@ -238,14 +238,14 @@ width: 100%;
     float: right; /* Move scrollbar to the right */
     /* Add any additional styles you need for your menu container */
   }
-.socialIcons {
-  display: flex;
-  gap: 10px; /* Increased gap for more spacing between icons */
-  position: fixed;
-  bottom: 5px;
-  left: 40px;
- 
-}
+  .socialIcons {
+    display: flex;
+    gap: 0.2rem; /* Increased gap for more spacing between icons */
+    position: fixed;
+    bottom: 5px; /* Adjust the distance from the bottom edge of the viewport */
+    left: 1px; /* Adjust the distance from the left edge of the viewport */
+  }
+  
 
 .socialIcons a {
   color: #333; /* Icon color */

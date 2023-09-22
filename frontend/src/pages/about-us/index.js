@@ -1,7 +1,6 @@
 import Header from "@/components/Header/Header";
 import ProfileImage from "@/components/ProfileImage/ProfileImage";
 import EmployeeImage from "@/components/EmployeeImage/EmployeeImage";
-import Style from "@/components/SixCards/SixCards.module.css";
 import OurWork from "@/components/OurWork/OurWork";
 import OurJobs from "@/components/OurJobs/OurJobs";
 import SixCards from "@/components/SixCards/SixCards";
@@ -130,10 +129,6 @@ export default function Home({
           </div>
         </div>
       </div>
-
-      {/* 
-      <QuoteForm /> */}
-
       <WantToLearnMore />
     </div>
   );

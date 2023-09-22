@@ -43,7 +43,7 @@ export async function getServerSideProps() {
       expertiseData: expertiseData.data,
       achievementData: achievementData.data,
       ourJobsData: ourJobsData.data,
-      sidebarData: sidebarData.data,
+      sidebarData: sidebarData.data
     },
   };
 }

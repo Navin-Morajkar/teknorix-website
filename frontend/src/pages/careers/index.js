@@ -1,31 +1,49 @@
 import Collage from "@/components/Collage/Collage";
 import Header from "@/components/Header/Header";
-import Style from "@/components/SixCards/SixCards.module.css";
 import SixCards from "@/components/SixCards/SixCards";
 import TestimonialsCarousel from "@/components/TestimonialsCarousel/TestimonialsCarousel";
+import { useEffect } from "react";
+import { useSidebar } from "@/components/SidebarContext";
 
 export async function getServerSideProps() {
   const headerResponse = await fetch(
     "http://13.233.214.226:1337/api/headers?populate=*&filters[page][$eq]=CareersPage"
   );
   const headerData = await headerResponse.json();
+
   const advantageResponse = await fetch(
     "http://13.233.214.226:1337/api/advantages?populate=*&filters[Page][$eq]=CareerPage"
   );
   const advantageData = await advantageResponse.json();
 
+  const sidebarDataResponse = await fetch(
+    "http://13.233.214.226:1337/api/sidebar-contents?filters[page][$eq]=CareersPage"
+  );
+  const sidebarData = await sidebarDataResponse.json();
+
   return {
     props: {
       headerData: headerData.data,
       advantageData: advantageData.data,
+      sidebarData: sidebarData.data,
     },
   };
 }
 
-export default function Home({ headerData, advantageData }) {
+export default function Home({ headerData, advantageData, sidebarData }) {
   const getDataBySortOrder = (data, sortOrder) => {
     return data.find((item) => item.attributes.SortOrder === sortOrder);
   };
+
+  const { setSidebarContent } = useSidebar();
+  //Update the Sidebar content when you navigate to this page
+  useEffect(() => {
+    setSidebarContent({
+      title: sidebarData[0].attributes.title,
+      subtitle: sidebarData[0].attributes.subtitle,
+      description: sidebarData[0].attributes.description,
+    });
+  }, []);
 
   return (
     <div className="bg-gray-100">
