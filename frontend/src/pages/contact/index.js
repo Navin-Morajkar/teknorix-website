@@ -49,9 +49,6 @@ export default function Home({ headerData, textData, sidebarData }) {
   return (
     <div>
       <Header data={getDataBySortOrder(headerData, 0)} />
-
-      {/* <QuoteForm /> */}
-
       
       <div className="text-center mt-4">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2 gap-0 mt-4">
@@ -59,9 +56,7 @@ export default function Home({ headerData, textData, sidebarData }) {
           <ImageCard data={getDataBySortOrder(textData, 2)} />
           <ImageCard data={getDataBySortOrder(textData, 3)} />
           <ImageCard data={getDataBySortOrder(textData, 4)} />
-        </div>
-
-     
+        </div>   
      
       </div>
       <Contact />
